@@ -3,34 +3,53 @@ package com.uca.proyectofinalcapas.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.uca.proyectofinalcapas.domain.AlergiaxEmpleado;
-import com.uca.proyectofinalcapas.domain.Empleado;
-import com.uca.proyectofinalcapas.repository.AlergiaxEmpleadorepository;
-import com.uca.proyectofinalcapas.repository.EmpleadoRepository;
+import com.uca.proyectofinalcapas.domain.Cliente;
+import com.uca.proyectofinalcapas.repository.ClienteRepository;
 
 
 
 
 @Controller
-public class AdminController {
+public class ClienteController {
 	
 	@Autowired
-	private EmpleadoRepository  empleadoRepository;
+	private ClienteRepository clienteRepository;
 	
 	
-	@RequestMapping("/crearExp")
-	public String init2(){
-		return "expediente/crearExpediente";
+//	@RequestMapping("/listadoCliente")
+//	public String init2(){
+//		return "expediente/crearExpediente";
+//	}
+	
+	@RequestMapping("/listadoCliente")
+	public ModelAndView listadoCliente(){
+		ModelAndView mav = new ModelAndView();
+		try {
+			
+			List<Cliente> listadoCLientes = clienteRepository.findAllCliente();
+			int totalCliente = clienteRepository.countAllCliente();
+			mav.addObject("colectionResult", listadoCLientes);
+			mav.addObject("total", totalCliente);
+		}catch (Exception e) {
+			mav.addObject("total", 0);
+		}
+		
+		mav.setViewName("cliente/listadoCliente");
+		return mav;
 	}
 	
+//	public ModelAndView(@RequestParam("id_cliente") Integer id_cliente) {
+//	
+//		
+//		
+//	}
 	
+	/*
 	@RequestMapping("/saveEmpleado")
 	public ModelAndView saveEmpleado(@ModelAttribute Empleado empleado){
 		ModelAndView mav = new ModelAndView();
@@ -62,4 +81,6 @@ public class AdminController {
 		mav.setViewName("expediente/editarExpediente");
 		return mav;
 	}
+	*/
+	
 }

@@ -44,11 +44,12 @@ public class Cliente {
 		this.estado = estado;
 	}
 
-	public int getId_liente() {
+
+	public int getId_cliente() {
 		return id_cliente;
 	}
 
-	public void setI_cliente(int id_cliente) {
+	public void setId_cliente(int id_cliente) {
 		this.id_cliente = id_cliente;
 	}
 

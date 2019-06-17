@@ -17,12 +17,13 @@
   <div class="panel-heading">
 <div class="btn-group">
   <button type="button" class="btn btn-primary btn-default dropdown-toggle"
-          data-toggle="dropdown">Modificar<span class="caret"></span>
+          data-toggle="dropdown">Catalogos<span class="caret"></span>
   </button>
  
   <ul class="dropdown-menu" role="menu">
-    <li><a href="${pageContext.request.contextPath}/crearExp">Edicion de Empleado</a></li>
-    <li><a href="${pageContext.request.contextPath}/crearExpMed">Edicion Expediente Medico</a></li>
+    <li><a href="${pageContext.request.contextPath}/listadoCliente">Clientes</a></li>
+    <li><a href="${pageContext.request.contextPath}/crearExpMed">Productos</a></li>
+    <li><a href="${pageContext.request.contextPath}/crearExpMed">Categoria Producto</a></li>
   </ul>
 </div>
 

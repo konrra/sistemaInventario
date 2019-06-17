@@ -20,43 +20,25 @@
 <div class="form-group">
     <label  class="col-lg-2 control-label">Codigo Empleado</label>
     <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="id_empleado"   placeholder="Nombre" />
+      <form:input type="text" class="form-control" path="idEmpleado"   placeholder="Nombre" />
     </div>
   </div>
   <div class="form-group">
     <label  class="col-lg-2 control-label">Nombre</label>
     <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="s_nomempleado"   placeholder="Pedro Jose" />
+      <form:input type="text" class="form-control" path="nombre"   placeholder="Pedro Jose" />
     </div>
   </div>
   <div class="form-group">
     <label  class="col-lg-2 control-label">Apellido</label>
     <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="ap_empleado"   placeholder="Hernandez Martinez" />
+      <form:input type="text" class="form-control" path="apellido"   placeholder="Hernandez Martinez" />
     </div>
   </div>
   <div class="form-group">
     <label  class="col-lg-2 control-label">Numero Contacto</label>
     <div class="col-xs-3">
-      <form:input type="date" class="form-control" path="num_contacto"   placeholder="dd-mm-aaaa" />
-    </div>
-  </div>
-<div class="form-group">
-    <label  class="col-lg-2 control-label">Pais Origen</label>
-    <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="pais_origen"   placeholder="Pais" />
-    </div>
-  </div>
-  <div class="form-group">
-    <label  class="col-lg-2 control-label">Ciudad Origen</label>
-    <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="ciu_origen"   placeholder="Ciudad" />
-    </div>
-  </div>
-    <div class="form-group">
-    <label  class="col-lg-2 control-label">Salario</label>
-    <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="salario"   placeholder="Ciudad" />
+      <form:input type="date" class="form-control" path="numContacto"   placeholder="dd-mm-aaaa" />
     </div>
   </div>
    <div class="form-group">
@@ -68,13 +50,13 @@
   <div class="form-group">
     <label  class="col-lg-2 control-label">Numero telefono celular</label>
     <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="num_tel_cel"   placeholder="61234567" />
+      <form:input type="text" class="form-control" path="numTelCel"   placeholder="61234567" />
     </div>
   </div>
    <div class="form-group">
     <label  class="col-lg-2 control-label">Numero telefono fijo</label>
     <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="num_tel_fijo"   placeholder="21345678" />
+      <form:input type="text" class="form-control" path="numTelFijo"   placeholder="21345678" />
     </div>
   </div>
    <div class="form-group">
@@ -89,18 +71,6 @@
       <form:input type="text" class="form-control" path="dui"   placeholder="1234567-1" />
     </div>
     </div>
-   <div class="form-group">
-    <label  class="col-lg-2 control-label">ISSS</label>
-    <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="num_seguro"   placeholder="ISSS" />
-    </div>
-  </div>
-   <div class="form-group">
-    <label  class="col-lg-2 control-label">AFP</label>
-    <div class="col-xs-3">
-      <form:input type="text" class="form-control" path="afp"   placeholder="AFP" />
-    </div>
-  </div>
    <div class="form-group">
     <label  class="col-lg-2 control-label">Telefono Emergencia</label>
     <div class="col-xs-3">
