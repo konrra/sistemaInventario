@@ -3,9 +3,11 @@ package com.uca.proyectofinalcapas.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.proyectofinalcapas.domain.Cliente;
@@ -43,11 +45,43 @@ public class ClienteController {
 		return mav;
 	}
 	
-//	public ModelAndView(@RequestParam("id_cliente") Integer id_cliente) {
-//	
-//		
-//		
-//	}
+	@RequestMapping("/editarCliente")
+	public ModelAndView editarCliente(@RequestParam("id_cliente") Integer idCliente) {
+	
+		ModelAndView mav = new ModelAndView();
+		
+		try {
+			Cliente cliente = clienteRepository.findById(idCliente);
+			mav.addObject("cliente", cliente);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		mav.setViewName("cliente/editarCliente");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/actualizarCliente")
+	public ModelAndView actCliente(@ModelAttribute Cliente cliente) {
+		ModelAndView mav = new ModelAndView();
+		Cliente result = clienteRepository.save(cliente);
+		if(result != null ) {
+			return listadoCliente();
+		}else {
+			mav.setViewName("cliente/editarCliente");
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping("/crearCliente")
+	public ModelAndView crearCliente() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cliente/crearCliente");
+		return mav;
+	}
 	
 	/*
 	@RequestMapping("/saveEmpleado")

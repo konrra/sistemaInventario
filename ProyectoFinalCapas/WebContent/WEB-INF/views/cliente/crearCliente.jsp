@@ -16,7 +16,7 @@
 <br>
 <br>
 <br>
-<input type="hidden" name="id_cliente" id="id_cliente" value="${cliente.id_cliente}">
+<%-- <input type="hidden" name="id_cliente" id="id_cliente" value="${cliente.id_cliente}"> --%>
 <div class="panel panel-default">
 	  <div class="panel-heading">Edición de información del cliente </div>
 	  <div class="panel-body">
@@ -63,12 +63,11 @@
 		    </div>
 	    </div>
 	    
-	    <div class="form-group">
+	    <div class="form-group" style="display:none;">
 		    <label  class="col-lg-2 control-label">Estado</label>
 		    <div class="col-xs-3">
 		    	<select class="form-control" name="estado"> 
 		    		<option value="A" <c:if test="${cliente.estado =='A' }">selected</c:if>  >Activo</option>
-		    		<option value="I" <c:if test="${cliente.estado =='I' }">selected</c:if>  >Inactivo</option>
 		    		
 		    	</select>
 		    </div>
