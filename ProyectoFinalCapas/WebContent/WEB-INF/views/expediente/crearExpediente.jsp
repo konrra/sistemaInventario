@@ -12,7 +12,7 @@
 <script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <label>Ingrese los datos sugeridos</label>
-<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/saveEmpleado">
+<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/saveEmpleado"   method="post">
 </br>
 <div class="form-group">
     <label  class="col-lg-2 control-label">Codigo Empleado</label>

@@ -22,7 +22,7 @@
  
   <ul class="dropdown-menu" role="menu">
     <li><a href="${pageContext.request.contextPath}/listadoCliente">Clientes</a></li>
-    <li><a href="${pageContext.request.contextPath}/crearExpMed">Productos</a></li>
+    <li><a href="${pageContext.request.contextPath}/listadoProducto">Productos</a></li>
     <li><a href="${pageContext.request.contextPath}/crearExpMed">Categoria Producto</a></li>
   </ul>
 </div>

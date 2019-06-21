@@ -23,12 +23,7 @@ public class ClienteController {
 	private ClienteRepository clienteRepository;
 	
 	
-//	@RequestMapping("/listadoCliente")
-//	public String init2(){
-//		return "expediente/crearExpediente";
-//	}
-	
-	@RequestMapping("/listadoCliente")
+	@RequestMapping(value="/listadoCliente", method= RequestMethod.GET)
 	public ModelAndView listadoCliente(){
 		ModelAndView mav = new ModelAndView();
 		try {
@@ -45,7 +40,7 @@ public class ClienteController {
 		return mav;
 	}
 	
-	@RequestMapping("/editarCliente")
+	@RequestMapping(value="/editarCliente", method=RequestMethod.GET)
 	public ModelAndView editarCliente(@RequestParam("id_cliente") Integer idCliente) {
 	
 		ModelAndView mav = new ModelAndView();
@@ -62,7 +57,7 @@ public class ClienteController {
 		return mav;
 	}
 	
-	@RequestMapping("/actualizarCliente")
+	@RequestMapping(value="/actualizarCliente", method=RequestMethod.GET)
 	public ModelAndView actCliente(@ModelAttribute Cliente cliente) {
 		ModelAndView mav = new ModelAndView();
 		Cliente result = clienteRepository.save(cliente);
@@ -75,7 +70,7 @@ public class ClienteController {
 		return mav;
 	}
 	
-	@RequestMapping("/crearCliente")
+	@RequestMapping(value="/crearCliente", method=RequestMethod.GET)
 	public ModelAndView crearCliente() {
 		
 		ModelAndView mav = new ModelAndView();
@@ -83,38 +78,20 @@ public class ClienteController {
 		return mav;
 	}
 	
-	/*
-	@RequestMapping("/saveEmpleado")
-	public ModelAndView saveEmpleado(@ModelAttribute Empleado empleado){
-		ModelAndView mav = new ModelAndView();
-		Empleado result = empleadoRepository.save(empleado);
-		if(result != null) mav.addObject("resultado", 1);
-		else mav.addObject("resultado", 0);
-		mav.addObject("empleado", result);
-		mav.setViewName("expediente/editarExpediente");
-		return mav;
+	@RequestMapping(value="/eliminarCliente", method=RequestMethod.GET)
+	public ModelAndView eliminarCliente(@RequestParam("id_cliente") Integer id_cliente) {
+		
+		try {
+			Cliente cliente = clienteRepository.findById(id_cliente);
+			cliente.setEstado("I");
+			clienteRepository.save(cliente);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return listadoCliente();
+		
 	}
-	
-	@RequestMapping("/listadoEmp")
-	public ModelAndView listadoEmp(){
-		ModelAndView mav = new ModelAndView();
-		List<Empleado> empleado = empleadoRepository.findAllEmp();
-//		Integer total = empleadoRepository.countBySapellidoStartingWith(criteria);
-		mav.addObject("empleado", empleado);
-//		mav.addObject("total", total);
-		mav.setViewName("expediente/viewEmpleado");
-		return mav;
-	}
-	
-	@RequestMapping("/editarExp")
-//	requestParam trae el valor del parametro de la vista 
-	public ModelAndView indexEditar(@RequestParam("id_empleado") Integer id_empleado){
-		ModelAndView mav = new ModelAndView();
-		Empleado findOne = empleadoRepository.findOne(id_empleado);
-		mav.addObject("empleado", empleadoRepository.findOne(id_empleado));
-		mav.setViewName("expediente/editarExpediente");
-		return mav;
-	}
-	*/
 	
 }

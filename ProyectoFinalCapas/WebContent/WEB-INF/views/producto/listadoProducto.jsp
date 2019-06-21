@@ -17,21 +17,21 @@
 <br>
 <br>
 <div class="panel panel-default">
-	  <div class="panel-heading">Edición de información del cliente </div>
+	  <div class="panel-heading">Edición de información del producto </div>
 	  <div class="panel-body">
 	  
 	  <br>
-	  <button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath}/crearCliente'" >Agregar</button>
+	  <button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath}/crearProducto'" >Agregar</button>
 	  <br>
   <table class="table table-condensed">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Tipo </th>
-        <th>Nit</th>
-        <th>N&uacute;mero cel.</th>
-        <th>N&uacute;mero fijo</th>
-        <th>Dui</th>
+        <th>Descripci&oacute;n</th>
+        <th>Costo </th>
+        <th>Precio P&uacute;blico</th>
+        <th>Precio Tienda</th>
+        <th>Precio Evento</th>
+        <th>Categor&iacute;a</th>
         <th>Estado</th>
       </tr>
     </thead>
@@ -40,23 +40,23 @@
     <c:forEach items="${colectionResult}" var="dto">
 	      <tr>
 	        <td> <c:out value="${dto.nombre}"/> </td>
-	        <td><c:out value="${dto.tipo}"/></td>
-	        <td><c:out value="${dto.nit}"/></td>
-	        <td><c:out value="${dto.num_tel_cel}"/></td>
-	        <td><c:out value="${dto.num_tel_fijo}"/></td>
-	        <td><c:out value="${dto.dui}"/></td>
+	        <td><c:out value="${dto.costo}"/></td>
+	        <td><c:out value="${dto.precio_publico}"/></td>
+	        <td><c:out value="${dto.precio_tienda}"/></td>
+	        <td><c:out value="${dto.precio_evento}"/></td>
+	        <td><c:out value="${dto.categoriaxproducto.descripcion}"/></td>
 	        <td>
 	        	<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if>
 	        	<c:if test="${dto.estado == 'I'}"><c:out value="Inactivo"></c:out> </c:if>
 	        </td>
-	        <td><input type="button" class="myButton" onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'" value="Editar" />
-	        <td><input type="button" class="btnEliminar" onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'" value="Inactivar" /></td>
+	        <td><input type="button" class="myButton" onclick="location.href='${pageContext.request.contextPath}/editarProducto?id_producto=${dto.id_producto}'" value="Editar" />
+	        <td><input type="button" class="btnEliminar" onclick="location.href='${pageContext.request.contextPath}/eliminarProducto?id_producto=${dto.id_producto}'" value="Inactivar" /></td>
 	      </tr>
       </c:forEach>
       </c:if>
       <c:if test="${total == 0 }">
       <tr>
-      	<td align="center" style="font-style: italic; " colspan="7">No hay registros que mostrar aqui</td>
+      	<td align="center" style="font-style: italic; " colspan="7">No hay registros que mostrar </td>
       </tr>
       </c:if>
     </tbody>
