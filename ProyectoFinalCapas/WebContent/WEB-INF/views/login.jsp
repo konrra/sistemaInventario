@@ -5,18 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	href="resources/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	src="resources/js/bootstrap.min.js"></script>
 
 <style>
 .jumbotron {
-	background-color: #0080ff;
+	background-color: #9FCF16;
 	color: #FFFFFF;
 }
-
 body {
 	background-color: #808080
 }
@@ -25,10 +24,13 @@ body {
 <title>Sistema de Recursos Humanos</title>
 </head>
 <body>
-	<div class="jumbotron" style="text-align: center;">
-		<h1>Sistema de Administracion de Recursos humanos</h1>
-		<h2>Bienvenido</h2>
+	<div class="jumbotron jumbotron-fluid">
+	  <div class="container">
+	    <h1 class="display-4">Control de inventario</h1>
+	    <p class="lead">Fundacion manos amigas</p>
+	  </div>
 	</div>
+	
 	<div class="container" style="text-align: center;">
 		<div class="well">
 			<div class="row">
@@ -52,7 +54,7 @@ body {
 						</div>
 						<div class="col-xs-3"></div>
 						<div class="col-xs-6">
-							<input type="submit" class="btn btn-success btn-block"
+							<input  type="submit" class="btn btn-success btn-block"
 								value="Ingresar" />
 
 						</div>

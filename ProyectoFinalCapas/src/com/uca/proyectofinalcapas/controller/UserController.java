@@ -48,7 +48,7 @@ public class UserController {
 				}
 			}
 		}
-		
+		mav.setViewName("indexAdmin");
 		return mav;
 	}
 }
