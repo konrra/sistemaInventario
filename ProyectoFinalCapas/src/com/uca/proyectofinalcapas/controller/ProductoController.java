@@ -76,8 +76,8 @@ public class ProductoController {
 	@RequestMapping(value="/crearProducto", method=RequestMethod.GET)
 	public ModelAndView crearProducto() {
 		ModelAndView mav = new ModelAndView();
-		List<Categoriaxproducto> comboCategoria = productoRepository.findAllCategoriaProd();
-		mav.addObject("comboCategoria", comboCategoria);
+//		List<Categoriaxproducto> comboCategoria = productoRepository.findAllCategoriaProd();
+//		mav.addObject("comboCategoria", comboCategoria);
 		mav.setViewName("producto/crearProducto");
 		return mav;
 	}
