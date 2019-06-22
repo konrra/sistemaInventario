@@ -27,7 +27,38 @@
 			</plugin>
 		</plugins>
 	</build>
+	<properties>
+       <com.sun.faces.version>2.2.2</com.sun.faces.version>
+       <org.primefaces.version>7.0</org.primefaces.version>
+       <org.primefaces.themes.version>1.0.10</org.primefaces.themes.version>
+	</properties>
+	
+	<repositories>
+       <repository>
+             <id>prime-repo</id>
+             <name>PrimeFaces Maven Repository</name>
+             <url>http://repository.primefaces.org</url>
+             <layout>default</layout>
+       </repository>
+	</repositories>
+	
 	<dependencies>
+		
+	
+       <!-- Primefaces -->
+       <dependency>
+             <groupId>org.primefaces</groupId>
+             <artifactId>primefaces</artifactId>
+             <version>${org.primefaces.version}</version>
+       </dependency>
+       <dependency>
+             <groupId>org.primefaces.themes</groupId>
+             <artifactId>all-themes</artifactId>
+             <version>${org.primefaces.themes.version}</version>
+       </dependency>
+		
+		
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -102,5 +133,11 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>1.10.1.RELEASE</version>
 		</dependency>
+		
+		
 	</dependencies>
+	
+	
+
+
 </project>
