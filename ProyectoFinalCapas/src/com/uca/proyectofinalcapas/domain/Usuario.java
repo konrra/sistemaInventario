@@ -1,51 +1,53 @@
 package com.uca.proyectofinalcapas.domain;
 
-import java.util.Date;
-import java.util.LinkedList;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.mapping.List;
-
 @Entity 
-@Table(name="user", schema = "rh" )
+@Table(name="usuario", schema = "si" )
 public class Usuario {
 	
 	@Id
-	@Column(name="iduser")
-	private int idUser;
+	@Column(name="id_usuario")
+	private int id_usuario;
 	
-	@Column(name="idempleado")
-	private int idEmpleado;
+	@Column(name="id_empleado")
+	private int id_empleado;
 	
 	@Column(name="usuario")
 	private String usuario;
 	
-	@Column(name="pass")
-	private String pass;
+	@Column(name="password")
+	private String password;
 	
 	@Column(name="rol")
 	private int rol;
 
-	public int getIdUser() {
-		return idUser;
+
+	public int getId_usuario() {
+		return id_usuario;
 	}
 
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
-	public int getIdEmpleado() {
-		return idEmpleado;
+	public int getId_empleado() {
+		return id_empleado;
 	}
 
-	public void setIdEmpleado(int idEmpleado) {
-		this.idEmpleado = idEmpleado;
+	public void setId_empleado(int id_empleado) {
+		this.id_empleado = id_empleado;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getUsuario() {
@@ -57,11 +59,11 @@ public class Usuario {
 	}
 
 	public String getPass() {
-		return pass;
+		return password;
 	}
 
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.password = pass;
 	}
 
 	public int getRol() {

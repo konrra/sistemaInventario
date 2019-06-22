@@ -54,6 +54,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/editarExp")
+//	requestParam trae el valor del parametro de la vista 
 	public ModelAndView indexEditar(@RequestParam("id_empleado") Integer id_empleado){
 		ModelAndView mav = new ModelAndView();
 		Empleado findOne = empleadoRepository.findOne(id_empleado);
