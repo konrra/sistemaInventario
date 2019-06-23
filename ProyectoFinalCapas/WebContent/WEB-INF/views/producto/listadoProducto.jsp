@@ -46,7 +46,7 @@
 	        	<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if>
 	        	<c:if test="${dto.estado == 'I'}"><c:out value="Inactivo"></c:out> </c:if>
 	        </td>
-	        <td align=Right"><input type="button" class="btn btn-info btn-sm" onclick="location.href='${pageContext.request.contextPath}/editarProducto?id_producto=${dto.id_producto}'" value="Editar" />
+	        <td align=Right ><input type="button" class="btn btn-info btn-sm" onclick="location.href='${pageContext.request.contextPath}/editarProducto?id_producto=${dto.id_producto}'" value="Editar" />
 	        <input type="button" class="btn btn-danger btn-sm" onclick="location.href='${pageContext.request.contextPath}/eliminarProducto?id_producto=${dto.id_producto}'" value="Inactivar" /></td>
 	      </tr>
       </c:forEach>

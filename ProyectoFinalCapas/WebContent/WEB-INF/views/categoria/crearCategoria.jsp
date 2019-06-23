@@ -12,23 +12,20 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
 <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarCategoria">
-<br>
-<br>
-<br>
-<div class="panel panel-default">
-	  <div class="panel-heading">Ingreso de informaci&oacute;n del cliente </div>
-	  <div class="panel-body">
+<div class="card">
+	  <div class="card-header">Ingreso de informaci&oacute;n de la categor&iacute;a </div>
+	  <div class="card-body">
 	  
 	  <div class="form-group">
-	    <label  class="col-lg-2 control-label">Descripci&oacute;n</label>
-	    <div class="col-xs-3">
+	    <label  class="col-sm-2 control-label">Descripci&oacute;n</label>
+	    <div class="col-sm-7">
 	      <input type="text" class="form-control" name="nombre" value="${categoriaxproducto.descripcion }" >
 	    </div>
 	  </div>
 	    
 	    <div class="form-group" style="display:none;">
-		    <label  class="col-lg-2 control-label">Estado</label>
-		    <div class="col-xs-3">
+		    <label  class="col-sm-2 control-label">Estado</label>
+		    <div class="col-sm-7">
 		    	<select class="form-control" name="estado"> 
 		    		<option value="A" <c:if test="${categoriaxproducto.estado =='A' }">selected</c:if>  >Activo</option>
 		    		
@@ -38,7 +35,7 @@
 </div> <!-- div que finaliza el body del panel -->
 </div>
     
-  <div class="panel-footer">
+  <div class="card-footer">
 	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCategoria" >Cancelar</button>
 	<button type="submit" class="btn btn-success">Guardar</button>
   </div> <!-- div que finaliza el footer del panel -->
