@@ -4,6 +4,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+  $(document).ready(function(){ 
+	$('.solo-numero').numeric();
+   });
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Creaci&oacute;n de Producto</title>
 <link href = "resources/css/bootstrap.min.css" rel = "stylesheet">
@@ -26,21 +31,18 @@
 	      <input type="text" class="form-control" name="nombre" value="${producto.nombre }"  placeholder="Pedro Jose" >
 	    </div>
 	  </div>
+	  
 	  <div class="form-group">
 	    <label  class="col-lg-2 control-label">Costo</label>
 	    <div class="col-xs-3">
-	      <input type="number" class="form-control" min="0.0" name="costo" value="${producto.costo }" >
+	      <input type="text" alt="numeric" class="form-control"   name="costo" value="${producto.costo }" >
 	    </div>
 	  </div>
+	  
 	   <div class="form-group">
 	    <label  class="col-lg-2 control-label">Precio P&uacute;blico </label>
 	    <div class="col-xs-3">
-	      <input type="text" class="form-control" name="precio_publico" value="${producto.precio_publico }" >
-	    </div>
-	     <div class="form-group">
-	    <label  class="col-lg-2 control-label">Precio P&uacute;blico </label>
-	    <div class="col-xs-3">
-	      <input type="text" class="form-control" name="precio_publico" value="${producto.precio_publico }" >
+	      <input class="form-control" tabindex="5" type="text" alt="numeric" id="precio_publico" name="precio_publico"  value="${producto.precio_publico}" maxlength="15"/>
 	    </div>
 	  </div>
 	  
@@ -56,13 +58,14 @@
 	    <div class="col-xs-3">
 	      <input type="text" class="form-control" name="precio_evento" value="${producto.precio_evento }" >
 	    </div>
+	    
 	   <div class="form-group">
 	    <label  class="col-lg-2 control-label">Categor&iacute;a Prod.</label>
 	    <div class="col-xs-3">
 	      <select class="form-control" name="tipo"> 
 	      <option value="">Seleccione una categor&iacute;a</option>
 	      	<c:forEach items="${comboCategoria}" var="c">
-	      		<option value="${c.id_categoria_x_producto }"> <c:out value="${c.descripcion }"></c:out> </option>
+	      		<option value="${c.id_categoria_x_producto }"  <c:if test="${c.id_categoria_x_producto == producto.categoriaxproducto.id_categoria_x_producto }">selected</c:if>  ><c:out value="${c.descripcion }"></c:out> </option>
 	      	</c:forEach>
 		  </select>
 	    </div>

@@ -23,7 +23,8 @@ public class Categoriaxproducto {
 	@OneToMany(fetch=FetchType.LAZY)
 	private List<Producto> producto;
 	
-	
+	@Column(name="estado")
+	private String estado;
 
 	public int getId_categoria_x_producto() {
 		return id_categoria_x_producto;
@@ -48,7 +49,14 @@ public class Categoriaxproducto {
 	public void setProducto(List<Producto> producto) {
 		this.producto = producto;
 	}
-	
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	
 	
 	

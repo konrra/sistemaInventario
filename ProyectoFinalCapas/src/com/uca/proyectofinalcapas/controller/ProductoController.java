@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.proyectofinalcapas.domain.Categoriaxproducto;
 import com.uca.proyectofinalcapas.domain.Producto;
+import com.uca.proyectofinalcapas.repository.CategoriaxproductoRepository;
 import com.uca.proyectofinalcapas.repository.ProductoRepository;
 
 
@@ -23,6 +24,8 @@ public class ProductoController {
 	@Autowired
 	private ProductoRepository productoRepository;
 	
+	@Autowired
+	private CategoriaxproductoRepository categoriaProductoRepository;
 	
 	@RequestMapping(value="/listadoProducto", method= RequestMethod.GET)
 	public ModelAndView listadoProducto(){
@@ -50,12 +53,14 @@ public class ProductoController {
 		
 		try {
 			Producto producto = productoRepository.findById(idProducto);
+			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+			mav.addObject("comboCategoria", comboCategoria);
 			mav.addObject("producto", producto);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		
-		mav.setViewName("producto/editarProducto");
+		mav.setViewName("producto/crearProducto");
 		
 		return mav;
 	}
@@ -67,7 +72,7 @@ public class ProductoController {
 		if(result != null ) {
 			return listadoProducto();
 		}else {
-			mav.setViewName("producto/editarProducto");
+			mav.setViewName("producto/crearProducto");
 		}
 		
 		return mav;
@@ -76,8 +81,8 @@ public class ProductoController {
 	@RequestMapping(value="/crearProducto", method=RequestMethod.GET)
 	public ModelAndView crearProducto() {
 		ModelAndView mav = new ModelAndView();
-//		List<Categoriaxproducto> comboCategoria = productoRepository.findAllCategoriaProd();
-//		mav.addObject("comboCategoria", comboCategoria);
+		List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+		mav.addObject("comboCategoria", comboCategoria);
 		mav.setViewName("producto/crearProducto");
 		return mav;
 	}

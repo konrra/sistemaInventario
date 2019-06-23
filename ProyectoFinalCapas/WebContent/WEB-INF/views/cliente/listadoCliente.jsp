@@ -6,25 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href = "resources/css/bootstrap.min.css" rel = "stylesheet">
+<link rel="stylesheet"	href="resources/css/bootstrap.min.css">
 </head>
 <body class="body-back">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<%-- <form:input type="hidden" id="id_empleado" path="id_empleado" /> --%>
-<br>
-<br>
-<br>
-<div class="panel panel-default">
-	  <div class="panel-heading">Edición de información del cliente </div>
-	  <div class="panel-body">
-	  
-	  <br>
-	  <button type="button" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath}/crearCliente'" >Agregar</button>
-	  <br>
-  <table class="table table-condensed">
-    <thead>
+<script 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script 	src="resources/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+<div class="card">
+	  <div class="card-header">Edición de informaci&oacute;n del Cliente
+	  <button type="button" style="float: right;" class="btn btn-success btn-sm" onclick="location.href='${pageContext.request.contextPath}/crearCliente'" >Agregar +</button>
+	  </div>
+	  <div class="card-body overflow-auto">
+  <table class="table table-sm table-bordere table-hover">
+    <thead class="thead-light">
       <tr>
         <th>Nombre</th>
         <th>Tipo </th>
@@ -33,6 +29,7 @@
         <th>N&uacute;mero fijo</th>
         <th>Dui</th>
         <th>Estado</th>
+        <th> <span class="glyphicon glyphicon-cog" > </span> </th>
       </tr>
     </thead>
     <tbody>
@@ -49,8 +46,10 @@
 	        	<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if>
 	        	<c:if test="${dto.estado == 'I'}"><c:out value="Inactivo"></c:out> </c:if>
 	        </td>
-	        <td><input type="button" class="myButton" onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'" value="Editar" />
-	        <td><input type="button" class="btnEliminar" onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'" value="Inactivar" /></td>
+	        <td align=Right>
+	        	<button type="button" class="btn btn-info btn-sm" onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'" > Editar </button>
+	      		<button type="button" class="btn btn-danger btn-sm" onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'" > Inactivar  </button> 
+	        </td>
 	      </tr>
       </c:forEach>
       </c:if>
@@ -62,11 +61,11 @@
     </tbody>
   </table>
   </div>
-<div class="panel-footer">
-  <strong> La cantidad de registros es de  <c:out value="${total }"/></strong>
+<div class="card-footer text-muted">
+  <label style="float: right;"> La cantidad de registros: <c:out value="${total }"/></label>
   </div>
 </div>
-<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
 
 </body>

@@ -16,4 +16,33 @@ public class Lugar {
 	@Column(name="descripcion")
 	private String descipcion;
 	
+	@Column(name="estado")
+	private String estado;
+
+	public int getId_lugar() {
+		return id_lugar;
+	}
+
+	public void setId_lugar(int id_lugar) {
+		this.id_lugar = id_lugar;
+	}
+
+	public String getDescipcion() {
+		return descipcion;
+	}
+
+	public void setDescipcion(String descipcion) {
+		this.descipcion = descipcion;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	
+	
 }

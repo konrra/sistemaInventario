@@ -1,0 +1,100 @@
+package com.uca.proyectofinalcapas.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.uca.proyectofinalcapas.domain.Categoriaxproducto;
+import com.uca.proyectofinalcapas.repository.CategoriaxproductoRepository;
+
+
+
+
+@Controller
+public class CategoriaxproductoController {
+	
+	@Autowired
+	private CategoriaxproductoRepository categoriaProductoRepository;
+	
+	@RequestMapping(value="/listadoCategoria", method= RequestMethod.GET)
+	public ModelAndView listadoCategoria(){
+		ModelAndView mav = new ModelAndView();
+		try {
+			
+			List<Categoriaxproducto> listadoCategoria = categoriaProductoRepository.findAllCategoria();
+			int totalCategoria = categoriaProductoRepository.countAllCategoria();
+			
+			mav.addObject("colectionResult", listadoCategoria);
+			mav.addObject("total", totalCategoria);
+			
+		}catch (Exception e) {
+			mav.addObject("total", 0);
+		}
+		
+		mav.setViewName("categoria/listadoCategoria");
+		return mav;
+	}
+	
+	@RequestMapping(value="/editarCategoria", method=RequestMethod.GET)
+	public ModelAndView editarCategoria(@RequestParam("id_categoria_x_producto") Integer idCategoria) {
+	
+		ModelAndView mav = new ModelAndView();
+		
+		try {
+			Categoriaxproducto categoriaxproducto = categoriaProductoRepository.findById(idCategoria);
+			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+			mav.addObject("comboCategoria", comboCategoria);
+			mav.addObject("categoriaxproducto", categoriaxproducto);
+		} catch (Exception e) {
+		}
+		
+		mav.setViewName("categoria/crearCategoria");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/actualizarCategoria", method=RequestMethod.GET)
+	public ModelAndView actCategoria(@ModelAttribute Categoriaxproducto categoriaxproducto) {
+		ModelAndView mav = new ModelAndView();
+		Categoriaxproducto result = categoriaProductoRepository.save(categoriaxproducto);
+		if(result != null ) {
+			return listadoCategoria();
+		}else {
+			mav.setViewName("categoriaxproducto/crearCategoria");
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/crearCategoria", method=RequestMethod.GET)
+	public ModelAndView crearCategoria() {
+		ModelAndView mav = new ModelAndView();
+		List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+		mav.addObject("comboCategoria", comboCategoria);
+		mav.setViewName("categoria/crearCategoria");
+		return mav;
+	}
+	
+	@RequestMapping(value="/eliminarCategoria", method=RequestMethod.GET)
+	public ModelAndView eliminarCategoria(@RequestParam("id_categoria_x_producto") Integer id_categoriaxproducto) {
+		
+		try {
+			Categoriaxproducto categoriaxproducto = categoriaProductoRepository.findById(id_categoriaxproducto);
+			categoriaxproducto.setEstado("I");
+			categoriaProductoRepository.save(categoriaxproducto);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return listadoCategoria();
+		
+	}
+	
+}
