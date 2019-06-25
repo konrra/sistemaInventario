@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +30,6 @@ public class CategoriaxproductoController {
 			
 			List<Categoriaxproducto> listadoCategoria = categoriaProductoRepository.findAllCategoria();
 			int totalCategoria = categoriaProductoRepository.countAllCategoria();
-			
 			mav.addObject("colectionResult", listadoCategoria);
 			mav.addObject("total", totalCategoria);
 			
@@ -48,8 +48,8 @@ public class CategoriaxproductoController {
 		
 		try {
 			Categoriaxproducto categoriaxproducto = categoriaProductoRepository.findById(idCategoria);
-			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
-			mav.addObject("comboCategoria", comboCategoria);
+//			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+//			mav.addObject("comboCategoria", comboCategoria);
 			mav.addObject("categoriaxproducto", categoriaxproducto);
 		} catch (Exception e) {
 		}
@@ -62,11 +62,13 @@ public class CategoriaxproductoController {
 	@RequestMapping(value="/actualizarCategoria", method=RequestMethod.GET)
 	public ModelAndView actCategoria(@ModelAttribute Categoriaxproducto categoriaxproducto) {
 		ModelAndView mav = new ModelAndView();
-		Categoriaxproducto result = categoriaProductoRepository.save(categoriaxproducto);
-		if(result != null ) {
-			return listadoCategoria();
-		}else {
+		
+		if(StringUtils.isEmpty(categoriaxproducto.getDescripcion())) {
+			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("categoriaxproducto/crearCategoria");
+		}else {
+			categoriaProductoRepository.save(categoriaxproducto);
+			return listadoCategoria();
 		}
 		
 		return mav;

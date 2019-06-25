@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -68,13 +69,19 @@ public class ProductoController {
 	@RequestMapping(value="/actualizarProducto", method=RequestMethod.GET)
 	public ModelAndView actProducto(@ModelAttribute Producto producto) {
 		ModelAndView mav = new ModelAndView();
-		Producto result = productoRepository.save(producto);
-		if(result != null ) {
-			return listadoProducto();
-		}else {
+		if(StringUtils.isEmpty(producto.getNombre()) || StringUtils.isEmpty(producto.getId_categoria_x_producto())) {
+			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+			mav.addObject("comboCategoria", comboCategoria);
+			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("producto/crearProducto");
+		}else {
+			Categoriaxproducto cat = new Categoriaxproducto();
+			cat.setId_categoria_x_producto(producto.getId_categoria_x_producto());
+			producto.setCategoriaxproducto(cat);
+			productoRepository.save(producto);
+			return listadoProducto();
 		}
-		
+
 		return mav;
 	}
 	

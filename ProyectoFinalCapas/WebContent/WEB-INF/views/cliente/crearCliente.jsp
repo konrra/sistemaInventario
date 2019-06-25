@@ -13,33 +13,52 @@
 <script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
 <script 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script 	src="resources/js/bootstrap.min.js"></script>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+<script type="text/javascript">
+$(window).load(function (){
+	
+	
+});
+
+</script>
 <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarCliente">
-<br>
-<br>
-<br>
+<c:if test="${not empty error}">
+	
+	<div class="alert alert-danger alert-dismissible fade show" style="margin-right: 60%;" role="alert">
+	  <strong>Error:</strong> <c:out value="${error}"/>
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+	
+	</c:if>
+	<br>
 <div class="card">
 	  <div class="card-header">Ingreso de informaci&oacute;n del cliente </div>
-	  <div class="card-body">
-	  
+	  <div class="card-body form-horizontal">
+	  <div><span style="font-size: small;">-Los campos marcados con * son obligatorios</span></div>
+	  <br>
+	  <div style="width: 50%; float: left;" >
 	  <div class="form-group">
-	    <label  class="col-sm-2 control-label">Nombre</label>
-	    <div class="col-sm-7">
+	    <label  class="col-sm-2 control-label">Nombre*</label>
+	    <div class="col-sm-7 ">
 	      <input type="text" class="form-control" name="nombre" value="${cliente.nombre }"  placeholder="Pedro Jose" >
 	    </div>
 	  </div>
 	  <div class="form-group">
-	    <label  class="col-sm-2 control-label">N&uacute;mero tel&eacute;fono celular</label>
+	    <label  class="col-sm-4 control-label">N&uacute;mero tel&eacute;fono celular</label>
 	    <div class="col-sm-7">
 	      <input type="text" class="form-control" name="num_tel_cel" value="${cliente.num_tel_cel }"  placeholder="61234567" >
 	    </div>
 	  </div>
 	   <div class="form-group">
-	    <label  class="col-sm-2 control-label">N&uacute;mero tel&eacute;fono fijo</label>
+	    <label  class="col-sm-4 control-label">N&uacute;mero tel&eacute;fono fijo</label>
 	    <div class="col-sm-7">
 	      <input type="text" class="form-control" name="num_tel_fijo" value="${cliente.num_tel_fijo }"  placeholder="21345678" >
 	    </div>
 	  </div>
+	</div>
+	  
+	 <div style="width: 50%; float: right;" >
 	   <div class="form-group">
 	    <label  class="col-sm-2 control-label">NIT</label>
 	    <div class="col-sm-7">
@@ -48,12 +67,12 @@
 	  </div>
 	   <div class="form-group">
 	    <label  class="col-sm-2 control-label">DUI</label>
-	    <div class="col-sm-7 form-inline">
+	    <div class="col-sm-7 ">
 	      <input type="text" class="form-control" name="dui" value="${cliente.dui }"   placeholder="1234567-1" >
 	    </div>
 	    </div>
 	    <div class="form-group">
-		    <label  class="col-sm-2 control-label">Tipo Cliente</label>
+		    <label  class="col-sm-3 control-label">Tipo Cliente</label>
 		    <div class="col-sm-7">
 		    	<select class="form-control" name="tipo"> 
 		    		<option value="A" <c:if test="${cliente.tipo =='A' }">selected</c:if>  >Público</option>
@@ -73,6 +92,7 @@
 		    	</select>
 		    </div>
 	    </div> 
+	 </div>
 </div> <!-- div que finaliza el body del panel -->
 </div>
   <div class="card-footer">

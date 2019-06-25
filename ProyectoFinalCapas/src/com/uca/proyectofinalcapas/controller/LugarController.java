@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.proyectofinalcapas.domain.Lugar;
 import com.uca.proyectofinalcapas.repository.LugarRepository;
-
 
 
 
@@ -27,17 +27,17 @@ public class LugarController {
 	public ModelAndView listadoLugar(){
 		ModelAndView mav = new ModelAndView();
 		try {
-			
+
 			List<Lugar> listadoLugar = lugarRepository.findAllLugar();
 			int totalLugar = lugarRepository.countAllLugar();
-			
+
 			mav.addObject("colectionResult", listadoLugar);
 			mav.addObject("total", totalLugar);
-			
+
 		}catch (Exception e) {
 			mav.addObject("total", 0);
 		}
-		
+
 		mav.setViewName("lugar/listadoLugar");
 		return mav;
 	}
@@ -62,13 +62,14 @@ public class LugarController {
 	@RequestMapping(value="/actualizarLugar", method=RequestMethod.GET)
 	public ModelAndView actLugar(@ModelAttribute Lugar lugar) {
 		ModelAndView mav = new ModelAndView();
-		Lugar result = lugarRepository.save(lugar);
-		if(result != null ) {
-			return listadoLugar();
-		}else {
+		if(StringUtils.isEmpty(lugar.getDescipcion())) {
+			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("lugar/crearLugar");
+		}else {
+			lugarRepository.save(lugar);
+			return listadoLugar();
 		}
-		
+
 		return mav;
 	}
 	

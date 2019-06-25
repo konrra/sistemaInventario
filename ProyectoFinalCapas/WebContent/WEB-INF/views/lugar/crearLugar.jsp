@@ -12,15 +12,20 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
 <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarLugar">
-<br>
-<br>
-<br>
+<c:if test="${not empty error}">
+	<div class="alert alert-danger alert-dismissible fade show" style="margin-right: 60%;" role="alert">
+	  <strong>Error:</strong> <c:out value="${error}"/>
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+</c:if>
 <div class="card">
 	  <div class="card-header">Ingreso de informaci&oacute;n  </div>
 	  <div class="card-body">
 	  
 	  <div class="form-group">
-	    <label  class="col-sm-2 control-label">Descripci&oacute;n</label>
+	    <label  class="col-sm-3 control-label">Descripci&oacute;n</label>
 	    <div class="col-sm-7">
 	      <input type="text" class="form-control" name="nombre" value="${lugar.descripcion }" >
 	    </div>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,6 +41,7 @@ public class ClienteController {
 		return mav;
 	}
 	
+//	metodo que llama al formulario de cliente 
 	@RequestMapping(value="/editarCliente", method=RequestMethod.GET)
 	public ModelAndView editarCliente(@RequestParam("id_cliente") Integer idCliente) {
 	
@@ -57,16 +59,18 @@ public class ClienteController {
 		return mav;
 	}
 	
+//	metodo que actualiza o crea un cliente 
 	@RequestMapping(value="/actualizarCliente", method=RequestMethod.GET)
 	public ModelAndView actCliente(@ModelAttribute Cliente cliente) {
 		ModelAndView mav = new ModelAndView();
-		Cliente result = clienteRepository.save(cliente);
-		if(result != null ) {
-			return listadoCliente();
+		if(StringUtils.isEmpty(cliente.getNombre())) {
+			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
+			mav.setViewName("cliente/crearCliente");
 		}else {
-			mav.setViewName("cliente/editarCliente");
+			clienteRepository.save(cliente);
+			return listadoCliente();
 		}
-		
+
 		return mav;
 	}
 	
