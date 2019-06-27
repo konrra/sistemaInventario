@@ -13,7 +13,7 @@
 <script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
 <div class="card">
 	  <div class="card-header">Edición de información de Origen/Destino
-	  	<button style="float: right;" type="button" class="btn btn-success btn-sm" onclick="location.href='${pageContext.request.contextPath}/crearCategoria'" >Agregar +</button>
+	  	<button style="float: right;" type="button" class="btn btn-success btn-sm" onclick="location.href='${pageContext.request.contextPath}/crearLugar'" >Agregar +</button>
 	  </div>
 	  <div class="card-body">
   <table class="table table-sm table-bordere table-hover">
@@ -21,6 +21,7 @@
       <tr>
         <th>Descripci&oacute;n</th>
         <th>Estado </th>
+        <th> <span class="glyphicon glyphicon-cog" > </span> </th>
       </tr>
     </thead>
     <tbody>
@@ -32,8 +33,10 @@
 	        	<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if>
 	        	<c:if test="${dto.estado == 'I'}"><c:out value="Inactivo"></c:out> </c:if>
 	        </td>
-	        <td><input type="button" class="btn btn-info btn-sm" onclick="location.href='${pageContext.request.contextPath}/editarCategoria?id_lugar=${dto.id_lugar}'" value="Editar" />
-	        <td><input type="button" class="btn btn-danger btn-sm" onclick="location.href='${pageContext.request.contextPath}/eliminarCategoria?id_lugar=${dto.id_lugar}'" value="Inactivar" /></td>
+	        <td align=Right>
+	        	<input type="button" class="btn btn-info btn-sm" onclick="location.href='${pageContext.request.contextPath}/editarLugar?id_lugar=${dto.id_lugar}'" value="Editar" />
+	        	<input type="button" class="btn btn-danger btn-sm" onclick="location.href='${pageContext.request.contextPath}/eliminarLugar?id_lugar=${dto.id_lugar}'" value="Inactivar" />
+	        </td>
 	      </tr>
       </c:forEach>
       </c:if>

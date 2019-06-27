@@ -35,6 +35,7 @@ public class ClienteController {
 			mav.addObject("total", totalCliente);
 		}catch (Exception e) {
 			mav.addObject("total", 0);
+			System.out.println(e.getStackTrace());
 		}
 		
 		mav.setViewName("cliente/listadoCliente");
@@ -51,7 +52,7 @@ public class ClienteController {
 			Cliente cliente = clienteRepository.findById(idCliente);
 			mav.addObject("cliente", cliente);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace());
 		}
 		
 		mav.setViewName("cliente/editarCliente");
@@ -91,7 +92,7 @@ public class ClienteController {
 			clienteRepository.save(cliente);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace());
 		}
 		
 		return listadoCliente();

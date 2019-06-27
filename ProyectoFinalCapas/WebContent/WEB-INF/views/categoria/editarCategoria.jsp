@@ -25,7 +25,7 @@
 <div class="card">
 	  <div class="card-header">Ingreso de informaci&oacute;n de la categor&iacute;a </div>
 	  <div class="card-body">
-<%-- 	  <input type="hidden" name="id_categoria_x_producto" value="${categoriaxproducto.id_categoria_x_producto }" > --%>
+	  <input type="hidden" name="id_categoria_x_producto" value="${categoriaxproducto.id_categoria_x_producto }" >
 	   <div style="width: 50%;" >
 		  <div class="form-group">
 		    <label  class="col-sm-3 control-label">Descripci&oacute;n *</label>

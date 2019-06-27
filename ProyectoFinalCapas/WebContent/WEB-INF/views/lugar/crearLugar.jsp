@@ -21,13 +21,12 @@
 	</div>
 </c:if>
 <div class="card">
-	  <div class="card-header">Ingreso de informaci&oacute;n  </div>
+	  <div class="card-header">Ingreso de informaci&oacute;n del destino/origen </div>
 	  <div class="card-body">
-	  
 	  <div class="form-group">
 	    <label  class="col-sm-3 control-label">Descripci&oacute;n</label>
 	    <div class="col-sm-7">
-	      <input type="text" class="form-control" name="nombre" value="${lugar.descripcion }" >
+	      <input type="text" class="form-control" name="descripcion" value="${lugar.descripcion }" >
 	    </div>
 	  </div>
 	    

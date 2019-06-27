@@ -44,17 +44,16 @@ public class LugarController {
 	
 	@RequestMapping(value="/editarLugar", method=RequestMethod.GET)
 	public ModelAndView editarLugar(@RequestParam("id_lugar") Integer idLugar) {
-	
 		ModelAndView mav = new ModelAndView();
 		
 		try {
 			Lugar lugar = lugarRepository.findById(idLugar);
 			mav.addObject("lugar", lugar);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace());
 		}
 		
-		mav.setViewName("lugar/crearLugar");
+		mav.setViewName("lugar/editarLugar");
 		
 		return mav;
 	}
@@ -62,11 +61,18 @@ public class LugarController {
 	@RequestMapping(value="/actualizarLugar", method=RequestMethod.GET)
 	public ModelAndView actLugar(@ModelAttribute Lugar lugar) {
 		ModelAndView mav = new ModelAndView();
-		if(StringUtils.isEmpty(lugar.getDescipcion())) {
+		if(StringUtils.isEmpty(lugar.getDescripcion())) {
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("lugar/crearLugar");
 		}else {
-			lugarRepository.save(lugar);
+			try {
+				lugarRepository.save(lugar);
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace());
+				mav.addObject("error", "Ocurri&oacute; un error al guardar la informaci&oacute;n");
+				mav.setViewName("lugar/crearLugar");
+			}
+			
 			return listadoLugar();
 		}
 
@@ -89,7 +95,7 @@ public class LugarController {
 			lugarRepository.save(lugar);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace());
 		}
 		
 		return listadoLugar();

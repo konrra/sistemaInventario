@@ -4,6 +4,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+  $(document).ready(function(){ 
+	$('.solo-numero').numeric();
+   });
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Creaci&oacute;n de Producto</title>
 <link href = "resources/css/bootstrap.min.css" rel = "stylesheet">
@@ -27,6 +32,7 @@
 	  <div class="card-body">
 	  
 	  <div style="width: 50%; float: left;" >
+	  <input type="hidden" name="id_producto" value="${producto.id_producto }" >
 	  
 	  <div class="form-group">
 	    <label  class="col-sm-2 control-label">Nombre*</label>
@@ -69,7 +75,7 @@
 	   <div class="form-group">
 	    <label  class="col-sm-3 control-label">Categor&iacute;a Prod. *</label>
 	    <div class="col-sm-7">
-	      <select class="form-control" name="categoriaxproducto"> 
+	      <select class="form-control" name="id_categoria_x_producto"> 
 	      <option value="">Seleccione una categor&iacute;a</option>
 	      	<c:forEach items="${comboCategoria}" var="c">
 	      		<option value="${c.id_categoria_x_producto }"  <c:if test="${c.id_categoria_x_producto == producto.categoriaxproducto.id_categoria_x_producto }">selected</c:if>  ><c:out value="${c.descripcion }"></c:out> </option>

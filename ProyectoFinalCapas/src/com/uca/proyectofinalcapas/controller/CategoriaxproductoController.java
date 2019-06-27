@@ -35,6 +35,7 @@ public class CategoriaxproductoController {
 			
 		}catch (Exception e) {
 			mav.addObject("total", 0);
+			System.out.println(e.getStackTrace());
 		}
 		
 		mav.setViewName("categoria/listadoCategoria");
@@ -48,13 +49,12 @@ public class CategoriaxproductoController {
 		
 		try {
 			Categoriaxproducto categoriaxproducto = categoriaProductoRepository.findById(idCategoria);
-//			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
-//			mav.addObject("comboCategoria", comboCategoria);
 			mav.addObject("categoriaxproducto", categoriaxproducto);
 		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
 		}
 		
-		mav.setViewName("categoria/crearCategoria");
+		mav.setViewName("categoria/editarCategoria");
 		
 		return mav;
 	}
@@ -65,7 +65,7 @@ public class CategoriaxproductoController {
 		
 		if(StringUtils.isEmpty(categoriaxproducto.getDescripcion())) {
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
-			mav.setViewName("categoriaxproducto/crearCategoria");
+			mav.setViewName("categoria/crearCategoria");
 		}else {
 			categoriaProductoRepository.save(categoriaxproducto);
 			return listadoCategoria();
@@ -92,7 +92,7 @@ public class CategoriaxproductoController {
 			categoriaProductoRepository.save(categoriaxproducto);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace());
 		}
 		
 		return listadoCategoria();

@@ -41,6 +41,7 @@ public class ProductoController {
 			
 		}catch (Exception e) {
 			mav.addObject("total", 0);
+			System.out.println(e.getStackTrace());
 		}
 		
 		mav.setViewName("producto/listadoProducto");
@@ -58,7 +59,7 @@ public class ProductoController {
 			mav.addObject("comboCategoria", comboCategoria);
 			mav.addObject("producto", producto);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace());
 		}
 		
 		mav.setViewName("producto/crearProducto");
@@ -103,7 +104,7 @@ public class ProductoController {
 			productoRepository.save(producto);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace());
 		}
 		
 		return listadoProducto();

@@ -17,9 +17,9 @@
 <br>
 <br>
 <input type="hidden" name="id_cliente" id="id_cliente" value="${cliente.id_cliente}">
-<div class="panel panel-default">
-	  <div class="panel-heading">Edición de información del cliente </div>
-	  <div class="panel-body">
+<div class="card">
+	  <div class="card-header">Edición de información del cliente </div>
+	  <div class="card-body">
 	  
 	  <div class="form-group">
 	    <label  class="col-lg-2 control-label">Nombre</label>
@@ -74,8 +74,8 @@
 		    </div>
 	    </div> 
 </div> <!-- div que finaliza el body del panel -->
-    
-  <div class="panel-footer">
+</div>
+  <div class="card-footer">
 	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCliente" >Cancelar</button>
 	<button type="submit" class="btn btn-success">Guardar</button>
   </div> <!-- div que finaliza el footer del panel -->

@@ -5,14 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Creaci&oacute;n de Producto</title>
+<title>Edici&oacute;n de Origen/Destino</title>
 <link href = "resources/css/bootstrap.min.css" rel = "stylesheet">
 </head>
 <body class="body-back">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
-<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarCategoria">
-
+<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarLugar">
 <c:if test="${not empty error}">
 	<div class="alert alert-danger alert-dismissible fade show" style="margin-right: 60%;" role="alert">
 	  <strong>Error:</strong> <c:out value="${error}"/>
@@ -21,26 +20,22 @@
 	  </button>
 	</div>
 </c:if>
-
 <div class="card">
-	  <div class="card-header">Ingreso de informaci&oacute;n de la categor&iacute;a </div>
+	  <div class="card-header">Ingreso de informaci&oacute;n del destino/origen </div>
 	  <div class="card-body">
-<%-- 	  <input type="hidden" name="id_categoria_x_producto" value="${categoriaxproducto.id_categoria_x_producto }" > --%>
-	   <div style="width: 50%;" >
-		  <div class="form-group">
-		    <label  class="col-sm-3 control-label">Descripci&oacute;n *</label>
-		    <div class="col-sm-7">
-		      <input type="text" class="form-control" name="descripcion" value="${categoriaxproducto.descripcion }" >
-		    </div>
-		  </div>
-
-	</div>
+	  <input type="hidden" name="id_lugar" id="id_lugar" value="${lugar.id_lugar }" />
+	  <div class="form-group">
+	    <label  class="col-sm-3 control-label">Descripci&oacute;n</label>
+	    <div class="col-sm-7">
+	      <input type="text" class="form-control" name="descripcion" value="${lugar.descripcion }" >
+	    </div>
+	  </div>
 	    
 	    <div class="form-group" style="display:none;">
 		    <label  class="col-sm-2 control-label">Estado</label>
 		    <div class="col-sm-7">
 		    	<select class="form-control" name="estado"> 
-		    		<option value="A" <c:if test="${categoriaxproducto.estado =='A' }">selected</c:if>  >Activo</option>
+		    		<option value="A" <c:if test="${lugar.estado =='A' }">selected</c:if>  >Activo</option>
 		    		
 		    	</select>
 		    </div>
@@ -49,7 +44,7 @@
 </div>
     
   <div class="card-footer">
-	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCategoria" >Cancelar</button>
+	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoLugar" >Cancelar</button>
 	<button type="submit" class="btn btn-success">Guardar</button>
   </div> <!-- div que finaliza el footer del panel -->
   
