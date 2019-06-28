@@ -26,7 +26,7 @@
 	  </button>
 	</div>
 </c:if>
-
+editar el fucking producto
 <div class="card">
 	  <div class="card-header">Ingreso de informaci&oacute;n del producto </div>
 	  <div class="card-body">

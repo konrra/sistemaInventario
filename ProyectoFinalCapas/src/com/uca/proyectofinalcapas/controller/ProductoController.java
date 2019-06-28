@@ -62,10 +62,12 @@ public class ProductoController {
 			System.out.println(e.getStackTrace());
 		}
 		
-		mav.setViewName("producto/crearProducto");
+		mav.setViewName("producto/editarProducto");
 		
 		return mav;
 	}
+	
+	
 	
 	@RequestMapping(value="/actualizarProducto", method=RequestMethod.GET)
 	public ModelAndView actProducto(@ModelAttribute Producto producto) {
@@ -85,6 +87,7 @@ public class ProductoController {
 
 		return mav;
 	}
+	
 	
 	@RequestMapping(value="/crearProducto", method=RequestMethod.GET)
 	public ModelAndView crearProducto() {
