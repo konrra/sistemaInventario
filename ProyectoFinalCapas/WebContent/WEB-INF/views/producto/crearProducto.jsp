@@ -69,7 +69,7 @@
 	   <div class="form-group">
 	    <label  class="col-sm-3 control-label">Categor&iacute;a Prod. *</label>
 	    <div class="col-sm-7">
-	      <select class="form-control" name="categoriaxproducto"> 
+	      <select class="form-control" name="id_categoria_x_producto"> 
 	      <option value="">Seleccione una categor&iacute;a</option>
 	      	<c:forEach items="${comboCategoria}" var="c">
 	      		<option value="${c.id_categoria_x_producto }"  <c:if test="${c.id_categoria_x_producto == producto.categoriaxproducto.id_categoria_x_producto }">selected</c:if>  ><c:out value="${c.descripcion }"></c:out> </option>
@@ -90,7 +90,7 @@
 </div>
 </div>
   <div class="card-footer">
-	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoProducto" >Cancelar</button>
+	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoProducto'" >Cancelar</button>
 	<button type="submit" class="btn btn-success">Guardar</button>
   </div> 
   </div> <!-- div que finaliza el footer del panel -->

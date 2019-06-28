@@ -26,7 +26,7 @@
 	  </button>
 	</div>
 </c:if>
-
+editar el fucking producto
 <div class="card">
 	  <div class="card-header">Ingreso de informaci&oacute;n del producto </div>
 	  <div class="card-body">
@@ -84,11 +84,12 @@
 	    </div>
 	  </div>
 	  
-	    <div class="form-group" style="display:none;">
+	    <div class="form-group" >
 		    <label  class="col-sm-2 control-label">Estado</label>
 		    <div class="col-sm-7">
 		    	<select class="form-control" name="estado"> 
 		    		<option value="A" <c:if test="${producto.estado =='A' }">selected</c:if>  >Activo</option>
+		    		<option value="I" <c:if test="${producto.estado =='I' }">selected</c:if>  >Inactivo</option>
 		    		
 		    	</select>
 		    </div>
@@ -96,7 +97,7 @@
 </div>
 </div>
   <div class="card-footer">
-	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoProducto" >Cancelar</button>
+	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoProducto'" >Cancelar</button>
 	<button type="submit" class="btn btn-success">Guardar</button>
   </div> 
   </div> <!-- div que finaliza el footer del panel -->

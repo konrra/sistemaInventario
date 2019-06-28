@@ -55,9 +55,8 @@
 		    <label  class="col-lg-2 control-label">Tipo Cliente</label>
 		    <div class="col-xs-3">
 		    	<select class="form-control" name="tipo"> 
-		    		<option value="A" <c:if test="${cliente.tipo =='A' }">selected</c:if>  >Público</option>
-		    		<option value="A" <c:if test="${cliente.tipo =='A' }">selected</c:if>  >Activo</option>		    				    		
-		    		<option value="I" <c:if test="${cliente.tipo =='I' }">selected</c:if>  >Inactivo</option>
+		    		<option value="A" <c:if test="${cliente.tipo =='N' }">selected</c:if>  >Natural</option>
+		    		<option value="I" <c:if test="${cliente.tipo =='J' }">selected</c:if>  >Jurídico</option>
 		    		
 		    	</select>
 		    </div>
@@ -76,7 +75,7 @@
 </div> <!-- div que finaliza el body del panel -->
 </div>
   <div class="card-footer">
-	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCliente" >Cancelar</button>
+	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCliente'" >Cancelar</button>
 	<button type="submit" class="btn btn-success">Guardar</button>
   </div> <!-- div que finaliza el footer del panel -->
   

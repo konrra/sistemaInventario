@@ -96,7 +96,7 @@ $(window).load(function (){
 </div> <!-- div que finaliza el body del panel -->
 </div>
   <div class="card-footer">
-	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCliente" >Cancelar</button>
+	<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCliente'" >Cancelar</button>
 	<button type="submit" class="btn btn-success">Guardar</button>
   </div> <!-- div que finaliza el footer del panel -->
   

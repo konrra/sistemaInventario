@@ -18,6 +18,7 @@ import javax.persistence.Transient;
 public class Producto {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_producto")
 	private int id_producto;
 
 	@ManyToOne(fetch=FetchType.EAGER)
