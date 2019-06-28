@@ -12,10 +12,7 @@ public class Usuario {
 	@Id
 	@Column(name="id_usuario")
 	private int id_usuario;
-	
-	@Column(name="id_empleado")
-	private int id_empleado;
-	
+	 
 	@Column(name="usuario")
 	private String usuario;
 	
@@ -34,13 +31,7 @@ public class Usuario {
 		this.id_usuario = id_usuario;
 	}
 
-	public int getId_empleado() {
-		return id_empleado;
-	}
-
-	public void setId_empleado(int id_empleado) {
-		this.id_empleado = id_empleado;
-	}
+ 
 
 	public String getPassword() {
 		return password;

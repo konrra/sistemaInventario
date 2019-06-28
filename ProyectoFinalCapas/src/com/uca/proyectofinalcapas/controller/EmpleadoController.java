@@ -31,10 +31,10 @@ public class EmpleadoController {
 	@RequestMapping("/verExp")
 	public ModelAndView buscarExpediente(@RequestParam("usuario") String usuario){
 		ModelAndView mav = new ModelAndView();
-		int idUser= empleadoRepository.findByUsername(usuario);
-		Empleado empleado = empleadoRepository.findById(idUser);
-		mav.addObject("empleado", empleado);
-		mav.addObject("usuario", usuario);
+		//int idUser= empleadoRepository.findByUsername(usuario);
+		//Empleado empleado = empleadoRepository.findById(idUser);
+//		mav.addObject("empleado", empleado);
+//		mav.addObject("usuario", usuario);
 		mav.setViewName("expediente/verExpediente");
 		return mav;
 	}

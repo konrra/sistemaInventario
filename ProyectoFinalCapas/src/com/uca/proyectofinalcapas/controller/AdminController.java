@@ -31,35 +31,35 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping("/saveEmpleado")
-	public ModelAndView saveEmpleado(@ModelAttribute Empleado empleado){
-		ModelAndView mav = new ModelAndView();
-		Empleado result = empleadoRepository.save(empleado);
-		if(result != null) mav.addObject("resultado", 1);
-		else mav.addObject("resultado", 0);
-		mav.addObject("empleado", result);
-		mav.setViewName("expediente/editarExpediente");
-		return mav;
-	}
-	
-	@RequestMapping("/listadoEmp")
-	public ModelAndView listadoEmp(){
-		ModelAndView mav = new ModelAndView();
-		List<Empleado> empleado = empleadoRepository.findAllEmp();
-//		Integer total = empleadoRepository.countBySapellidoStartingWith(criteria);
-		mav.addObject("empleado", empleado);
-//		mav.addObject("total", total);
-		mav.setViewName("expediente/viewEmpleado");
-		return mav;
-	}
-	
-	@RequestMapping("/editarExp")
-//	requestParam trae el valor del parametro de la vista 
-	public ModelAndView indexEditar(@RequestParam("id_empleado") Integer id_empleado){
-		ModelAndView mav = new ModelAndView();
-		Empleado findOne = empleadoRepository.findOne(id_empleado);
-		mav.addObject("empleado", empleadoRepository.findOne(id_empleado));
-		mav.setViewName("expediente/editarExpediente");
-		return mav;
-	}
+//	@RequestMapping("/saveEmpleado")
+//	public ModelAndView saveEmpleado(@ModelAttribute Empleado empleado){
+//		ModelAndView mav = new ModelAndView();
+//		Empleado result = empleadoRepository.save(empleado);
+//		if(result != null) mav.addObject("resultado", 1);
+//		else mav.addObject("resultado", 0);
+//		mav.addObject("empleado", result);
+//		mav.setViewName("expediente/editarExpediente");
+//		return mav;
+//	}
+//	
+//	@RequestMapping("/listadoEmp")
+//	public ModelAndView listadoEmp(){
+//		ModelAndView mav = new ModelAndView();
+//		List<Empleado> empleado = empleadoRepository.findAllEmp();
+////		Integer total = empleadoRepository.countBySapellidoStartingWith(criteria);
+//		mav.addObject("empleado", empleado);
+////		mav.addObject("total", total);
+//		mav.setViewName("expediente/viewEmpleado");
+//		return mav;
+//	}
+//	
+//	@RequestMapping("/editarExp")
+////	requestParam trae el valor del parametro de la vista 
+//	public ModelAndView indexEditar(@RequestParam("id_empleado") Integer id_empleado){
+//		ModelAndView mav = new ModelAndView();
+//		Empleado findOne = empleadoRepository.findOne(id_empleado);
+//		mav.addObject("empleado", empleadoRepository.findOne(id_empleado));
+//		mav.setViewName("expediente/editarExpediente");
+//		return mav;
+//	}
 }
