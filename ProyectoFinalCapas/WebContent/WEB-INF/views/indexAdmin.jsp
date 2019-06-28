@@ -11,39 +11,39 @@
 <body class="body-back">
 	<%@ include file="template/LeftSidebar.jsp" %>
 
-<div class="panel panel-success">
-  <div class="panel-heading">
+<!-- <div class="panel panel-success"> -->
+<!--   <div class="panel-heading"> -->
   
-  	<nav class="navbar navbar-dark bg-dark">
-  		<a class="navbar-brand" href="${pageContext.request.contextPath}/indexAdmin">MENU</a>
+<!--   	<nav class="navbar navbar-dark bg-dark"> -->
+<%--   		<a class="navbar-brand" href="${pageContext.request.contextPath}/indexAdmin">MENU</a> --%>
   		
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
+<!-- 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"> -->
+<!-- 		    <span class="navbar-toggler-icon"></span> -->
+<!-- 		  </button> -->
 		  
-		  <div class="collapse navbar-collapse" id="navbarText">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item active">
-		        <a class="nav-link" href="${pageContext.request.contextPath}/indexCat">Administrar Catalagos <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="${pageContext.request.contextPath}/crearExp">Administrar Roles</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Administrar Usuarios</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Registrar Entradas</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Registrar Salidas</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Crear Venta</a>
-		      </li>
-		    </ul>
-		  </div>
-	</nav>
+<!-- 		  <div class="collapse navbar-collapse" id="navbarText"> -->
+<!-- 		    <ul class="navbar-nav mr-auto"> -->
+<!-- 		      <li class="nav-item active"> -->
+<%-- 		        <a class="nav-link" href="${pageContext.request.contextPath}/indexCat">Administrar Catalagos <span class="sr-only">(current)</span></a> --%>
+<!-- 		      </li> -->
+<!-- 		      <li class="nav-item"> -->
+<%-- 		        <a class="nav-link" href="${pageContext.request.contextPath}/crearExp">Administrar Roles</a> --%>
+<!-- 		      </li> -->
+<!-- 		      <li class="nav-item"> -->
+<!-- 		        <a class="nav-link" href="#">Administrar Usuarios</a> -->
+<!-- 		      </li> -->
+<!-- 		      <li class="nav-item"> -->
+<!-- 		        <a class="nav-link" href="#">Registrar Entradas</a> -->
+<!-- 		      </li> -->
+<!-- 		      <li class="nav-item"> -->
+<!-- 		        <a class="nav-link" href="#">Registrar Salidas</a> -->
+<!-- 		      </li> -->
+<!-- 		      <li class="nav-item"> -->
+<!-- 		        <a class="nav-link" href="#">Crear Venta</a> -->
+<!-- 		      </li> -->
+<!-- 		    </ul> -->
+<!-- 		  </div> -->
+<!-- 	</nav> -->
 
 
 <!-- </body> -->
