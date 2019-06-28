@@ -31,11 +31,12 @@
 	    </div>
 	  </div>
 	    
-	    <div class="form-group" style="display:none;">
+	    <div class="form-group" >
 		    <label  class="col-sm-2 control-label">Estado</label>
 		    <div class="col-sm-7">
 		    	<select class="form-control" name="estado"> 
 		    		<option value="A" <c:if test="${lugar.estado =='A' }">selected</c:if>  >Activo</option>
+		    		<option value="I" <c:if test="${lugar.estado =='I' }">selected</c:if>  >Inactivo</option>
 		    		
 		    	</select>
 		    </div>

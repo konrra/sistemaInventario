@@ -37,7 +37,10 @@
     <c:forEach items="${colectionResult}" var="dto">
 	      <tr>
 	        <td> <c:out value="${dto.nombre}"/> </td>
-	        <td><c:out value="${dto.tipo}"/></td>
+	        <td>
+	        	<c:if test="${dto.tipo == 'N'}"><c:out value="Natural"></c:out></c:if>
+	        	<c:if test="${dto.tipo == 'J'}"><c:out value="Jur&iacute;dico"></c:out> </c:if>
+	        </td>
 	        <td><c:out value="${dto.nit}"/></td>
 	        <td><c:out value="${dto.num_tel_cel}"/></td>
 	        <td><c:out value="${dto.num_tel_fijo}"/></td>
