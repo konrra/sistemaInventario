@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.proyectofinalcapas.domain.AlergiaxEmpleado;
-import com.uca.proyectofinalcapas.domain.Empleado;
-import com.uca.proyectofinalcapas.repository.AlergiaxEmpleadorepository;
-import com.uca.proyectofinalcapas.repository.EmpleadoRepository;
 
 
 
@@ -21,8 +18,8 @@ import com.uca.proyectofinalcapas.repository.EmpleadoRepository;
 @Controller
 public class AdminController {
 	
-	@Autowired
-	private EmpleadoRepository  empleadoRepository;
+//	@Autowired
+//	private EmpleadoRepository  empleadoRepository;
 	
 	
 	@RequestMapping("/crearExp")

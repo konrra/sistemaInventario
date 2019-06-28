@@ -5,17 +5,19 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="producto",schema="si")
 public class Producto {
 
-	@Id
-	@Column(name="id_producto")
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_producto;
 
 	@ManyToOne(fetch=FetchType.EAGER)
@@ -41,9 +43,19 @@ public class Producto {
 	@Column(name="precio_evento")
 	private BigDecimal precio_evento;
 	
+	@Transient
+	private int id_categoria_x_producto;
 	
 	
-	
+
+	public int getId_categoria_x_producto() {
+		return id_categoria_x_producto;
+	}
+
+	public void setId_categoria_x_producto(int id_categoria_x_producto) {
+		this.id_categoria_x_producto = id_categoria_x_producto;
+	}
+
 	public BigDecimal getprecio_publico() {
 		return precio_publico;
 	}
