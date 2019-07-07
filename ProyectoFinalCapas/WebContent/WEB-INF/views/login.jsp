@@ -21,7 +21,7 @@ body {
 }
 </style>
 
-<title>Sistema de Recursos Humanos</title>
+<title>Sistema de Inventario</title>
 </head>
 <body>
 	<div class="jumbotron jumbotron-fluid">
