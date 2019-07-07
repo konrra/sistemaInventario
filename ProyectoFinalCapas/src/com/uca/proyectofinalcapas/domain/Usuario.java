@@ -1,9 +1,12 @@
 package com.uca.proyectofinalcapas.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity 
 @Table(name="usuario", schema = "si" )
@@ -21,7 +24,28 @@ public class Usuario {
 	
 	@Column(name="rol")
 	private int rol;
+	
+	@Transient
+	private List<String> OpcMenu;
+	
+	public List<String> getOpcMenu() {
+		return OpcMenu;
+	}
 
+	public void setOpcMenu(List<String> opcMenu) {
+		OpcMenu = opcMenu;
+	}
+	
+//	private String rolDescripcion;
+//
+//
+//	public String getRolDescripcion() {
+//		return rolDescripcion;
+//	}
+//
+//	public void setRolDescripcion(String strings) {
+//		this.rolDescripcion = strings;
+//	}
 
 	public int getId_usuario() {
 		return id_usuario;
@@ -64,8 +88,5 @@ public class Usuario {
 	public void setRol(int rol) {
 		this.rol = rol;
 	}
-	
-	
-	
 	
 }
