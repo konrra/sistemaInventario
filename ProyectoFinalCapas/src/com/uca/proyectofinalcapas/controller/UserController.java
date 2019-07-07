@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.uca.proyectofinalcapas.domain.Rol;
 import com.uca.proyectofinalcapas.domain.Usuario;
 import com.uca.proyectofinalcapas.repository.UserRepository;
 
 @Controller
+@SessionAttributes({"user","menu"})
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
@@ -51,7 +52,7 @@ public class UserController {
 						
 						mav.setViewName("indexAdmin");
 					}else{
-						mav.setViewName("indexUsuario");
+						mav.setViewName("indexAdmin");
 					}
 				}else{
 					//si la contraseña es incorrecta se redirige a un mensaje de error

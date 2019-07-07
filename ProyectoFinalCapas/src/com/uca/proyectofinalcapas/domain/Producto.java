@@ -24,7 +24,6 @@ public class Producto {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_categoria_x_producto")
 	private Categoriaxproducto categoriaxproducto;
-	
 
 	@Column(name="nombre")
 	private String nombre;
@@ -43,6 +42,9 @@ public class Producto {
 	
 	@Column(name="precio_evento")
 	private BigDecimal precio_evento;
+	
+	@Column(name="codigo")
+	private String codigo;
 	
 	@Transient
 	private int id_categoria_x_producto;
@@ -156,7 +158,13 @@ public class Producto {
 		this.precio_evento = precio_evento;
 	}
 
-	
-	
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
 
 }
