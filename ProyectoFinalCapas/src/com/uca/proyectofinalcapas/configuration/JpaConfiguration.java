@@ -46,7 +46,7 @@ public class JpaConfiguration {
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/RecursosHumanos");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("postgres");
+		dataSource.setPassword("admin");
 		return dataSource;
 	}
 
