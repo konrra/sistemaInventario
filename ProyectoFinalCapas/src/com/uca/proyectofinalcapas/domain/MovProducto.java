@@ -22,6 +22,10 @@ public class MovProducto {
 	@JoinColumn(name = "id_lugar")
 	private Lugar lugar;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_cliente")
+	private Cliente id_cliente;
+	
 	@Column(name="tipo")
 	private String tipo;
 	
@@ -34,7 +38,8 @@ public class MovProducto {
 	@Column(name="comentario")
 	private String comentario;
 	
-	
+	@Column(name="tipo_entrada")
+	private String tipo_entrada;
 	
 
 	public Lugar getLugar() {
@@ -83,6 +88,30 @@ public class MovProducto {
 
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
+	}
+
+	public int getId_mov_producto() {
+		return id_mov_producto;
+	}
+
+	public void setId_mov_producto(int id_mov_producto) {
+		this.id_mov_producto = id_mov_producto;
+	}
+
+	public Cliente getId_cliente() {
+		return id_cliente;
+	}
+
+	public void setId_cliente(Cliente id_cliente) {
+		this.id_cliente = id_cliente;
+	}
+
+	public String getTipo_entrada() {
+		return tipo_entrada;
+	}
+
+	public void setTipo_entrada(String tipo_entrada) {
+		this.tipo_entrada = tipo_entrada;
 	}
 	
 	
