@@ -1,0 +1,2 @@
+select p.codigo as codigo,mp.cantidad as cantidad,p.nombre as Descripcion, p.precio_publico as precioUnitario, mp.cantidad* p.precio_publico as Ventas
+from si.movproducto mp inner join si.producto p on mp.id_producto = p.id_producto;
