@@ -12,6 +12,4 @@
 
 <body class="body-back">
 	<%@ include file="template/LeftSidebar.jsp" %>
-
-
 </body>
