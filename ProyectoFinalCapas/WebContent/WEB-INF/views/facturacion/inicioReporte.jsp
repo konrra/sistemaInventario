@@ -22,21 +22,21 @@
 						<div class="card" style="width: 18rem;">
 						  <div class="card-body">
 						    <h5 class="card-title">Factura</h5>
-						    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+						    <h6 class="card-subtitle mb-2 text-muted">...</h6>
 						  </div>
 						</div>
 						 &nbsp; &nbsp;
 						<div class="card" style="width: 18rem;">
 						  <div class="card-body">
 						    <h5 class="card-title">Crédito Físcal</h5>
-						    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+						    <h6 class="card-subtitle mb-2 text-muted">...</h6>
 						  </div>
 						</div>
 						&nbsp; &nbsp;
 						<div class="card" style="width: 18rem;">
 						  <div class="card-body">
 						    <h5 class="card-title">Nota de Remisión</h5>
-						    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+						    <h6 class="card-subtitle mb-2 text-muted">...</h6>
 						  </div>
 						</div>
 					</div>
