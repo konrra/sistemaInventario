@@ -23,7 +23,7 @@ public class JpaConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
-		em.setPersistenceUnitName("RecursosHumanos");
+		em.setPersistenceUnitName("SistemaInventario");
 		em.setPackagesToScan("com.uca.proyectofinalcapas.domain");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();

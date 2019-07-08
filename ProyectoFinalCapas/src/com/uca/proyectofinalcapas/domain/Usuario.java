@@ -35,17 +35,6 @@ public class Usuario {
 	public void setOpcMenu(List<String> opcMenu) {
 		OpcMenu = opcMenu;
 	}
-	
-//	private String rolDescripcion;
-//
-//
-//	public String getRolDescripcion() {
-//		return rolDescripcion;
-//	}
-//
-//	public void setRolDescripcion(String strings) {
-//		this.rolDescripcion = strings;
-//	}
 
 	public int getId_usuario() {
 		return id_usuario;
@@ -54,8 +43,6 @@ public class Usuario {
 	public void setId_usuario(int id_usuario) {
 		this.id_usuario = id_usuario;
 	}
-
- 
 
 	public String getPassword() {
 		return password;

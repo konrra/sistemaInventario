@@ -54,6 +54,17 @@
 						<li><a href=""> jqGrid</a></li>
 					</ul></li>
 				</c:if>	
+				
+				<c:if test="${dto == 'C'}">
+					<li><a href="#" data-toggle="collapse" data-target="#tables"
+					class="collapsed active"><i class="fa fa-table"></i> <span
+						class="nav-label">Seguridad</span><span
+						class="fa fa-chevron-left pull-right"></span></a>
+					<ul class="sub-menu collapse" id="tables">
+						<li><a href="${pageContext.request.contextPath}/listadoUsuario">Usuarios</a></li>
+						<li><a href="">Roles</a></li>
+					</ul></li>
+				</c:if>	
 					
 			</c:forEach>
 		
