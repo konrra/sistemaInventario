@@ -45,13 +45,11 @@
 				<c:if test="${dto == 'F'}">
 					<li><a href="#" data-toggle="collapse" data-target="#tables"
 					class="collapsed active"><i class="fa fa-table"></i> <span
-						class="nav-label">Facturacion</span><span
+						class="nav-label">Facturación</span><span
 						class="fa fa-chevron-left pull-right"></span></a>
 					<ul class="sub-menu collapse" id="tables">
-						<li><a href=""> Static Tables</a></li>
-						<li><a href=""> Data Tables</a></li>
-						<li><a href=""> Foo Tables</a></li>
-						<li><a href=""> jqGrid</a></li>
+						<li><a href="${pageContext.request.contextPath}/inicioFactura">Generación Factura</a></li>
+						<li><a href="">Consulta Factura</a></li>
 					</ul></li>
 				</c:if>	
 				

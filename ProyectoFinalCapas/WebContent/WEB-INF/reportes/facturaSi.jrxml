@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Asencio test" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="5" uuid="07fb4385-9b48-4c40-bbec-01f7ae27d81d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="236"/>
+	<property name="ireport.y" value="249"/>
+	<parameter name="WHERE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ORDERBY" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["facturascli.codigo"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDFACTURA" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../subreports/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 	facturascli.idfactura as idfactura,
+	facturascli.codigo as codigofactura,
+	facturascli.codserie as codserie,
+    albaranescli.fecha as fechaalbaran,
+	facturascli.fecha as fechafactura,
+	facturascli.total as totalfactura,
+	facturascli.coddivisa as divisa,
+	facturascli.codejercicio as codejercicio,
+	facturascli.codpago as codformapago,
+	facturascli.codalmacen as codalmacen,
+	facturascli.totaliva as facturatotaliva,
+	facturascli.totalrecargo as totalrecargo,
+	facturascli.codcliente as codcliente,
+	facturascli.nombrecliente as nombrecliente,
+	facturascli.cifnif as cifnif,
+	facturascli.tasaconv as tasaconv,
+	facturascli.coddir as coddireccion,
+	facturascli.direccion as direccionfactura,
+	facturascli.codpostal as cpfactura,
+	facturascli.ciudad as ciudadfactura,
+	facturascli.provincia as provinciafactura,
+	facturascli.apartado as apartadofactura,
+	facturascli.codpais as paisfactura,
+	facturascli.neto as netofactura,
+	facturascli.deabono as deabono,
+	facturascli.idfacturarect as idfacturarect,
+	facturascli.observaciones as observacionesfactura,
+	facturascli.irpf as facturairpf,
+	facturascli.totalirpf as facturatotalirpf,
+ 	lineasfacturascli.idfactura as lineafacturaidfactura,
+	lineasfacturascli.referencia as referencia,
+	lineasfacturascli.descripcion as descripcionreferencia,
+	lineasfacturascli.cantidad as cantidadreferencia,
+	lineasfacturascli.pvpunitario as referenciaprecio,
+	lineasfacturascli.pvptotal as pvptotallinea,
+	lineasfacturascli.codimpuesto as ivalinea,
+	lineasfacturascli.iva as porivalinea,
+    lineasfacturascli.dtopor as dtopor,
+	albaranescli.codigo as codalbaran,
+	lineasfacturascli.idalbaran as idalbaran,
+	empresa.nombre as nombreempresa,
+	empresa.cifnif as cifempresa,
+	empresa.direccion as direccionempresa,
+    (select descripcion from agenciasclientes where codagencia = clientes.codagencia) as  nombreagencia,
+    (select fechav from reciboscli where idfactura = facturascli.idfactura) as vencimiento,
+	(select contenido from fllarge where refkey = empresa.logo) as logoempresa,
+	empresa.codpostal as cpempresa,
+	empresa.ciudad as ciudadempresa,
+	empresa.provincia as provinciaempresa,
+	empresa.apartado as apartadoempresa,
+	empresa.codpais as codpaisempresa,
+    lineasfacturascli.recargo as recargoeq,
+    facturascli.cargoscalculado as cargos,
+    facturascli.dtoprontopagocalculado as dtoprontopagocalculado,
+    facturascli.dtoprontopago as dtoprontopagopor,
+    facturascli.portescalculado as portes,
+    facturascli.dtocomercialcalculado as dtocomercial,
+    facturascli.dtocomercial as dtocompor,
+    clientes.codcliente as codcliente,
+    clientes.codagente as codagente,
+    clientes.tipoportes as tipoportes,
+    clientes.nombrecomercial as nomcomercial,
+    clientes.codigoproveedor as codprov,
+    facturascli.bruto as bruto,
+    cuentasbcocli.iban as iban,
+    bancos.nombre as nombrebanco,
+    facturascli.codigorect as codigorect,
+    facturascli.segurocalculado as segurocalculado,
+    facturascli.neto+facturascli.totaliva+facturascli.totalrecargo,formaspago.descripcion as nomfpago,
+	(
+		select cuentasbcocli.descripcion from cuentasbcocli where cuentasbcocli.codcliente = facturascli.codcliente and cuentasbcocli.codcuenta = clientes.codcuentadom
+	) as nombanco
+FROM empresa, facturascli
+INNER JOIN lineasfacturascli ON facturascli.idfactura = lineasfacturascli.idfactura
+INNER JOIN formaspago ON facturascli.codpago = formaspago.codpago
+INNER JOIN clientes ON clientes.codcliente = facturascli.codcliente
+LEFT JOIN cuentasbcocli ON cuentasbcocli.codcliente = facturascli.codcliente
+LEFT OUTER JOIN bancos ON bancos.entidad = cuentasbcocli.ctaentidad
+LEFT OUTER JOIN albaranescli ON albaranescli.idalbaran = lineasfacturascli.idalbaran
+WHERE $P!{WHERE}
+ORDER BY $P!{ORDERBY}]]>
+	</queryString>
+	<field name="idfactura" class="java.lang.Integer"/>
+	<field name="codigofactura" class="java.lang.String"/>
+	<field name="codprov" class="java.lang.String"/>
+	<field name="nomcomercial" class="java.lang.String"/>
+	<field name="codigorect" class="java.lang.String"/>
+	<field name="nombrebanco" class="java.lang.String"/>
+	<field name="iban" class="java.lang.String"/>
+	<field name="codagente" class="java.lang.String"/>
+	<field name="tipoportes" class="java.lang.String"/>
+	<field name="codserie" class="java.lang.String"/>
+	<field name="fechafactura" class="java.sql.Date"/>
+	<field name="totalfactura" class="java.lang.Double"/>
+	<field name="divisa" class="java.lang.String"/>
+	<field name="codejercicio" class="java.lang.String"/>
+	<field name="codformapago" class="java.lang.String"/>
+	<field name="codalmacen" class="java.lang.String"/>
+	<field name="facturatotaliva" class="java.lang.Double"/>
+	<field name="totalrecargo" class="java.lang.Double"/>
+	<field name="codcliente" class="java.lang.String"/>
+	<field name="nombrecliente" class="java.lang.String"/>
+	<field name="cifnif" class="java.lang.String"/>
+	<field name="tasaconv" class="java.lang.Double"/>
+	<field name="coddireccion" class="java.lang.Integer"/>
+	<field name="direccionfactura" class="java.lang.String"/>
+	<field name="cpfactura" class="java.lang.String"/>
+	<field name="ciudadfactura" class="java.lang.String"/>
+	<field name="provinciafactura" class="java.lang.String"/>
+	<field name="apartadofactura" class="java.lang.String"/>
+	<field name="paisfactura" class="java.lang.String"/>
+	<field name="netofactura" class="java.lang.Double"/>
+	<field name="deabono" class="java.lang.Boolean"/>
+	<field name="idfacturarect" class="java.lang.Integer"/>
+	<field name="observacionesfactura" class="java.lang.String"/>
+	<field name="facturairpf" class="java.lang.Double"/>
+	<field name="facturatotalirpf" class="java.lang.Double"/>
+	<field name="lineafacturaidfactura" class="java.lang.Integer"/>
+	<field name="referencia" class="java.lang.String"/>
+	<field name="descripcionreferencia" class="java.lang.String"/>
+	<field name="cantidadreferencia" class="java.lang.Double"/>
+	<field name="referenciaprecio" class="java.lang.Double"/>
+	<field name="pvptotallinea" class="java.lang.Double"/>
+	<field name="ivalinea" class="java.lang.String"/>
+	<field name="porivalinea" class="java.lang.Double"/>
+	<field name="dtopor" class="java.lang.Double"/>
+	<field name="codalbaran" class="java.lang.String"/>
+	<field name="fechaalbaran" class="java.sql.Date"/>
+	<field name="idalbaran" class="java.lang.Integer"/>
+	<field name="nombreempresa" class="java.lang.String"/>
+	<field name="cifempresa" class="java.lang.String"/>
+	<field name="direccionempresa" class="java.lang.String"/>
+	<field name="nombreagencia" class="java.lang.String"/>
+	<field name="logoempresa" class="java.lang.String"/>
+	<field name="cpempresa" class="java.lang.String"/>
+	<field name="ciudadempresa" class="java.lang.String"/>
+	<field name="provinciaempresa" class="java.lang.String"/>
+	<field name="apartadoempresa" class="java.lang.String"/>
+	<field name="codpaisempresa" class="java.lang.String"/>
+	<field name="recargoeq" class="java.lang.Double"/>
+	<field name="cargos" class="java.lang.Double"/>
+	<field name="dtoprontopagocalculado" class="java.lang.Double"/>
+	<field name="dtoprontopagopor" class="java.lang.Double"/>
+	<field name="portes" class="java.lang.Double"/>
+	<field name="dtocomercial" class="java.lang.Double"/>
+	<field name="dtocompor" class="java.lang.Double"/>
+	<field name="bruto" class="java.lang.Double"/>
+	<field name="segurocalculado" class="java.lang.Double"/>
+	<field name="nomfpago" class="java.lang.String"/>
+	<field name="nombanco" class="java.lang.String"/>
+	<field name="vencimiento" class="java.lang.String"/>
+	<variable name="sumaysigue" class="java.lang.Double" resetType="Group" resetGroup="IDFACTURA" calculation="Sum">
+		<variableExpression><![CDATA[$F{pvptotallinea}]]></variableExpression>
+	</variable>
+	<group name="IDALBARAN">
+		<groupExpression><![CDATA[$F{idalbaran}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<printWhenExpression><![CDATA[$F{codalbaran}!=null]]></printWhenExpression>
+				<staticText>
+					<reportElement x="53" y="0" width="84" height="20" uuid="89ec4b1c-3b2c-4724-83f9-a95ef05b68b6"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Albaran Núm:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="137" y="0" width="116" height="20" uuid="3b463edb-10c3-404b-a173-53a5ba4e2d70"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codalbaran}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="259" y="0" width="48" height="15" uuid="7c5c3778-8f10-4065-8f13-b02e925c3ac3"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[de fecha:]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="307" y="0" width="100" height="15" uuid="1a1253bf-2780-4e40-b8a0-26dec117e3e0"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fechaalbaran}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="IDFACTURA" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true" keepTogether="true">
+		<groupExpression><![CDATA[$F{idfactura}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<printWhenExpression><![CDATA[$F{codigorect}!=null]]></printWhenExpression>
+				<staticText>
+					<reportElement x="53" y="3" width="106" height="20" uuid="69a7e30d-b043-4aa2-b3d8-3fff94dd94a6"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+						<paragraph lineSpacing="1_1_2"/>
+					</textElement>
+					<text><![CDATA[Rectifica a la factura :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="159" y="3" width="121" height="20" uuid="36491db2-5d6f-4fff-a977-fb7d7f77d2c8"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codigorect}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="15">
+				<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
+				<textField pattern="#,##0.00 €;-#,##0.00 €" isBlankWhenNull="true">
+					<reportElement x="477" y="0" width="60" height="13" uuid="fb33dea8-beef-4d11-a578-3bd63cf55aba"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sumaysigue}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="378" y="0" width="91" height="13" uuid="d3d09660-2a71-4e9b-b806-32f48556e967"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sigue:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="17">
+				<line>
+					<reportElement x="0" y="9" width="554" height="1" forecolor="#AAAAAA" uuid="62a4e2d3-745d-4117-8307-7dce0ac98c82"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="239">
+			<rectangle>
+				<reportElement x="307" y="112" width="219" height="82" uuid="302d172a-442a-4ebe-97d5-fdfd25d8f46f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="527" y="65" width="29" height="12" uuid="a579ad4b-f23a-4e32-ab9d-71f25d06de95"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="116" width="64" height="12" uuid="f30403da-78cc-4abd-b82c-696668eb981d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="113" y="116" width="116" height="12" uuid="13645053-55ae-43fd-ba4a-41011fc341fc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigofactura}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="312" y="164" width="206" height="12" uuid="d70a2cf0-725e-4f89-8a32-1eab45a1daa5"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provinciafactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="176" width="100" height="12" uuid="72a7c61b-5e85-4989-838d-6c3392a6bbb0"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cifnif}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="113" y="128" width="116" height="12" uuid="209dd343-03a1-49ec-9316-f329b3089ec1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechafactura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="128" width="64" height="12" uuid="5d3cc819-9f69-4d7b-977b-fc49f9d89bd7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="128" width="206" height="12" uuid="74196d2f-6524-4472-8398-4ac06022371b"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrecliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="140" width="64" height="12" uuid="541a1df3-f49d-41eb-a3e2-8dd7ec8bf562"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº CLIENTE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="113" y="140" width="116" height="12" uuid="154a25fe-76b2-4b90-91ed-8c7836370f75"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codcliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="489" y="65" width="35" height="12" uuid="0ca1e18f-bf05-4be1-a959-066539d5a52a"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAGINA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="219" width="49" height="20" forecolor="#000000" uuid="c614298e-e1f1-4d41-aedd-5da61dca6cec"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="219" width="59" height="20" forecolor="#000000" uuid="c1dafb9d-c164-4426-8de1-3c3a7ab9674c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="219" width="60" height="20" forecolor="#000000" uuid="1b29b202-7c85-4e7e-9e88-cd7705ba1610"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="219" width="53" height="20" forecolor="#000000" uuid="87696499-4248-48b5-81da-c9c5afa4d4d2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DTO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="218" width="263" height="20" forecolor="#000000" uuid="df9a9585-84b3-466c-ad25-c46f99b1d80c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONCEPTO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="238" width="554" height="1" uuid="6ab3be3a-9ed6-4312-9266-e15fe85ffeca"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="218" width="49" height="20" forecolor="#000000" uuid="511b3f69-0240-40fc-a57c-4eac6054b139"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="140" width="206" height="12" uuid="81b85d2b-f434-4784-ae5f-80aec16f8b08"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccionfactura}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="312" y="152" width="62" height="12" uuid="438c2dea-a035-4167-8764-74ac04ef80c2"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cpfactura}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="383" y="152" width="86" height="12" uuid="9c546418-0a5f-4229-986e-eb9ab32c3020"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudadfactura}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="312" y="116" width="206" height="12" uuid="320c8091-ab28-43ec-b97f-7cae5e6c32ac"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomcomercial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="176" width="81" height="12" uuid="b956eeae-895e-4846-8a23-21e66dc58837"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÓD. PROVEEDOR:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="113" y="176" width="116" height="12" uuid="7aaadc20-e1d1-4654-bb79-300a8e82e6b7"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codprov}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="16" y="10" width="50" height="50" uuid="543902e8-f311-4c4b-b62e-c269046b2945"/>
+				<imageExpression><![CDATA[""]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="66" y="0" width="251" height="17" uuid="5a717f48-2d26-42bb-9fb7-945f286db9a7"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcionreferencia}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 €" isBlankWhenNull="false">
+				<reportElement x="365" y="0" width="59" height="17" uuid="70d45ba8-b09a-42d4-b24f-38cf3d8f9b25">
+					<printWhenExpression><![CDATA[$F{referenciaprecio} != 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{referenciaprecio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 €;-#,##0.00 €" isBlankWhenNull="false">
+				<reportElement x="477" y="0" width="60" height="17" uuid="220708e1-fecd-4729-98f8-08fe5df795ad">
+					<printWhenExpression><![CDATA[$F{pvptotallinea} != 0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pvptotallinea}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0" isBlankWhenNull="false">
+				<reportElement x="4" y="0" width="49" height="17" uuid="25f92cc0-1902-4060-aca1-51a87e379b98">
+					<printWhenExpression><![CDATA[$F{cantidadreferencia} != 0]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{referencia}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 " isBlankWhenNull="true">
+				<reportElement x="424" y="0" width="53" height="17" uuid="959b127c-b814-4d01-bc4b-b88d735a9a15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtopor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0" isBlankWhenNull="false">
+				<reportElement x="316" y="0" width="49" height="17" uuid="a017e8f7-21ce-498c-a5f1-ee4946d6da54">
+					<printWhenExpression><![CDATA[$F{cantidadreferencia} != 0]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidadreferencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="49">
+			<staticText>
+				<reportElement x="378" y="0" width="91" height="13" uuid="9d2db475-52f6-4bc5-a4ab-2165f7f53cee">
+					<printWhenExpression><![CDATA[!$V{sumaysigue}.equals( $F{bruto} )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Suma y Sigue:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00 €;-#,##0.00 €">
+				<reportElement x="469" y="0" width="68" height="13" uuid="0870b338-dc40-4f9f-ac11-33c2f28229ce">
+					<printWhenExpression><![CDATA[!$V{sumaysigue}.equals($F{bruto})]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sumaysigue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="191">
+			<rectangle>
+				<reportElement x="307" y="71" width="219" height="90" uuid="4a9ddc33-c422-403d-9e12-f4529c6584dd"/>
+			</rectangle>
+			<line>
+				<reportElement x="1" y="58" width="552" height="1" forecolor="#9D9B9B" uuid="d9211348-531a-44c2-b9d8-05b141c1b3e7"/>
+			</line>
+			<staticText>
+				<reportElement x="489" y="3" width="66" height="13" forecolor="#000000" uuid="a4d94810-fe47-4137-b52b-bdb1bee15640"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL FACTURA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="3" width="91" height="13" forecolor="#000000" uuid="c8e8cd87-98a3-463f-ad5e-c9dd02b8cd33"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" markup="none">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRUTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="3" width="77" height="13" forecolor="#000000" uuid="997a81ac-173f-4c39-98f6-5af77b37e1dc"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BASE IMP.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="3" width="82" height="13" forecolor="#000000" uuid="0e744c81-6b6d-4fb7-b58f-9e9d63bada22"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I.V.A.]]></text>
+			</staticText>
+			<textField pattern="#,##0.00 €;-#,##0.00 €">
+				<reportElement x="1" y="16" width="91" height="13" uuid="ea0c8f1b-5373-42ce-8f2d-7ea093fafd13"/>
+				<box topPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bruto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 €;-#,##0.00 €">
+				<reportElement x="489" y="16" width="66" height="13" uuid="d7af5341-527d-4eb7-b43e-8dc3fd198091"/>
+				<box topPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalfactura}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 €;-#,##0.00 €">
+				<reportElement x="260" y="16" width="77" height="13" uuid="d289a0a3-4e87-43de-b289-18cc63dbbb38"/>
+				<box topPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netofactura}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="312" y="84" width="206" height="73" uuid="54eba8cf-ac5b-4e1f-9fa9-0d225bda9c60"/>
+				<box topPadding="1" leftPadding="1"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{observacionesfactura}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="312" y="72" width="93" height="13" uuid="08186b28-c8e5-407f-a0db-47954b4b4b17"/>
+				<box topPadding="1">
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observaciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="95" width="88" height="12" uuid="b3dfd28f-093f-4b98-a8a8-5b3d0b692e8f"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENCIMIENTOS:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="100" y="95" width="196" height="62" uuid="167c8049-0b89-4c2c-a9fe-6a6b7bdc8b11"/>
+				<subreportParameter name="IDFACTURA">
+					<subreportParameterExpression><![CDATA[$F{idfactura}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "i_facturascli_vencimientos.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="193" y="96" width="100" height="12" uuid="65d85461-5b0c-4e14-8ea7-25941c8be846"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="57" y="73" width="196" height="12" uuid="0260fe94-3379-46b2-8b8d-8bb33efb8afa"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomfpago}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="73" width="46" height="12" uuid="dd9758cb-750b-4d45-8a45-f545e0d48426"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F.PAGO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="3" width="70" height="13" forecolor="#000000" uuid="b6495d0e-a01c-4618-923c-c627051236f4"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REC.EQ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="57" y="84" width="120" height="11" uuid="ea238b5b-0bdc-4052-ae30-6a74b78aafea"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrebanco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="84" width="46" height="12" uuid="ab4275ad-0193-4c13-89e3-2d01680daea9"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANCO:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="177" y="84" width="119" height="11" uuid="d7b107ee-3886-4b57-9108-2f496baef884"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iban}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="337" y="16" width="82" height="31" uuid="f370d9d3-3324-4156-989a-6413682e02db"/>
+				<subreportParameter name="IDFACTURA">
+					<subreportParameterExpression><![CDATA[$F{idfactura}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "i_facturascli_ivas.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="419" y="16" width="70" height="31" uuid="1e08b4bf-08bc-4c85-95e2-5f71fadb1810"/>
+				<subreportParameter name="IDFACTURA">
+					<subreportParameterExpression><![CDATA[$F{idfactura}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "i_facturascli_rq.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="1" y="29" width="555" height="1" forecolor="#9D9B9B" uuid="33879d1b-e145-4912-b790-6207f295c24c"/>
+				<graphicElement>
+					<pen lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="181" y="3" width="79" height="13" forecolor="#000000" uuid="6dd26341-0998-4154-8bcf-1f063915dea8"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PORTES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="3" width="89" height="13" forecolor="#000000" uuid="587e93ab-daba-4361-96cd-b37dcd933b9e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DTO. COMERCIAL]]></text>
+			</staticText>
+			<textField pattern="###0.00€;-###0.00€">
+				<reportElement x="181" y="16" width="79" height="13" uuid="533723a1-0a90-4783-891f-5562d986eaf0"/>
+				<box topPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{portes}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00€;-###0.00€">
+				<reportElement x="92" y="16" width="89" height="13" uuid="bc6f1511-b10b-4eb9-a1d3-2c161dc6180e"/>
+				<box topPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtocomercial}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

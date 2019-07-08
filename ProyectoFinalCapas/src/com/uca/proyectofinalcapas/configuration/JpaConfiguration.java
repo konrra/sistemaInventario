@@ -44,9 +44,9 @@ public class JpaConfiguration {
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/RecursosHumanos");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/SistemaInventario");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("admin");
+		dataSource.setPassword("root");
 		return dataSource;
 	}
 
