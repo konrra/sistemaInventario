@@ -19,7 +19,7 @@
 					<script type="text/javascript"	src="resources/jquery-ui/jquery-ui.js"></script>
 					<br><br>
 					<div class="row">
-						<div class="card" style="width: 18rem;">
+						<div class="card" style="width: 18rem;" onclick="location.href='${pageContext.request.contextPath}/crearFactura'" >
 						  <div class="card-body">
 						    <h5 class="card-title">Factura</h5>
 						    <h6 class="card-subtitle mb-2 text-muted">...</h6>
