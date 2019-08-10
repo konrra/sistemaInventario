@@ -5,6 +5,21 @@
 </head>
 
 <div>
+<script type="text/javascript">
+$(document).ready(function() {
+    var table = $('#tablePro').DataTable();
+ 
+    $('#tablePro tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+    } );
+ 
+    $('#button').click( function () {
+        alert( table.rows('.selected').data().length +' row(s) selected' );
+    } );
+} );
+
+</script>
+
 	<div class="row">
 		<div class="col-xs-*">
 			<%@ include file="../template/LeftSidebar.jsp"%>
@@ -14,9 +29,12 @@
 			<div class="container" style="margin-left: 10%; margin-top: 5%">
 
 				<body class="body-back">
+				
+				<script src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
+				<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 					<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-					<script type="text/javascript"
-						src="resources/jquery-ui/jquery-ui.js"></script>
+					<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+					<script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
 
 					<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 					<div class="card">
@@ -29,7 +47,7 @@
 						</div>
 						<div class="card-body">
 
-							<table class="table table-sm table-bordere table-hover">
+							<table id="tablePro" class="table table-sm table-bordere table-hover">
 								<thead class="thead-light">
 									<tr>
 										<th>Descripci&oacute;n</th>
