@@ -5,8 +5,8 @@
 </head>
 
 <div>
-	<div class="row">
-		<div class="col-xs-*">
+	<div class="row" style="height:100vh;">
+		<div class="col-xs-*" style="background-color: black;" >
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
@@ -15,7 +15,8 @@
 
 
 				<body class="body-back">
-
+				<form class="form-horizontal" role="form"
+						action="${pageContext.request.contextPath}/actualizarCliente">
 					<input type="hidden" name="id_cliente" id="id_cliente"
 						value="${cliente.id_cliente}">
 					<div class="card">
@@ -108,5 +109,5 @@
 
 		</div>
 	</div>
-	</body>
+	</div>
 </html>

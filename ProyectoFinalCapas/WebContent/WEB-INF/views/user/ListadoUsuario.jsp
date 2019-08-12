@@ -10,8 +10,8 @@
 	</head>
 
 	<div>
-		<div class="row">
-			<div class="col-xs-*">
+		<div class="row" style="height:100vh;">
+		<div class="col-xs-*" style="background-color: black;" >
 				<%@ include file="../template/LeftSidebar.jsp"%>
 			</div>
 	
@@ -23,21 +23,58 @@
 								Edición de informaci&oacute;n del Usuario
 								<button type="button" style="float: right;"
 									class="btn btn-success btn-sm"
-									onclick="location.href='${pageContext.request.contextPath}/crearCliente'">Agregar
+									onclick="location.href='${pageContext.request.contextPath}/crearUsuario'">Agregar
 									+</button>
 							</div>
 							<div class="card-body overflow-auto">
-								
+								<table class="table table-sm table-bordere table-hover">
+									<thead class="thead-light">
+										<tr>
+											<th>Usuario</th>
+											<th>Password</th>
+											<th>Rol</th>
+											<th>Nombre</th>
+											<th>Apellido</th>
+											<th><span class="glyphicon glyphicon-cog"> </span></th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:if test="${total != 0 }">
+											<c:forEach items="${colectionResult}" var="dto">
+												<tr>
+													<td><c:out value="${dto.usuario}" /></td>
+													<td><c:out value="${dto.password}" /></td>
+													<td><c:out value="${dto.rol}" /></td>
+													<td><c:out value="${dto.nombre}" /></td>
+													<td><c:out value="${dto.apellido}" /></td>
+													<td align=Right>
+														<button type="button" class="btn btn-info btn-sm"
+															onclick="location.href='${pageContext.request.contextPath}/editarUsuario?id_usuario=${dto.id_usuario}'">
+															Editar</button>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:if>
+										<c:if test="${total == 0 }">
+											<tr>
+												<td align="center" style="font-style: italic;" colspan="7">No
+													hay registros que mostrar aqui</td>
+											</tr>
+										</c:if>
+									</tbody>
+								</table>
 							</div>
 							<div class="card-footer text-muted">
 								<label style="float: right;"> La cantidad de registros: <c:out
 										value="${total }" /></label>
 							</div>
+						</div>	
 					</body>
+					</div>
 				</div>
 			</div>
 	
 		</div>
-	</div>
-</body>
+	
+
 </html>

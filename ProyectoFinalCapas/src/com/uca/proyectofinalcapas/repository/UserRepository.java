@@ -21,6 +21,7 @@ public interface UserRepository extends JpaRepository<Usuario, Integer>  {
 	
 	public static String COUNT_ALL_USER = "select count(u.id_usuario) from Usuario u";
 	
+	
 	@Query(FIND_ROL)
 	public String findRol(@Param("idrol") int idrol);
 	
@@ -28,10 +29,10 @@ public interface UserRepository extends JpaRepository<Usuario, Integer>  {
 	public List<Usuario> findByUsuario( @Param("usuario") String usuario);
 	
 	@Query(FIND_BY_ID)
-	public List<Usuario> findByIdUser(@Param("idUser") int idUser);
+	public Usuario findByIdUser(@Param("idUser") int idUser);
 	
 	@Query(FIND_ALL_USER)
-	public List<Usuario> findAllCliente();
+	public List<Usuario> findAllUsuario();
 	
 	@Query(COUNT_ALL_USER)
 	public int countAllUser();

@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -72,7 +74,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		try {
 			
-			List<Usuario> listadoUsuario = userRepository.findAllCliente();
+			List<Usuario> listadoUsuario = userRepository.findAllUsuario();
 			int totalUsuario = userRepository.countAllUser();
 			mav.addObject("colectionResult", listadoUsuario);
 			mav.addObject("total", totalUsuario);
@@ -84,6 +86,39 @@ public class UserController {
 		mav.setViewName("user/ListadoUsuario");
 		return mav;
 	}
+	
+	@RequestMapping(value="/editarUsuario", method=RequestMethod.GET)
+	public ModelAndView editarUsuario(@RequestParam("id_usuario") Integer idUsuario) {
+	
+		ModelAndView mav = new ModelAndView();
+		
+		try {
+			Usuario usuario = userRepository.findByIdUser(idUsuario);
+			mav.addObject("usuario", usuario);
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+		}
+		
+		mav.setViewName("user/editarUsuario");
+		
+		return mav;
+	}
+	
+//	metodo que actualiza o crea un cliente 
+	@RequestMapping(value="/actualizarUsuario", method=RequestMethod.GET)
+	public ModelAndView actCliente(@ModelAttribute Usuario usuario) {
+		ModelAndView mav = new ModelAndView();
+		if(StringUtils.isEmpty(usuario.getUsuario())) {
+			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
+			mav.setViewName("user/editarUsuario");
+		}else {
+			userRepository.save(usuario);
+			return listadoUsuario();
+		}
+
+		return mav;
+	}
+	
 	
 	
 }//cierre de clase

@@ -10,8 +10,8 @@
 	</head>
 
 	<div>
-		<div class="row">
-			<div class="col-xs-*">
+		<div class="row" style="height:100vh;">
+		<div class="col-xs-*" style="background-color: black;" >
 				<%@ include file="../template/LeftSidebar.jsp"%>
 			</div>
 	
@@ -89,5 +89,4 @@
 	
 		</div>
 	</div>
-</body>
 </html>
