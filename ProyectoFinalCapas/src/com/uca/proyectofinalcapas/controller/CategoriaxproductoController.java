@@ -67,6 +67,7 @@ public class CategoriaxproductoController {
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("categoria/crearCategoria");
 		}else {
+			categoriaxproducto.setEstado("A");
 			categoriaProductoRepository.save(categoriaxproducto);
 			return listadoCategoria();
 		}

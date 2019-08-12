@@ -54,9 +54,9 @@
 								<br>
 								<div style="width: 50%; float: left;">
 									<div class="form-group">
-										<label class="col-sm-4 control-label">Nombre Completo*</label>
-										<div class="col-sm-7 ">
-											<input type="text" class="form-control" name="nombre"	value="${cliente.nombre }" >
+										<label class="col-sm-3 control-label">Nombre*</label>
+										<div class="col-sm-9 ">
+											<input type="text" class="form-control" name="nombre"	value="${cliente.nombre }" size="30">
 										</div>
 									</div>
 									<div class="form-group">
