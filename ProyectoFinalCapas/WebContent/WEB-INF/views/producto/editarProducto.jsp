@@ -4,6 +4,11 @@
 <%@ include file="../template/Header.jsp"%>
 </head>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.dinero').mask("#,##0.00", {reverse: true});
+	});
+</script>
 <div>
 	<div class="row">
 		<div class="col-xs-*">
@@ -43,7 +48,7 @@
 										value="${producto.id_producto }">
 
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Nombre*</label>
+										<label class="col-sm-4 control-label">Producto*</label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control" name="nombre"
 												value="${producto.nombre }">
@@ -53,7 +58,7 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Costo</label>
 										<div class="col-sm-7">
-											<input type="text" alt="numeric" class="form-control"
+											<input type="text"  class="form-control dinero"
 												name="costo" value="${producto.costo }">
 										</div>
 									</div>
@@ -62,8 +67,8 @@
 										<label class="col-sm-3 control-label">Precio
 											P&uacute;blico </label>
 										<div class="col-sm-7">
-											<input class="form-control" tabindex="5" type="text"
-												alt="numeric" id="precio_publico" name="precio_publico"
+											<input class="form-control dinero" tabindex="5" type="text"
+												 id="precio_publico" name="precio_publico"
 												value="${producto.precio_publico}" maxlength="15" />
 										</div>
 									</div>
@@ -74,7 +79,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Precio Tienda </label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="precio_tienda"
+											<input type="text" class="form-control dinero" name="precio_tienda"
 												value="${producto.precio_tienda }">
 										</div>
 									</div>
@@ -82,7 +87,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Precio Evento </label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="precio_evento"
+											<input type="text" class="form-control dinero" name="precio_evento"
 												value="${producto.precio_evento }">
 										</div>
 									</div>

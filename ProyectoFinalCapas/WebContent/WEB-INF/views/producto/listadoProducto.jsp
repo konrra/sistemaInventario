@@ -7,15 +7,7 @@
 <div>
 <script type="text/javascript">
 $(document).ready(function() {
-    var table = $('#tablePro').DataTable();
- 
-    $('#tablePro tbody').on( 'click', 'tr', function () {
-        $(this).toggleClass('selected');
-    } );
- 
-    $('#button').click( function () {
-        alert( table.rows('.selected').data().length +' row(s) selected' );
-    } );
+	
 } );
 
 </script>
@@ -30,13 +22,6 @@ $(document).ready(function() {
 
 				<body class="body-back">
 				
-				<script src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
-				<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-					<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-					<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-					<script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
-
-					<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 					<div class="card">
 						<div class="card-header">
 							Edición de información del producto
@@ -65,40 +50,36 @@ $(document).ready(function() {
 										<c:forEach items="${colectionResult}" var="dto">
 											<tr>
 												<td><c:out value="${dto.nombre}" /></td>
-												<td><c:out value="${dto.costo}" /></td>
-												<td><c:out value="${dto.precio_publico}" /></td>
-												<td><c:out value="${dto.precio_tienda}" /></td>
-												<td><c:out value="${dto.precio_evento}" /></td>
-												<td><c:out
-														value="${dto.categoriaxproducto.descripcion}" /></td>
-												<td><c:if test="${dto.estado == 'A'}">
-														<c:out value="Activo"></c:out>
-													</c:if> <c:if test="${dto.estado == 'I'}">
-														<c:out value="Inactivo"></c:out>
-													</c:if></td>
-												<td align=Right><input type="button"
-													class="btn btn-info btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/editarProducto?id_producto=${dto.id_producto}'"
-													value="Editar" /> <input type="button"
-													class="btn btn-danger btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/eliminarProducto?id_producto=${dto.id_producto}'"
-													value="Inactivar" /></td>
+												<td  align=Right> <c:if test="${empty dto.costo }">-</c:if> <c:if test="${not empty dto.costo}">$</c:if> <c:out value="${dto.costo}" /></td>
+												<td  align=Right><c:if test="${empty dto.precio_publico}">-</c:if> <c:if test="${not empty dto.precio_publico}">$</c:if><c:out value="${dto.precio_publico}" /></td>
+												<td  align=Right><c:if test="${empty dto.precio_tienda}">-</c:if> <c:if test="${not empty dto.precio_tienda}">$</c:if><c:out value="${dto.precio_tienda}" /></td>
+												<td  align=Right><c:if test="${empty dto.precio_evento}">-</c:if> <c:if test="${not empty dto.precio_evento}">$</c:if><c:out value="${dto.precio_evento}" /></td>
+												<td><c:out	value="${dto.categoriaxproducto.descripcion}" /></td>
+												<td>
+													<c:if test="${dto.estado == 'A'}">	<c:out value="Activo"></c:out></c:if> 
+													<c:if test="${dto.estado == 'I'}"> <c:out value="Inactivo"></c:out></c:if>
+												</td>
+												<td align=Right>
+													<input type="button" class="btn btn-info btn-sm"
+													onclick="location.href='${pageContext.request.contextPath}/editarProducto?id_producto=${dto.id_producto}'"	value="Editar" /> 
+													<input type="button"	class="btn btn-danger btn-sm"
+													onclick="location.href='${pageContext.request.contextPath}/eliminarProducto?id_producto=${dto.id_producto}'" value="Inactivar" />
+												</td>
 											</tr>
 										</c:forEach>
 									</c:if>
 									<c:if test="${total == 0 }">
 										<tr>
-											<td align="center" style="font-style: italic;" colspan="7">No
-												hay registros que mostrar</td>
+											<td align="center" style="font-style: italic;" colspan="7">
+												No hay registros que mostrar
+											</td>
 										</tr>
 									</c:if>
 								</tbody>
 							</table>
 						</div>
 						<div class="card-footer text-muted">
-							<label style="float: right;"> La cantidad de registros:
-								<c:out value="${total }" />
-							</label>
+							<label style="float: right;"> La cantidad de registros:	<c:out value="${total }" /></label>
 						</div>
 					</div>
 

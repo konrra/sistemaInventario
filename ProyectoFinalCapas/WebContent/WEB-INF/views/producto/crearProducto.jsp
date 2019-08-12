@@ -4,6 +4,12 @@
 <%@ include file="../template/Header.jsp"%>
 </head>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.dinero').mask("#,##0.00", {reverse: true});
+	});
+</script>
+
 <div>
 	<div class="row">
 		<div class="col-xs-*">
@@ -14,9 +20,6 @@
 			<div class="container" style="margin-left: 10%; margin-top: 5%">
 
 				<body class="body-back">
-					<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-					<script type="text/javascript"
-						src="resources/jquery-ui/jquery-ui.js"></script>
 					<form class="form-horizontal" role="form"
 						action="${pageContext.request.contextPath}/actualizarProducto">
 						<br>
@@ -40,7 +43,7 @@
 								<div style="width: 50%; float: left;">
 
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Nombre*</label>
+										<label class="col-sm-3 control-label">Producto*</label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control" name="nombre"
 												value="${producto.nombre }">
@@ -50,7 +53,7 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Costo</label>
 										<div class="col-sm-7">
-											<input type="text" alt="numeric" class="form-control"
+											<input type="text"  class="form-control dinero"
 												name="costo" value="${producto.costo }">
 										</div>
 									</div>
@@ -59,8 +62,8 @@
 										<label class="col-sm-3 control-label">Precio
 											P&uacute;blico </label>
 										<div class="col-sm-7">
-											<input class="form-control" tabindex="5" type="text"
-												alt="numeric" id="precio_publico" name="precio_publico"
+											<input class="form-control dinero" tabindex="5" type="text"
+												 id="precio_publico" name="precio_publico"
 												value="${producto.precio_publico}" maxlength="15" />
 										</div>
 									</div>
@@ -71,7 +74,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Precio Tienda </label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="precio_tienda"
+											<input type="text" class="form-control dinero" name="precio_tienda"
 												value="${producto.precio_tienda }">
 										</div>
 									</div>
@@ -79,14 +82,13 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Precio Evento </label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="precio_evento"
+											<input type="text" class="form-control dinero" name="precio_evento"
 												value="${producto.precio_evento }">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Categor&iacute;a
-											Prod. *</label>
+										<label class="col-sm-4 control-label">Categor&iacute;a	Prod. *</label>
 										<div class="col-sm-7">
 											<select class="form-control" name="id_categoria_x_producto">
 												<option value="">Seleccione una categor&iacute;a</option>
@@ -104,9 +106,7 @@
 										<label class="col-sm-2 control-label">Estado</label>
 										<div class="col-sm-7">
 											<select class="form-control" name="estado">
-												<option value="A"
-													<c:if test="${producto.estado =='A' }">selected</c:if>>Activo</option>
-
+												<option value="A" value="A">Activo</option>
 											</select>
 										</div>
 									</div>
