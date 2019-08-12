@@ -8,10 +8,11 @@
 <title>Creaci&oacute;n de Cliente</title>
 <%@ include file="../template/Header.jsp"%>
 </head>
-
 <script type="text/javascript">
-	$(window).load(function() {
-
+	$(document).ready(function(){
+		$('.num_tel_cel').mask('0000-0000');
+		$('.nit').mask('0000-000000-000-0');
+		$('.dui').mask('00000000-0');
 	});
 </script>
 
@@ -53,26 +54,23 @@
 								<br>
 								<div style="width: 50%; float: left;">
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Nombre*</label>
-										<div class="col-sm-7 ">
-											<input type="text" class="form-control" name="nombre"
-												value="${cliente.nombre }" placeholder="Pedro Jose">
+										<label class="col-sm-3 control-label">Nombre*</label>
+										<div class="col-sm-9 ">
+											<input type="text" class="form-control" name="nombre"	value="${cliente.nombre }" size="30">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-4 control-label">N&uacute;mero
-											tel&eacute;fono celular</label>
+										<label class="col-sm-4 control-label">
+											N&uacute;mero celular</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="num_tel_cel"
-												value="${cliente.num_tel_cel }" placeholder="61234567">
+											<input type="text" class="form-control num_tel_cel" name="num_tel_cel"	value="${cliente.num_tel_cel }" >
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-4 control-label">N&uacute;mero
-											tel&eacute;fono fijo</label>
+										<label class="col-sm-4 control-label">
+											Tel&eacute;fono fijo</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="num_tel_fijo"
-												value="${cliente.num_tel_fijo }" placeholder="21345678">
+											<input type="text"  class="form-control num_tel_cel"  name="num_tel_fijo"	value="${cliente.num_tel_fijo }"  >
 										</div>
 									</div>
 								</div>
@@ -81,28 +79,21 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label">NIT</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control" name="nit"
-												value="${cliente.nit }" placeholder="1234-123421-123-2">
+											<input type="text" class="form-control nit" name="nit"	value="${cliente.nit }" maxlength="17">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label">DUI</label>
 										<div class="col-sm-7 ">
-											<input type="text" class="form-control" name="dui"
-												value="${cliente.dui }" placeholder="1234567-1">
+											<input type="text" class="form-control dui" name="dui"	value="${cliente.dui }" maxlength="10">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Tipo Cliente</label>
 										<div class="col-sm-7">
 											<select class="form-control" name="tipo">
-												<option value="A"
-													<c:if test="${cliente.tipo =='A' }">selected</c:if>>Público</option>
-												<option value="A"
-													<c:if test="${cliente.tipo =='A' }">selected</c:if>>Activo</option>
-												<option value="I"
-													<c:if test="${cliente.tipo =='I' }">selected</c:if>>Inactivo</option>
-
+												<option value="N" <c:if test="${cliente.tipo =='N' }">selected</c:if>>Natural</option>
+												<option value="J" <c:if test="${cliente.tipo =='J' }">selected</c:if>>Jur&iacute;dico</option>
 											</select>
 										</div>
 									</div>
@@ -110,11 +101,7 @@
 									<div class="form-group" style="display: none;">
 										<label class="col-sm-2 control-label">Estado</label>
 										<div class="col-sm-7">
-											<select class="form-control" name="estado">
-												<option value="A"
-													<c:if test="${cliente.estado =='A' }">selected</c:if>>Activo</option>
-
-											</select>
+											 <input type="hidden" value="A" name="estado" id="estado" />
 										</div>
 									</div>
 								</div>

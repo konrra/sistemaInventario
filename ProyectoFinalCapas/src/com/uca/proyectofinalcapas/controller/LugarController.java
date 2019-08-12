@@ -42,6 +42,7 @@ public class LugarController {
 		return mav;
 	}
 	
+	
 	@RequestMapping(value="/editarLugar", method=RequestMethod.GET)
 	public ModelAndView editarLugar(@RequestParam("id_lugar") Integer idLugar) {
 		ModelAndView mav = new ModelAndView();
@@ -57,6 +58,7 @@ public class LugarController {
 		
 		return mav;
 	}
+	
 	
 	@RequestMapping(value="/actualizarLugar", method=RequestMethod.GET)
 	public ModelAndView actLugar(@ModelAttribute Lugar lugar) {

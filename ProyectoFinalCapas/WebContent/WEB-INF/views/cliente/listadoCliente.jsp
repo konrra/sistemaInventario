@@ -54,11 +54,10 @@
 													<td><c:out value="${dto.num_tel_cel}" /></td>
 													<td><c:out value="${dto.num_tel_fijo}" /></td>
 													<td><c:out value="${dto.dui}" /></td>
-													<td><c:if test="${dto.estado == 'A'}">
-															<c:out value="Activo"></c:out>
-														</c:if> <c:if test="${dto.estado == 'I'}">
-															<c:out value="Inactivo"></c:out>
-														</c:if></td>
+													<td>
+														<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if> 
+														<c:if test="${dto.estado == 'I'}"> <c:out value="Inactivo"></c:out>	</c:if>
+													</td>
 													<td align=Right>
 														<button type="button" class="btn btn-info btn-sm"
 															onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">

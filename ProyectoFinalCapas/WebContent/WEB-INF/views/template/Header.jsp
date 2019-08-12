@@ -1,11 +1,13 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="resources/mask-plugin/dist/jquery.mask.js"></script>
+<script src="resources/mask-plugin/dist/jquery.mask.min.js"></script>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt"     uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <link rel="stylesheet"
@@ -36,16 +38,22 @@ $(document).ready(function(){
 <header class="header">
 	<nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
 
+<<<<<<< HEAD
 		
 		<div class="collapse navbar-collapse flex-row-reverse"
 			id="navbarNavDropdown">
+=======
+		<div class="float-left">
+			<a href="#" class="button-left"><span class="fa fa-fw fa-bars "></span></a>
+		</div>
+		<div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+>>>>>>> branch 'desarrollo' of https://github.com/konrra/sistemaInventario.git
 			<ul class="navbar-nav">
 
 				<li class="nav-item dropdown  user-menu"><a
 					class="nav-link dropdown-toggle" href="http://example.com"
 					id="navbarDropdownMenuLink" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> <img
-						src="http://via.placeholder.com/160x160" class="user-image"
+					aria-haspopup="true" aria-expanded="false"> <img src="http://via.placeholder.com/160x160" class="user-image"
 						alt="User Image"> <span class="hidden-xs" >${user.usuario}</span>
 						
 				</a>
