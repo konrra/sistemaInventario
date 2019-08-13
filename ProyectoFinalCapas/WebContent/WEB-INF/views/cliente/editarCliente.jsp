@@ -4,6 +4,11 @@
 <%@ include file="../template/Header.jsp"%>
 </head>
 
+<<<<<<< HEAD
+<div>
+	<div class="row" style="height:100vh;">
+		<div class="col-xs-*" style="background-color: black;" >
+=======
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.num_tel_cel').mask('0000-0000');
@@ -14,6 +19,7 @@
 
 	<div class="row">
 		<div class="col-xs-*">
+>>>>>>> branch 'desarrollo' of https://github.com/konrra/sistemaInventario.git
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
@@ -23,7 +29,8 @@
 				<form class="form-horizontal" role="form"
 						action="${pageContext.request.contextPath}/actualizarCliente">
 				<body class="body-back">
-
+				<form class="form-horizontal" role="form"
+						action="${pageContext.request.contextPath}/actualizarCliente">
 					<input type="hidden" name="id_cliente" id="id_cliente"
 						value="${cliente.id_cliente}">
 					<div class="card">
@@ -120,5 +127,5 @@
 
 		</div>
 	</div>
-	</body>
+	</div>
 </html>

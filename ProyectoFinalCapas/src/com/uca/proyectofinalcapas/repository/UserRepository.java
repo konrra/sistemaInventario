@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.uca.proyectofinalcapas.domain.Rol;
 import com.uca.proyectofinalcapas.domain.Usuario;
 
 
@@ -18,6 +17,11 @@ public interface UserRepository extends JpaRepository<Usuario, Integer>  {
 	
 	public static String FIND_ROL = "select r.descripcion from Rol r where r.id_rol = :idrol";
 	
+	public static String FIND_ALL_USER = "select u from Usuario u";
+	
+	public static String COUNT_ALL_USER = "select count(u.id_usuario) from Usuario u";
+	
+	
 	@Query(FIND_ROL)
 	public String findRol(@Param("idrol") int idrol);
 	
@@ -25,7 +29,13 @@ public interface UserRepository extends JpaRepository<Usuario, Integer>  {
 	public List<Usuario> findByUsuario( @Param("usuario") String usuario);
 	
 	@Query(FIND_BY_ID)
-	public List<Usuario> findByIdUser(@Param("idUser") int idUser);
+	public Usuario findByIdUser(@Param("idUser") int idUser);
+	
+	@Query(FIND_ALL_USER)
+	public List<Usuario> findAllUsuario();
+	
+	@Query(COUNT_ALL_USER)
+	public int countAllUser();
 	
 	
 }

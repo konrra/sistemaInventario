@@ -5,6 +5,10 @@
 </head>
 
 <div>
+<<<<<<< HEAD
+	<div class="row" style="height:100vh;">
+		<div class="col-xs-*" style="background-color: black;" >
+=======
 <script type="text/javascript">
 $(document).ready(function() {
 	
@@ -14,6 +18,7 @@ $(document).ready(function() {
 
 	<div class="row">
 		<div class="col-xs-*">
+>>>>>>> branch 'desarrollo' of https://github.com/konrra/sistemaInventario.git
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
@@ -92,5 +97,4 @@ $(document).ready(function() {
 
 	</div>
 </div>
-</body>
 </html>

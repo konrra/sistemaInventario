@@ -20,23 +20,21 @@
 					<body>
 						<div class="card">
 							<div class="card-header">
-								Edición de informaci&oacute;n del Cliente
+								Edición de informaci&oacute;n del Usuario
 								<button type="button" style="float: right;"
 									class="btn btn-success btn-sm"
-									onclick="location.href='${pageContext.request.contextPath}/crearCliente'">Agregar
+									onclick="location.href='${pageContext.request.contextPath}/crearUsuario'">Agregar
 									+</button>
 							</div>
 							<div class="card-body overflow-auto">
 								<table class="table table-sm table-bordere table-hover">
 									<thead class="thead-light">
 										<tr>
+											<th>Usuario</th>
+											<th>Password</th>
+											<th>Rol</th>
 											<th>Nombre</th>
-											<th>Tipo</th>
-											<th>Nit</th>
-											<th>N&uacute;mero cel.</th>
-											<th>N&uacute;mero fijo</th>
-											<th>Dui</th>
-											<th>Estado</th>
+											<th>Apellido</th>
 											<th><span class="glyphicon glyphicon-cog"> </span></th>
 										</tr>
 									</thead>
@@ -44,27 +42,15 @@
 										<c:if test="${total != 0 }">
 											<c:forEach items="${colectionResult}" var="dto">
 												<tr>
+													<td><c:out value="${dto.usuario}" /></td>
+													<td><c:out value="${dto.password}" /></td>
+													<td><c:out value="${dto.rol}" /></td>
 													<td><c:out value="${dto.nombre}" /></td>
-													<td><c:if test="${dto.tipo == 'N'}">
-															<c:out value="Natural"></c:out>
-														</c:if> <c:if test="${dto.tipo == 'J'}">
-															<c:out value="Jur&iacute;dico"></c:out>
-														</c:if></td>
-													<td><c:out value="${dto.nit}" /></td>
-													<td><c:out value="${dto.num_tel_cel}" /></td>
-													<td><c:out value="${dto.num_tel_fijo}" /></td>
-													<td><c:out value="${dto.dui}" /></td>
-													<td>
-														<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if> 
-														<c:if test="${dto.estado == 'I'}"> <c:out value="Inactivo"></c:out>	</c:if>
-													</td>
+													<td><c:out value="${dto.apellido}" /></td>
 													<td align=Right>
 														<button type="button" class="btn btn-info btn-sm"
-															onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">
+															onclick="location.href='${pageContext.request.contextPath}/editarUsuario?id_usuario=${dto.id_usuario}'">
 															Editar</button>
-														<button type="button" class="btn btn-danger btn-sm"
-															onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'">
-															Inactivar</button>
 													</td>
 												</tr>
 											</c:forEach>
@@ -82,10 +68,13 @@
 								<label style="float: right;"> La cantidad de registros: <c:out
 										value="${total }" /></label>
 							</div>
+						</div>	
 					</body>
+					</div>
 				</div>
 			</div>
 	
 		</div>
-	</div>
+	
+
 </html>

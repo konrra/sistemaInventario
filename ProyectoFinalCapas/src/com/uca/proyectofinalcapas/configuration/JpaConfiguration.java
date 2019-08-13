@@ -23,7 +23,7 @@ public class JpaConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
-		em.setPersistenceUnitName("RecursosHumanos");
+		em.setPersistenceUnitName("SistemaInventario");
 		em.setPackagesToScan("com.uca.proyectofinalcapas.domain");
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -46,7 +46,7 @@ public class JpaConfiguration {
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/SistemaInventario");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("root");
+		dataSource.setPassword("admin");
 		return dataSource;
 	}
 
