@@ -16,8 +16,8 @@
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
-		<div class="col-lg-*">
-			<div class="container" style="margin-left: 10%; margin-top: 5%">
+		<div class="col-lg-*" style="width: 75%">
+			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 				<body class="body-back">
 					<form class="form-horizontal" role="form"

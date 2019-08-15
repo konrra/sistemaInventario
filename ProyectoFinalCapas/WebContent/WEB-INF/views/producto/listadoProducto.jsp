@@ -5,25 +5,14 @@
 </head>
 
 <div>
-<<<<<<< HEAD
 	<div class="row" style="height:100vh;">
 		<div class="col-xs-*" style="background-color: black;" >
-=======
-<script type="text/javascript">
-$(document).ready(function() {
-	
-} );
 
-</script>
-
-	<div class="row">
-		<div class="col-xs-*">
->>>>>>> branch 'desarrollo' of https://github.com/konrra/sistemaInventario.git
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
-		<div class="col-lg-*">
-			<div class="container" style="margin-left: 10%; margin-top: 5%">
+		<div class="col-lg-*" style="width: 75%">
+			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 				<body class="body-back">
 				
