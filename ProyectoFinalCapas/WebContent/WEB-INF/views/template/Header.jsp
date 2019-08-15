@@ -38,16 +38,10 @@ $(document).ready(function(){
 <header class="header">
 	<nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
 
-<<<<<<< HEAD
-		
-		<div class="collapse navbar-collapse flex-row-reverse"
-			id="navbarNavDropdown">
-=======
 		<div class="float-left">
 			<a href="#" class="button-left"><span class="fa fa-fw fa-bars "></span></a>
 		</div>
 		<div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
->>>>>>> branch 'desarrollo' of https://github.com/konrra/sistemaInventario.git
 			<ul class="navbar-nav">
 
 				<li class="nav-item dropdown  user-menu"><a
