@@ -47,11 +47,12 @@ public Connection getConnection(){
 
 
 public JasperReport getCompiledFile(String fileName, HttpServletRequest request) throws JRException {
-	System.out.println("path " + request.getSession().getServletContext().getRealPath("/jasper/" + fileName + ".jasper"));
-	File reportFile = new File( request.getSession().getServletContext().getRealPath("/jasper/" + fileName + ".jasper"));
+	System.out.println("path " + request.getSession().getServletContext().getRealPath("/reportes/" + fileName + ".jasper"));
+	File reportFile = new File( request.getSession().getServletContext().getRealPath("/reportes/" + fileName + ".jasper"));
 	// If compiled file is not found, then compile XML template
 	if (!reportFile.exists()) {
-	           JasperCompileManager.compileReportToFile(request.getSession().getServletContext().getRealPath("/jasper/" + fileName + ".jrxml"),request.getSession().getServletContext().getRealPath("/jasper/" + fileName + ".jasper"));
+	           JasperCompileManager.compileReportToFile(request.getSession().getServletContext().getRealPath("/WebContent/WEB-INF/reportes/" + fileName + ".jrxml"),
+	        		   request.getSession().getServletContext().getRealPath("/WebContent/WEB-INF/reportes/" + fileName + ".jasper"));
 	    }
     	JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(reportFile.getPath());
 	   return jasperReport;

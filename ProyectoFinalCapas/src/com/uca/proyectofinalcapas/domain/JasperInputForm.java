@@ -5,7 +5,7 @@ public class JasperInputForm {
 
 	
 	private String noofYears;
-	private String rptFmt="Html";
+	private String rptFmt="pdf";
 
 	
 	public String getRptFmt() {
