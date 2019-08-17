@@ -10,6 +10,12 @@
 	
 </head>
 
-<body class="body-back">
-	<%@ include file="template/LeftSidebar.jsp" %>
-</body>
+<div>
+	<div class="row" style="height:100vh;">
+		<div class="col-xs-*" style="background-color: black;" >
+			<body class="body-back">
+				<%@ include file="template/LeftSidebar.jsp" %>
+			</body>
+			</div>
+			</div>
+			</div>

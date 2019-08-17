@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.naming.NamingException;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,8 +52,8 @@ public JasperReport getCompiledFile(String fileName, HttpServletRequest request)
 	File reportFile = new File( request.getSession().getServletContext().getRealPath("/reportes/" + fileName + ".jasper"));
 	// If compiled file is not found, then compile XML template
 	if (!reportFile.exists()) {
-	           JasperCompileManager.compileReportToFile(request.getSession().getServletContext().getRealPath("/WebContent/WEB-INF/reportes/" + fileName + ".jrxml"),
-	        		   request.getSession().getServletContext().getRealPath("/WebContent/WEB-INF/reportes/" + fileName + ".jasper"));
+	           JasperCompileManager.compileReportToFile(request.getSession().getServletContext().getRealPath("/WEB-INF/reportes/" + fileName + ".jrxml"),
+	        		   request.getSession().getServletContext().getRealPath("/WEB-INF/reportes/" + fileName + ".jasper"));
 	    }
     	JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(reportFile.getPath());
 	   return jasperReport;
