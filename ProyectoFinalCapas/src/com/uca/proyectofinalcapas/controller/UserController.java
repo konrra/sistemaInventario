@@ -1,5 +1,6 @@
 package com.uca.proyectofinalcapas.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,12 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.uca.proyectofinalcapas.domain.Cliente;
 import com.uca.proyectofinalcapas.domain.Usuario;
 import com.uca.proyectofinalcapas.repository.UserRepository;
 
 @Controller
-@SessionAttributes({ "user", "menu" })
+@SessionAttributes({ "user", "menu","iduser" })
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
@@ -40,20 +40,36 @@ public class UserController {
 			// una vez se encontro un usuario se tiene que hacer la validacion de la
 			// contraseña
 			for (Usuario u : users) {
-				if (u.getPass().equals(password)) {
+				if (u.getPass().equals(password) && u.getRol()>0) {
+					
 					// mav.addObject("user", u);
 					// esto se da en caso que el password sea el correcto
 					// ahora se verificara el rol del usuario
 					// 1: Admin
 					// 2: otro
-
 					String userRol = userRepository.findRol(u.getRol());
-
+					
+					//String userRol = new String();//userRepository.findRol(u.getRol());
+		
 					List<String> menuList = Arrays.asList(userRol.split("-"));
-
-					u.setOpcMenu(menuList);
-					mav.addObject("menu", menuList);
+					List<String> menuList2 =new ArrayList<String>();
+					if(menuList.get(0).toString().equals("1")) {
+						menuList2.add("C");
+					}
+					if(menuList.get(1).toString().equals("1")) {
+						menuList2.add("I");
+					}
+					if(menuList.get(2).toString().equals("1")) {
+						menuList2.add("F");
+					}
+					if(menuList.get(3).toString().equals("1")) {
+						menuList2.add("S");
+					}
+					
+					u.setOpcMenu(menuList2);
+					mav.addObject("menu", menuList2);
 					mav.addObject("user", u);
+					mav.addObject("iduser", u.getId_usuario());
 					if (u.getRol() == 1) {
 
 						mav.setViewName("indexAdmin");
@@ -106,7 +122,7 @@ public class UserController {
 	
 //	metodo que actualiza o crea un cliente 
 	@RequestMapping(value="/actualizarUsuario", method=RequestMethod.GET)
-	public ModelAndView actCliente(@ModelAttribute Usuario usuario) {
+	public ModelAndView actUsuario(@ModelAttribute Usuario usuario) {
 		ModelAndView mav = new ModelAndView();
 		if(StringUtils.isEmpty(usuario.getUsuario())) {
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
@@ -118,7 +134,23 @@ public class UserController {
 
 		return mav;
 	}
+	 
+	//crear usuario
+	@RequestMapping(value="/crearUsuario", method=RequestMethod.GET)
+	public ModelAndView crearUsuario() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/crearUsuario");
+		return mav;
+	}
 	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public ModelAndView logout() {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/loginError");
+		return mav;
+	}
 	
 	
 }//cierre de clase

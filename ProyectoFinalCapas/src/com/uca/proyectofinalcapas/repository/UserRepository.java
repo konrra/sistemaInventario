@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<Usuario, Integer>  {
 	
 	public static String FIND_BY_ID = "select u from Usuario u where id_usuario = :idUser";
 	
-	public static String FIND_ROL = "select r.descripcion from Rol r where r.id_rol = :idrol";
+	public static String FIND_ROL = "select u.opccatalagos||'-'||u.opcinventario||'-'||u.opcfactura||'-'||u.opcseguridad  from Rol u where u.id_rol = :idrol";
 	
 	public static String FIND_ALL_USER = "select u from Usuario u";
 	

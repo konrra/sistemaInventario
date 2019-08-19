@@ -10,61 +10,62 @@
 	</head>
 
 	<div>
-		<div class="row" style="height:100vh; background-color: white;">
+		<div class="row" style="height:100vh; background-color: white;" >
 		<div class="col-xs-*" style="background-color: black;" >
 				<%@ include file="../template/LeftSidebar.jsp"%>
 			</div>
 	
-			<div class="col-lg-*" style="width: 75%">
+			<div class="col-lg-*" style="width: 75%; background-color: white;">
 				<div class="container" style="margin-left: 2%; margin-top: 2%">
 					<body>
 						<div class="card">
 							<div class="card-header">
-								Edición de informaci&oacute;n del Cliente
+								Informaci&oacute;n de los Roles
 								<button type="button" style="float: right;"
 									class="btn btn-success btn-sm"
-									onclick="location.href='${pageContext.request.contextPath}/crearCliente'">Agregar
+									onclick="location.href='${pageContext.request.contextPath}/crearRol'">Agregar
 									+</button>
 							</div>
 							<div class="card-body overflow-auto">
 								<table class="table table-sm table-bordere table-hover">
 									<thead class="thead-light">
 										<tr>
-											<th>Nombre</th>
-											<th>Tipo</th>
-											<th>Nit</th>
-											<th>N&uacute;mero cel.</th>
-											<th>N&uacute;mero fijo</th>
-											<th>Dui</th>
-											<th>Estado</th>
+											<th>ID</th>
+											<th>Descripcion</th>
+											<th>Opcion Catalogos</th>
+											<th>Opcion Inventario</th>
+											<th>Opcion Factura</th>
+											<th>Opcion Seguridad</th>
 											<th><span class="glyphicon glyphicon-cog"> </span></th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:if test="${total != 0 }">
-											<c:forEach items="${colectionResult}" var="dto">
+											<c:forEach items="${listRol}" var="dto">
 												<tr>
-													<td><c:out value="${dto.nombre}" /></td>
-													<td><c:if test="${dto.tipo == 'N'}">
-															<c:out value="Natural"></c:out>
-														</c:if> <c:if test="${dto.tipo == 'J'}">
-															<c:out value="Jur&iacute;dico"></c:out>
-														</c:if></td>
-													<td><c:out value="${dto.nit}" /></td>
-													<td><c:out value="${dto.num_tel_cel}" /></td>
-													<td><c:out value="${dto.num_tel_fijo}" /></td>
-													<td><c:out value="${dto.dui}" /></td>
+													<td><c:out value="${dto.id_rol}" /></td>
+													<td><c:out value="${dto.descripcion}" /></td>
 													<td>
-														<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if> 
-														<c:if test="${dto.estado == 'I'}"> <c:out value="Inactivo"></c:out>	</c:if>
+														<c:if test="${dto.opccatalagos == 1}"><c:out value="SI"></c:out></c:if> 
+														<c:if test="${dto.opccatalagos == 0}"> <c:out value="NO"></c:out>	</c:if>
 													</td>
+													<td>
+														<c:if test="${dto.opcinventario == 1}"><c:out value="SI"></c:out></c:if> 
+														<c:if test="${dto.opcinventario == 0}"> <c:out value="NO"></c:out>	</c:if>
+													</td>
+													<td>
+														<c:if test="${dto.opcfactura == 1}"><c:out value="SI"></c:out></c:if> 
+														<c:if test="${dto.opcfactura == 0}"> <c:out value="NO"></c:out>	</c:if>
+													</td>
+													<td>
+														<c:if test="${dto.opcseguridad == 1}"><c:out value="SI"></c:out></c:if> 
+														<c:if test="${dto.opcseguridad == 0}"> <c:out value="NO"></c:out>	</c:if>
+													</td>
+													
 													<td align=Right>
 														<button type="button" class="btn btn-info btn-sm"
-															onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">
+															onclick="location.href='${pageContext.request.contextPath}/editarRol?id_rol=${dto.id_rol}'">
 															Editar</button>
-														<button type="button" class="btn btn-danger btn-sm"
-															onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'">
-															Inactivar</button>
 													</td>
 												</tr>
 											</c:forEach>
@@ -82,10 +83,13 @@
 								<label style="float: right;"> La cantidad de registros: <c:out
 										value="${total }" /></label>
 							</div>
+						</div>	
 					</body>
+					</div>
 				</div>
 			</div>
 	
 		</div>
-	</div>
+	
+
 </html>

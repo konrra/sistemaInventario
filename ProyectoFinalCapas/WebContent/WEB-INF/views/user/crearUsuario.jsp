@@ -27,8 +27,7 @@
 				<body class="body-back">
 					<form class="form-horizontal" role="form"
 						action="${pageContext.request.contextPath}/actualizarUsuario">
-					<input type="hidden" name="id_usuario" id="id_usuario"
-						value="${usuario.id_usuario}">
+					
 						
 					<div class="card">
 						<div class="card-header">Edición de información del Usuario

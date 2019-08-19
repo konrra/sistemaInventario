@@ -5,12 +5,12 @@
 </head>
 
 <div>
-	<div class="row" style="height:100vh;">
+	<div class="row" style="height:100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;" >
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
-		<div class="col-lg-*" style="width: 75%">
+		<div class="col-lg-*" style="width: 75%" >
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 				<body class="body-back">
