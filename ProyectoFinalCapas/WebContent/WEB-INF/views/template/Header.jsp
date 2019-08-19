@@ -52,8 +52,10 @@ $(document).ready(function(){
 						
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
 						<a class="dropdown-item" href="http://localhost:8080/ProyectoFinalCapas/">Cerrar Sesion</a> <a
-							class="dropdown-item" href="editarUsuario?id_usuario=${user.id_usuario}">Cambiar Contrasenia</a>
+							class="dropdown-item" href="editarUsuario?id_usuario=${user.id_usuario}">Cambiar Contrase&amp;ntilde;ia</a>
+
 					</div></li>
 			</ul>
 
