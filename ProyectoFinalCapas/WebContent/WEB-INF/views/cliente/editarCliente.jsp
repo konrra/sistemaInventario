@@ -6,7 +6,7 @@
 
 
 <div>
-	<div class="row" style="height:100vh;">
+	<div class="row" style="height:100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;" >
 
 <script type="text/javascript">
@@ -16,9 +16,6 @@
 		$('.dui').mask('00000000-0');
 	});
 </script>
-
-	<div class="row">
-		<div class="col-xs-*">
 
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>

@@ -11,7 +11,7 @@
 </head>
 
 <div>
-	<div class="row" style="height:100vh;">
+	<div class="row" style="height:100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;" >
 			<body class="body-back">
 				<%@ include file="template/LeftSidebar.jsp" %>

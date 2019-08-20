@@ -32,7 +32,7 @@ $(document).ready(function(){
 </script>
 
 <div>
-	<div class="row">
+	<div class="row" style="height:100vh; background-color: white;">
 		<div class="col-xs-*">
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>

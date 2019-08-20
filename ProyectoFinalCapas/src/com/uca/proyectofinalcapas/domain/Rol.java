@@ -13,14 +13,67 @@ public class Rol {
 	@Id
 	@Column(name="id_rol")
 	private int id_rol;
-	 
-	@Column(name="tipo_rol")
-	private int tipo_rol;
 	
 	@Column(name="descripcion")
 	private String descripcion;
 	
+	@Column(name="opcionmenu")
+	private String opcionmenu;
 	
+	@Column(name="opccatalagos")
+	private int opccatalagos;
+	
+	@Column(name="opcinventario")
+	private int opcinventario;
+	
+	@Column(name="opcfactura")
+	private int opcfactura;
+	
+	@Column(name="opcseguridad")
+	private int opcseguridad;
+	
+	
+	
+
+	public int getOpccatalagos() {
+		return opccatalagos;
+	}
+
+	public void setOpccatalagos(int opccatalagos) {
+		this.opccatalagos = opccatalagos;
+	}
+
+	public int getOpcinventario() {
+		return opcinventario;
+	}
+
+	public void setOpcinventario(int opcinventario) {
+		this.opcinventario = opcinventario;
+	}
+
+	public int getOpcfactura() {
+		return opcfactura;
+	}
+
+	public void setOpcfactura(int opcfactura) {
+		this.opcfactura = opcfactura;
+	}
+
+	public int getOpcseguridad() {
+		return opcseguridad;
+	}
+
+	public void setOpcseguridad(int opcseguridad) {
+		this.opcseguridad = opcseguridad;
+	}
+
+	public String getOpcionmenu() {
+		return opcionmenu;
+	}
+
+	public void setOpcionmenu(String opcionmenu) {
+		this.opcionmenu = opcionmenu;
+	}
 
 	public int getId_rol() {
 		return id_rol;
@@ -28,14 +81,6 @@ public class Rol {
 
 	public void setId_rol(int id_rol) {
 		this.id_rol = id_rol;
-	}
-
-	public int getTipo_rol() {
-		return tipo_rol;
-	}
-
-	public void setTipo_rol(int tipo_rol) {
-		this.tipo_rol = tipo_rol;
 	}
 
 	public String getDescripcion() {

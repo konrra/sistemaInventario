@@ -17,7 +17,7 @@
 	color: #FFFFFF;
 }
 body {
-	background-color: #808080
+	background-color: white;
 }
 </style>
 
@@ -31,7 +31,7 @@ body {
 	  </div>
 	</div>
 	
-	<div class="container" style="text-align: center;">
+	<div class="container" style="text-align: center; background-color: white;">
 		<div class="well">
 			<div class="row">
 				<div class="col-sm-3"></div>

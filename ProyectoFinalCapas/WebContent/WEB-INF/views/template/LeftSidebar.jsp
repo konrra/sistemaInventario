@@ -65,7 +65,7 @@
 								class="fa fa-chevron-left pull-right"></span></a>
 							<ul class="sub-menu collapse" id="seguridadMenu">
 								<li><a href="${pageContext.request.contextPath}/listadoUsuario">Usuarios</a></li>
-								<li><a href="">Roles</a></li>
+								<li><a href="${pageContext.request.contextPath}/listadoRol">Roles</a></li>
 							</ul></li>
 					</c:if>
 
