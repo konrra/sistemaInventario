@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.naming.NamingException;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +17,8 @@ import com.uca.proyectofinalcapas.configuration.JpaConfiguration;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
@@ -48,13 +49,13 @@ public Connection getConnection(){
 
 
 public JasperReport getCompiledFile(String fileName, HttpServletRequest request) throws JRException {
-	System.out.println("path " + request.getSession().getServletContext().getRealPath("/reportes/" + fileName + ".jasper"));
-	File reportFile = new File( request.getSession().getServletContext().getRealPath("/reportes/" + fileName + ".jasper"));
+	System.out.println("path " + request.getSession().getServletContext().getRealPath("/WEB-INF/reportes/" + fileName + ".jasper"));
+	File reportFile = new File( request.getSession().getServletContext().getRealPath("/WEB-INF/reportes/" + fileName + ".jasper"));
 	// If compiled file is not found, then compile XML template
-	if (!reportFile.exists()) {
+//	if (!reportFile.exists()) {
 	           JasperCompileManager.compileReportToFile(request.getSession().getServletContext().getRealPath("/WEB-INF/reportes/" + fileName + ".jrxml"),
 	        		   request.getSession().getServletContext().getRealPath("/WEB-INF/reportes/" + fileName + ".jasper"));
-	    }
+//	    }
     	JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile(reportFile.getPath());
 	   return jasperReport;
 	} 
@@ -75,11 +76,16 @@ public JasperReport getCompiledFile(String fileName, HttpServletRequest request)
 
 	public void generateReportPDF (HttpServletResponse resp, Map parameters, JasperReport jasperReport, Connection conn)throws JRException, NamingException, SQLException, IOException {
 		byte[] bytes = null;
-		bytes = JasperRunManager.runReportToPdf(jasperReport,parameters,conn);
+//		bytes = JasperRunManager.runReportToPdf(jasperReport,parameters,conn);
+		
+		JasperPrint print = JasperFillManager.fillReport(jasperReport,parameters,conn);
+		byte[] reportePdf = JasperExportManager.exportReportToPdf(print);
 		resp.reset();
 		resp.resetBuffer();
 		resp.setContentType("application/pdf");
-		resp.setContentLength(bytes.length);
+		resp.setHeader("Content-Disposition", "attachment; filename=facturaCafe.pdf");
+		resp.setContentType("application/pdf");
+		resp.setContentLength(reportePdf.length);
 		ServletOutputStream ouputStream = resp.getOutputStream();
 		ouputStream.write(bytes, 0, bytes.length);
 		ouputStream.flush();

@@ -88,7 +88,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-4 control-label">Categor&iacute;a	Prod. *</label>
+										<label class="col-sm-5 control-label">Categor&iacute;a	Prod. *</label>
 										<div class="col-sm-7">
 											<select class="form-control" name="id_categoria_x_producto">
 												<option value="">Seleccione una categor&iacute;a</option>
