@@ -64,47 +64,12 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Precio
+										<label class="col-sm-5 control-label">Precio
 											P&uacute;blico </label>
 										<div class="col-sm-7">
 											<input class="form-control dinero" tabindex="5" type="text"
 												 id="precio_publico" name="precio_publico"
 												value="${producto.precio_publico}" maxlength="15" />
-										</div>
-									</div>
-
-								</div>
-								<div style="width: 50%; float: right;">
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Precio Tienda </label>
-										<div class="col-sm-7">
-											<input type="text" class="form-control dinero" name="precio_tienda"
-												value="${producto.precio_tienda }">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Precio Evento </label>
-										<div class="col-sm-7">
-											<input type="text" class="form-control dinero" name="precio_evento"
-												value="${producto.precio_evento }">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Categor&iacute;a
-											Prod. *</label>
-										<div class="col-sm-7">
-											<select class="form-control" name="id_categoria_x_producto">
-												<option value="">Seleccione una categor&iacute;a</option>
-												<c:forEach items="${comboCategoria}" var="c">
-													<option value="${c.id_categoria_x_producto }"
-														<c:if test="${c.id_categoria_x_producto == producto.categoriaxproducto.id_categoria_x_producto }">selected</c:if>><c:out
-															value="${c.descripcion }"></c:out>
-													</option>
-												</c:forEach>
-											</select>
 										</div>
 									</div>
 
@@ -120,6 +85,43 @@
 											</select>
 										</div>
 									</div>
+
+								</div>
+								<div style="width: 50%; float: right;">
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Precio Tienda </label>
+										<div class="col-sm-7">
+											<input type="text" class="form-control dinero" name="precio_tienda"
+												value="${producto.precio_tienda }">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Precio Evento </label>
+										<div class="col-sm-7">
+											<input type="text" class="form-control dinero" name="precio_evento"
+												value="${producto.precio_evento }">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-5 control-label">Categor&iacute;a
+											Prod. *</label>
+										<div class="col-sm-7">
+											<select class="form-control" name="id_categoria_x_producto">
+												<option value="">Seleccione una categor&iacute;a</option>
+												<c:forEach items="${comboCategoria}" var="c">
+													<option value="${c.id_categoria_x_producto }"
+														<c:if test="${c.id_categoria_x_producto == producto.categoriaxproducto.id_categoria_x_producto }">selected</c:if>><c:out
+															value="${c.descripcion }"></c:out>
+													</option>
+												</c:forEach>
+											</select>
+										</div>
+									</div>
+
+									
 								</div>
 							</div>
 							<div class="card-footer">
