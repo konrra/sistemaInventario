@@ -82,9 +82,9 @@ public class MovProductoController {
 		movProducto.setLugar(lugar);
 		movProductoRepository.save(movProducto);
 		
-		
+		ModelAndView mav = new ModelAndView();
 
-//		return mav;
+		return mav;
 	}
 	
 	@RequestMapping(value="/crearEntrada", method=RequestMethod.GET)
