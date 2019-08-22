@@ -76,9 +76,6 @@ public class MovProductoController {
 	@RequestMapping(value="/actualizarEntrada", method=RequestMethod.GET)
 	public ModelAndView actCliente(@ModelAttribute MovProducto movProducto) {
 		
-		List<Lugar> comboLugar = lugarRepository.findAllLugar();
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("comboLugar", comboLugar);
 		
 		Lugar lugar = new Lugar();
 		lugar.setId_lugar(movProducto.getId_lugar());
@@ -87,13 +84,16 @@ public class MovProductoController {
 		
 		
 
-		return mav;
+//		return mav;
 	}
 	
 	@RequestMapping(value="/crearEntrada", method=RequestMethod.GET)
 	public ModelAndView crearCliente() {
 		
+		List<Lugar> comboLugar = lugarRepository.findAllLugar();
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("comboLugar", comboLugar);
+		
 		mav.setViewName("movProducto/crearEntrada");
 		return mav;
 	}
