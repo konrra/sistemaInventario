@@ -45,7 +45,7 @@
 
 						</c:if>
 						<div class="card-body">
-
+						<div class="card-body form-horizontal">
 							<div style="width: 50%; float: left;">
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Nombre*</label>
@@ -104,8 +104,13 @@
 									</div>
 
 								</div>
-
-							
+								<div class="form-group" >
+										<label class="col-sm-3 control-label">Direcci&oacute;n</label>
+										<div class="col-sm-7">
+											 <textarea class="form-control" id="direccion" name="direccion" ><c:out value="${cliente.direccion}"></c:out></textarea>
+										</div>
+									</div>
+							</div>
 						</div>
 						<!-- div que finaliza el body del panel -->
 					</div>

@@ -62,11 +62,12 @@ public class ClienteController {
 	
 //	metodo que actualiza o crea un cliente 
 	@RequestMapping(value="/actualizarCliente", method=RequestMethod.GET)
-	public ModelAndView actCliente(@ModelAttribute Cliente cliente) {
+	public ModelAndView actCliente(@ModelAttribute Cliente cliente, @RequestParam("validador") String valida) {
 		ModelAndView mav = new ModelAndView();
-		if(StringUtils.isEmpty(cliente.getNombre())) {
-			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
+		if(StringUtils.isEmpty(cliente.getNombre()) || "1".equals(valida)) {
+			mav.addObject("error", "Ingrese la información correctamente");
 			mav.setViewName("cliente/crearCliente");
+			mav.addObject("vali", "1");
 		}else {
 			clienteRepository.save(cliente);
 			return listadoCliente();

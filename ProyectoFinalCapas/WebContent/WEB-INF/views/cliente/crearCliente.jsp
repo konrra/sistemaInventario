@@ -13,8 +13,47 @@
 		$('.num_tel_cel').mask('0000-0000');
 		$('.nit').mask('0000-000000-000-0');
 		$('.dui').mask('00000000-0');
+		if($("#validador").val() == 1){
+			validarDui();
+			 validarNit();
+			 validarTelefonos('num_tel_fijo');
+			 validarTelefonos('num_tel_cel');
+		}
 	});
-</script>
+	
+	
+	
+	function validarDui(){
+		if( $("#dui").val().length != 10) {  
+			$("#dui").css("border", "2px solid #ff0000");
+			$("#validador").val(1);
+	    }else{
+			$("#dui").css("border", "1px solid #ced4da");
+			$("#validador").val(0);
+	    }
+	}
+	
+	function validarNit(){
+		if( $("#nit").val().length != 17) {  
+			$("#nit").css("border", "2px solid #ff0000");
+			$("#validador").val(1);
+	    }else{
+			$("#nit").css("border", "1px solid #ced4da");
+			$("#validador").val(0);
+	    }
+	}
+	
+	function validarTelefonos(identificador){
+		if( $("#"+identificador).val().length != 9) {  
+			$("#"+identificador).css("border", "2px solid #ff0000");
+			$("#validador").val(1);
+	    }else{
+			$("#"+identificador).css("border", "1px solid #ced4da");
+			$("#validador").val(0);
+	    }
+	}
+	
+	</script>
 
 <div>
 	<div class="row" style="height:100vh; background-color: white;">
@@ -24,28 +63,24 @@
 
 		<div class="col-lg-*" style="width: 75%">
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
-
+				
 				<body>
 
-					<form class="form-horizontal" role="form"
+					<form class="form-horizontal" role="form" id="formulario"  name="formulario"
 						action="${pageContext.request.contextPath}/actualizarCliente">
+						<input type="hidden" name="validador" id="validador" value="${vali}" />
 						<c:if test="${not empty error}">
 
-							<div class="alert alert-danger alert-dismissible fade show"
-								style="margin-right: 60%;" role="alert">
-								<strong>Error:</strong>
-								<c:out value="${error}" />
-								<button type="button" class="close" data-dismiss="alert"
-									aria-label="Close">
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								<strong>Error:</strong>	<c:out value="${error}" />
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 
 						</c:if>
-						<br>
 						<div class="card">
-							<div class="card-header">Ingreso de informaci&oacute;n del
-								cliente</div>
+							<div class="card-header">Ingreso de informaci&oacute;n del	cliente</div>
 							<div class="card-body form-horizontal">
 								<div>
 									<span style="font-size: small;">-Los campos marcados con
@@ -63,14 +98,14 @@
 										<label class="col-sm-4 control-label">
 											N&uacute;mero celular</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control num_tel_cel" name="num_tel_cel"	value="${cliente.num_tel_cel }" >
+											<input type="text" class="form-control num_tel_cel" id="num_tel_cel" onblur="validarTelefonos('num_tel_cel');" name="num_tel_cel"	value="${cliente.num_tel_cel }" >
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-4 control-label">
 											Tel&eacute;fono fijo</label>
 										<div class="col-sm-7">
-											<input type="text"  class="form-control num_tel_cel"  name="num_tel_fijo"	value="${cliente.num_tel_fijo }"  >
+											<input type="text"  class="form-control num_tel_cel" id="num_tel_fijo" onblur="validarTelefonos('num_tel_fijo');"  name="num_tel_fijo"	value="${cliente.num_tel_fijo }"  >
 										</div>
 									</div>
 								</div>
@@ -79,13 +114,13 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label">NIT</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control nit" name="nit"	value="${cliente.nit }" maxlength="17">
+											<input type="text" class="form-control nit" id="nit" name="nit" onblur="validarNit();"	value="${cliente.nit }" maxlength="17">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label">DUI</label>
 										<div class="col-sm-7 ">
-											<input type="text" class="form-control dui" name="dui"	value="${cliente.dui }" maxlength="10">
+											<input type="text" class="form-control dui" id="dui" name="dui" onblur="validarDui();"	value="${cliente.dui }" maxlength="10">
 										</div>
 									</div>
 									<div class="form-group">
@@ -105,6 +140,13 @@
 										</div>
 									</div>
 								</div>
+								
+								<div class="form-group" >
+										<label class="col-sm-2 control-label">Direcci&oacute;n</label>
+										<div class="col-sm-7">
+											 <textarea class="form-control" id="direccion" name="direccion" value="${cliente.direccion}"></textarea>
+										</div>
+									</div>
 							</div>
 							<!-- div que finaliza el body del panel -->
 						</div>
