@@ -41,7 +41,8 @@
 								<span class="fa fa-chevron-left pull-right"></span>
 						</a>
 							<ul class="sub-menu collapse" id="products">
-								<li><a href="#">Entradas</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/crearEntrada">Entradas</a></li>
 								<li><a href="#">Salidas</a></li>
 							</ul></li>
 					</c:if>
