@@ -34,10 +34,10 @@
 						<div class="card-header">Edición de información del Rol
 						</div>
 						<div class="card-body">
-
+						<div style="width: 50%; float: left;">
 							<div class="form-group">
-									<label class="col-lg-2 control-label">Descripcion</label>
-									<div class="col-xs-3">
+									<label class="col-sm-3 control-label">Descripcion del Rol</label>
+									<div class="col-sm-7">
 										<input type="text" class="form-control" name="descripcion"
 											value="${rol.descripcion }" placeholder="">
 									</div>
@@ -64,6 +64,9 @@
 										</select>
 									</div>
 								</div>
+							</div>
+							
+							<div style="width: 50%; float: right;">
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Opcion Factura</label>
 									<div class="col-sm-7">
@@ -86,7 +89,7 @@
 										</select>
 									</div>
 								</div>
-							
+							</div>
 						</div>
 						<!-- div que finaliza el body del panel -->
 					</div>
