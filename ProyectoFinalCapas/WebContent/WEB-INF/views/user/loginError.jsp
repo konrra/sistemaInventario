@@ -20,12 +20,12 @@
 
 <style type="text/css">
 body {
-	background-color: #808080
+	background-color: white;
 }
  
 
 </style>
-<title>Sistema de Recursos Humanos</title>
+<title>Sistema de Inventario</title>
 </head>
 <body>
 	<br />

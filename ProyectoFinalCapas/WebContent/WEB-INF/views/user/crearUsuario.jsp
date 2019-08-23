@@ -33,43 +33,46 @@
 						<div class="card-header">Edición de información del Usuario
 						</div>
 						<div class="card-body">
-
+						<div style="width: 50%; float: left;">
 							<div class="form-group">
-								<label class="col-lg-2 control-label">Usuario</label>
-								<div class="col-xs-3">
+								<label class="col-sm-3 control-label">Usuario</label>
+								<div class="col-sm-7">
 									<input type="text" class="form-control" name="usuario"
-										value="${usuario.usuario }" placeholder="">
+										value="${usuario.usuario }" placeholder="" size="30">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">Contraseña</label>
-								<div class="col-xs-3">
+								<label class="col-sm-3 control-label">Contraseña</label>
+								<div class="col-sm-7">
 									<input type="text" class="form-control" name="password"
 										value="${usuario.password }" placeholder="">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">Rol</label>
-								<div class="col-xs-3">
+								<label class="col-sm-3 control-label">Rol</label>
+								<div class="col-sm-7">
 									<input type="text" class="form-control" name="rol"
 										value="${usuario.rol}" placeholder="">
 								</div>
 							</div>
+						</div>
+						
+						<div style="width: 50%; float: right;">
 							<div class="form-group">
-								<label class="col-lg-2 control-label">Nombre</label>
-								<div class="col-xs-3">
+								<label class="col-sm-3 control-label">Nombre</label>
+								<div class="col-sm-7">
 									<input type="text" class="form-control" name="nombre"
 										value="${usuario.nombre }" placeholder="">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label">Apellido</label>
-								<div class="col-xs-3">
+								<label class="col-sm-3 control-label">Apellido</label>
+								<div class="col-sm-7">
 									<input type="text" class="form-control" name="apellido"
 										value="${usuario.apellido }" placeholder="">
 								</div>
 							</div>
-							
+							</div>
 						</div>
 						<!-- div que finaliza el body del panel -->
 					</div>

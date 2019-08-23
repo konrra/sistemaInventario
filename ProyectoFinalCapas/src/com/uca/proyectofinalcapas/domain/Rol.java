@@ -34,9 +34,6 @@ public class Rol {
 	@Column(name="opcseguridad")
 	private int opcseguridad;
 	
-	
-	
-
 	public int getOpccatalagos() {
 		return opccatalagos;
 	}
