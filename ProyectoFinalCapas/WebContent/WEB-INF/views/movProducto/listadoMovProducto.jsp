@@ -21,11 +21,7 @@
 				<body>
 					<div class="card">
 						<div class="card-header">
-							Edición de información del producto
-							<button type="button" style="float: right;"
-								class="btn btn-success btn-sm"
-								onclick="location.href='${pageContext.request.contextPath}/crearProducto'">Agregar
-								+</button>
+							Información del producto
 						</div>
 						<div class="card-body overflow-auto">
 

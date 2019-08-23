@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Creaci&oacute;n de Entrada</title>
+<title>Creaci&oacute;n de Salida</title>
 <%@ include file="../template/Header.jsp"%>
 </head>
 
@@ -20,7 +20,7 @@
 
 
 				<form class="form-horizontal" role="form"
-					action="${pageContext.request.contextPath}/actualizarEntrada">
+					action="${pageContext.request.contextPath}/actualizarSalida">
 					<c:if test="${not empty error}">
 
 						<div class="alert alert-danger alert-dismissible fade show"
@@ -36,7 +36,7 @@
 					</c:if>
 					<br>
 					<div class="card">
-						<div class="card-header">Ingreso de entrada de producto</div>
+						<div class="card-header">Ingreso de salida de producto</div>
 						<div class="card-body form-horizontal">
 							<div>
 								<span style="font-size: small;">-Los campos marcados con
@@ -94,17 +94,25 @@
 											</div>
 										</div>
 
-										<div class="form-group">
-											<label class="col-sm-3 control-label">Tipo Entrada</label>
-											<div class="col-sm-7">
-												<select class="form-control" name="tipo_entrada">
-													<option value="N">Nuevo Producto</option>
-													<option value="D">Devolucion</option>
-													<option value="A">Averia</option>
-													<option value="C">Cambio</option>
-												</select>
-											</div>
-										</div>
+<!-- 										<div class="form-group"> -->
+<!-- 											<label class="col-sm-3 control-label">Cliente </label> -->
+<!-- 											<div class="col-sm-10"> -->
+<%-- 												<c:if test="${idCliente != null }"> --%>
+<!-- 													<input type="hidden" class="col-sm-8 col-form-control" -->
+<%-- 														name="id_cliente" value="${idCliente}"> --%>
+<!-- 													<input type="text" class="col-sm-8 col-form-control" -->
+<%-- 														value="${nombreCliente}"> --%>
+<%-- 												</c:if> --%>
+<%-- 												<c:if test="${idCliente == null }"> --%>
+<!-- 													<input type="text" class="col-sm-8 col-form-control" -->
+<!-- 														value=""> -->
+<%-- 												</c:if> --%>
+<!-- 												<button type="button" style="float: right;" -->
+<!-- 													class="col-sm-3 btn-info btn-sm" -->
+<%-- 													onclick="location.href='${pageContext.request.contextPath}/listadoMovCliente'"> --%>
+<!-- 													Listado Cliente</button> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
 
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Lugar</label>
