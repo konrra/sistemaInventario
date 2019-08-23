@@ -18,8 +18,8 @@ public class Lugar {
 	@Column(name="descripcion")
 	private String descripcion;
 	
-	@Column(name="estado")
-	private String estado;
+//	@Column(name="estado")
+//	private String estado;
 
 	public int getId_lugar() {
 		return id_lugar;
@@ -30,13 +30,13 @@ public class Lugar {
 	}
 
 
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+//	public String getEstado() {
+//		return estado;
+//	}
+//
+//	public void setEstado(String estado) {
+//		this.estado = estado;
+//	}
 
 	public String getDescripcion() {
 		return descripcion;
