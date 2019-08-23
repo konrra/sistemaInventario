@@ -14,7 +14,45 @@
 		$('.num_tel_cel').mask('0000-0000');
 		$('.nit').mask('0000-000000-000-0');
 		$('.dui').mask('00000000-0');
+		if($("#validador").val() == 1){
+			validarDui();
+			 validarNit();
+			 validarTelefonos('num_tel_fijo');
+			 validarTelefonos('num_tel_cel');
+		}
 	});
+	
+	
+	
+	function validarDui(){
+		if( $("#dui").val().length != 10) {  
+			$("#dui").css("border", "2px solid #ff0000");
+			$("#validador").val(1);
+	    }else{
+			$("#dui").css("border", "1px solid #ced4da");
+			$("#validador").val(0);
+	    }
+	}
+	
+	function validarNit(){
+		if( $("#nit").val().length != 17) {  
+			$("#nit").css("border", "2px solid #ff0000");
+			$("#validador").val(1);
+	    }else{
+			$("#nit").css("border", "1px solid #ced4da");
+			$("#validador").val(0);
+	    }
+	}
+	
+	function validarTelefonos(identificador){
+		if( $("#"+identificador).val().length != 9) {  
+			$("#"+identificador).css("border", "2px solid #ff0000");
+			$("#validador").val(1);
+	    }else{
+			$("#"+identificador).css("border", "1px solid #ced4da");
+			$("#validador").val(0);
+	    }
+	}
 </script>
 
 			<%@ include file="../template/LeftSidebar.jsp"%>
@@ -28,6 +66,7 @@
 						action="${pageContext.request.contextPath}/actualizarCliente">
 					<input type="hidden" name="id_cliente" id="id_cliente"
 						value="${cliente.id_cliente}">
+						<input type="hidden" id="validador" name="validador" />
 					<div class="card">
 						<div class="card-header">Edición de información del cliente
 					</div>
@@ -57,14 +96,14 @@
 										<label class="col-sm-4 control-label">
 											N&uacute;mero celular</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control num_tel_cel" name="num_tel_cel"	value="${cliente.num_tel_cel }" >
+											<input type="text" class="form-control num_tel_cel" name="num_tel_cel" id="num_tel_cel" onblur="validarTelefonos('num_tel_cel');"	value="${cliente.num_tel_cel }" >
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-4 control-label">
 											Tel&eacute;fono fijo</label>
 										<div class="col-sm-7">
-											<input type="text"  class="form-control num_tel_cel"  name="num_tel_fijo"	value="${cliente.num_tel_fijo }"  >
+											<input type="text"  class="form-control num_tel_cel"  name="num_tel_fijo" id="num_tel_fijo" onblur="validarTelefonos('num_tel_fijo')"	value="${cliente.num_tel_fijo }"  >
 										</div>
 									</div>
 									
@@ -84,13 +123,13 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label">NIT</label>
 										<div class="col-sm-7">
-											<input type="text" class="form-control nit" name="nit"	value="${cliente.nit }" maxlength="17">
+											<input type="text" class="form-control nit" name="nit" id="nit" onblur="validarNit();"	value="${cliente.nit }" maxlength="17">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label">DUI</label>
 										<div class="col-sm-7 ">
-											<input type="text" class="form-control dui" name="dui"	value="${cliente.dui }" maxlength="10">
+											<input type="text" class="form-control dui" name="dui" id="dui" onblur="validarDui();"	value="${cliente.dui }" maxlength="10">
 										</div>
 									</div>
 									<div class="form-group">

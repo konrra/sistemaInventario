@@ -24,8 +24,7 @@
 						action="${pageContext.request.contextPath}/actualizarProducto">
 						<br>
 						<c:if test="${not empty error}">
-							<div class="alert alert-danger alert-dismissible fade show"
-								style="margin-right: 60%;" role="alert">
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
 								<strong>Error:</strong>
 								<c:out value="${error}" />
 								<button type="button" class="close" data-dismiss="alert"
@@ -51,7 +50,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Costo</label>
+										<label class="col-sm-2 control-label">Costo*</label>
 										<div class="col-sm-7">
 											<input type="text"  class="form-control dinero"
 												name="costo" value="${producto.costo }">
@@ -59,8 +58,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Precio
-											P&uacute;blico </label>
+										<label class="col-sm-4 control-label">Precio P&uacute;blico</label>
 										<div class="col-sm-7">
 											<input class="form-control dinero" tabindex="5" type="text"
 												 id="precio_publico" name="precio_publico"
@@ -72,7 +70,7 @@
 								<div style="width: 50%; float: right;">
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Precio Tienda </label>
+										<label class="col-sm-4 control-label">Precio Tienda </label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control dinero" name="precio_tienda"
 												value="${producto.precio_tienda }">
@@ -80,7 +78,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Precio Evento </label>
+										<label class="col-sm-4 control-label">Precio Evento </label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control dinero" name="precio_evento"
 												value="${producto.precio_evento }">
@@ -91,7 +89,7 @@
 										<label class="col-sm-5 control-label">Categor&iacute;a	Prod. *</label>
 										<div class="col-sm-7">
 											<select class="form-control" name="id_categoria_x_producto">
-												<option value="">Seleccione una categor&iacute;a</option>
+												<option value="0">Seleccione una categor&iacute;a</option>
 												<c:forEach items="${comboCategoria}" var="c">
 													<option value="${c.id_categoria_x_producto }"
 														<c:if test="${c.id_categoria_x_producto == producto.categoriaxproducto.id_categoria_x_producto }">selected</c:if>><c:out

@@ -74,6 +74,7 @@ public class ProductoController {
 		ModelAndView mav = new ModelAndView();
 		if(StringUtils.isEmpty(producto.getNombre()) || StringUtils.isEmpty(producto.getId_categoria_x_producto())) {
 			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+			mav.addObject("producto", producto);
 			mav.addObject("comboCategoria", comboCategoria);
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("producto/crearProducto");
