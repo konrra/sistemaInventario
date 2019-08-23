@@ -20,27 +20,26 @@
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 				<body class="body-back">
-					<form class="form-horizontal" role="form"
-						action="${pageContext.request.contextPath}/actualizarProducto">
+					<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarProducto">
 						<br>
 						<c:if test="${not empty error}">
 							<div class="alert alert-danger alert-dismissible fade show" role="alert">
 								<strong>Error:</strong>
 								<c:out value="${error}" />
-								<button type="button" class="close" data-dismiss="alert"
-									aria-label="Close">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 						</c:if>
 
 						<div class="card">
-							<div class="card-header">Ingreso de informaci&oacute;n del
-								producto</div>
-							<div class="card-body">
-
+							<div class="card-header">Ingreso de informaci&oacute;n del producto</div>
+							<div class="card-body form-horizontal">
+								<div>
+										<span style="font-size: small;color:#ff0000;">-Los campos marcados con * son obligatorios</span>
+								</div>
 								<div style="width: 50%; float: left;">
-
+									
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Producto*</label>
 										<div class="col-sm-7">
@@ -58,7 +57,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-4 control-label">Precio P&uacute;blico</label>
+										<label class="col-sm-4 control-label">Precio Venta*</label>
 										<div class="col-sm-7">
 											<input class="form-control dinero" tabindex="5" type="text"
 												 id="precio_publico" name="precio_publico"

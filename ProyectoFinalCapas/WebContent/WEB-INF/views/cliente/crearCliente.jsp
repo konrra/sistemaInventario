@@ -83,7 +83,7 @@
 							<div class="card-header">Ingreso de informaci&oacute;n del	cliente</div>
 							<div class="card-body form-horizontal">
 								<div>
-									<span style="font-size: small;">-Los campos marcados con
+									<span style="font-size: small;color:#ff0000;">-Los campos marcados con
 										* son obligatorios</span>
 								</div>
 								<br>
