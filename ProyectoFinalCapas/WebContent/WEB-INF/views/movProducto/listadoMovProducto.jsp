@@ -5,28 +5,39 @@
 </head>
 
 <div>
-	<div class="row" style="height:100vh; background-color: white;">
-		<div class="col-xs-*" style="background-color: black;" >
+	<div class="row">
+		<div class="col-xs-*">
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
-		<div class="col-lg-*" style="width: 75%" >
-			<div class="container" style="margin-left: 2%; margin-top: 2%">
+		<div class="col-lg-*">
+			<div class="container" style="margin-left: 10%; margin-top: 5%">
 
 				<body class="body-back">
+					<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+					<script type="text/javascript"
+						src="resources/jquery-ui/jquery-ui.js"></script>
+
+					<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 					<div class="card">
 						<div class="card-header">
-							Edición de información de las categor&iacute;as
-							<button style="float: right;" type="button"
+							Edición de información del producto
+							<button type="button" style="float: right;"
 								class="btn btn-success btn-sm"
-								onclick="location.href='${pageContext.request.contextPath}/crearCategoria'">Agregar
+								onclick="location.href='${pageContext.request.contextPath}/crearProducto'">Agregar
 								+</button>
 						</div>
 						<div class="card-body">
+
 							<table class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
 										<th>Descripci&oacute;n</th>
+										<th>Costo</th>
+										<th>Precio P&uacute;blico</th>
+										<th>Precio Tienda</th>
+										<th>Precio Evento</th>
+										<th>Categor&iacute;a</th>
 										<th>Estado</th>
 										<th><span class="glyphicon glyphicon-cog"> </span></th>
 									</tr>
@@ -35,7 +46,13 @@
 									<c:if test="${total != 0 }">
 										<c:forEach items="${colectionResult}" var="dto">
 											<tr>
-												<td><c:out value="${dto.descripcion}" /></td>
+												<td><c:out value="${dto.nombre}" /></td>
+												<td><c:out value="${dto.costo}" /></td>
+												<td><c:out value="${dto.precio_publico}" /></td>
+												<td><c:out value="${dto.precio_tienda}" /></td>
+												<td><c:out value="${dto.precio_evento}" /></td>
+												<td><c:out
+														value="${dto.categoriaxproducto.descripcion}" /></td>
 												<td><c:if test="${dto.estado == 'A'}">
 														<c:out value="Activo"></c:out>
 													</c:if> <c:if test="${dto.estado == 'I'}">
@@ -43,11 +60,8 @@
 													</c:if></td>
 												<td align=Right><input type="button"
 													class="btn btn-info btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/editarCategoria?id_categoria_x_producto=${dto.id_categoria_x_producto}'"
-													value="Editar" /> <input type="button"
-													class="btn btn-danger btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/eliminarCategoria?id_categoria_x_producto=${dto.id_categoria_x_producto}'"
-													value="Inactivar" /></td>
+													onclick="location.href='${pageContext.request.contextPath}/crearEntrada?id_producto=${dto.id_producto}'"
+													value="Seleccionar" /></td>
 											</tr>
 										</c:forEach>
 									</c:if>
@@ -61,11 +75,11 @@
 							</table>
 						</div>
 						<div class="card-footer text-muted">
-							<label style="float: right;"> La cantidad de registros: <c:out
-									value="${total }" /></label>
+							<label style="float: right;"> La cantidad de registros:
+								<c:out value="${total }" />
+							</label>
 						</div>
 					</div>
-					<!-- <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
 
 				</body>
