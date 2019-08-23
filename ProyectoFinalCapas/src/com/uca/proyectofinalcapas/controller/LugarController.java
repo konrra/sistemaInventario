@@ -93,7 +93,7 @@ public class LugarController {
 		
 		try {
 			Lugar lugar = lugarRepository.findById(id_lugar);
-			lugar.setEstado("I");
+//			lugar.setEstado("I");
 			lugarRepository.save(lugar);
 			
 		} catch (Exception e) {

@@ -42,7 +42,7 @@
 						</a>
 							<ul class="sub-menu collapse" id="products">
 								<li><a
-									href="${pageContext.request.contextPath}/crearEntrada">Entradas</a></li>
+									href="${pageContext.request.contextPath}/crearEntrada?idProducto=0">Entradas</a></li>
 								<li><a href="#">Salidas</a></li>
 							</ul></li>
 					</c:if>

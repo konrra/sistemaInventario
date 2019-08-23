@@ -1,7 +1,9 @@
 package com.uca.proyectofinalcapas.controller;
 
+import java.util.Calendar;
 import java.util.List;
 
+import org.exolab.castor.types.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -15,9 +17,11 @@ import com.uca.proyectofinalcapas.domain.Categoriaxproducto;
 import com.uca.proyectofinalcapas.domain.Cliente;
 import com.uca.proyectofinalcapas.domain.Lugar;
 import com.uca.proyectofinalcapas.domain.MovProducto;
+import com.uca.proyectofinalcapas.domain.Producto;
 import com.uca.proyectofinalcapas.repository.ClienteRepository;
 import com.uca.proyectofinalcapas.repository.LugarRepository;
 import com.uca.proyectofinalcapas.repository.MovProductoRepository;
+import com.uca.proyectofinalcapas.repository.ProductoRepository;
 
 
 
@@ -31,27 +35,26 @@ public class MovProductoController {
 	@Autowired
 	private LugarRepository lugarRepository;
 	
+	@Autowired
+	private ProductoRepository productoRepository;
 	
 	
 	
-	
-//	@RequestMapping(value="/listadoEntrada", method= RequestMethod.GET)
-//	public ModelAndView listadoCliente(){
-//		ModelAndView mav = new ModelAndView();
-//		try {
-//			
-//			List<Cliente> listadoCLientes = clienteRepository.findAllCliente();
-//			int totalCliente = clienteRepository.countAllCliente();
-//			mav.addObject("colectionResult", listadoCLientes);
-//			mav.addObject("total", totalCliente);
-//		}catch (Exception e) {
-//			mav.addObject("total", 0);
-//			System.out.println(e.getStackTrace());
-//		}
-//		
-//		mav.setViewName("cliente/listadoCliente");
-//		return mav;
-//	}
+	@RequestMapping(value="/listadoMovProducto", method= RequestMethod.GET)
+	public ModelAndView listadoCliente(){
+		ModelAndView mav = new ModelAndView();
+		try {
+			
+			List<Producto> listadoProducto = productoRepository.findAllProduct();
+			mav.addObject("colectionResult", listadoProducto);
+		}catch (Exception e) {
+			mav.addObject("total", 0);
+			System.out.println(e.getStackTrace());
+		}
+		
+		mav.setViewName("movProducto/listadoMovProducto");
+		return mav;
+	}
 	
 ////	metodo que llama al formulario de cliente 
 //	@RequestMapping(value="/editarEntrada", method=RequestMethod.GET)
@@ -76,22 +79,36 @@ public class MovProductoController {
 	@RequestMapping(value="/actualizarEntrada", method=RequestMethod.GET)
 	public ModelAndView actCliente(@ModelAttribute MovProducto movProducto) {
 		
+		Calendar cal = Calendar.getInstance();
+
+	    java.util.Date utilDate = cal.getTime();
 		
 		Lugar lugar = new Lugar();
 		lugar.setId_lugar(movProducto.getId_lugar());
 		movProducto.setLugar(lugar);
+		movProducto.setTipo("E");
+		movProducto.setFecha(utilDate);
 		movProductoRepository.save(movProducto);
 		
 		ModelAndView mav = new ModelAndView();
-
+		mav.setViewName("movProducto/crearEntrada");
 		return mav;
 	}
 	
 	@RequestMapping(value="/crearEntrada", method=RequestMethod.GET)
-	public ModelAndView crearCliente() {
+	public ModelAndView crearCliente(@RequestParam("idProducto") Integer idProducto) {
+		
+		Producto producto = null;
 		
 		List<Lugar> comboLugar = lugarRepository.findAllLugar();
 		ModelAndView mav = new ModelAndView();
+		
+		if(idProducto > 0) {
+			producto = productoRepository.findById(idProducto);
+			mav.addObject("nombreProducto", producto.getNombre());
+		}
+		
+		mav.addObject("idProducto", idProducto);
 		mav.addObject("comboLugar", comboLugar);
 		
 		mav.setViewName("movProducto/crearEntrada");

@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -5,20 +10,15 @@
 </head>
 
 <div>
-	<div class="row">
-		<div class="col-xs-*">
+	<div class="row" style="height:100vh; background-color: white;">
+		<div class="col-xs-*" style="background-color: black;" >
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
-		<div class="col-lg-*">
-			<div class="container" style="margin-left: 10%; margin-top: 5%">
+		<div class="col-lg-*" style="width: 75%">
+				<div class="container" style="margin-left: 2%; margin-top: 2%">
 
-				<body class="body-back">
-					<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-					<script type="text/javascript"
-						src="resources/jquery-ui/jquery-ui.js"></script>
-
-					<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+				<body>
 					<div class="card">
 						<div class="card-header">
 							Edición de información del producto
@@ -27,7 +27,7 @@
 								onclick="location.href='${pageContext.request.contextPath}/crearProducto'">Agregar
 								+</button>
 						</div>
-						<div class="card-body">
+						<div class="card-body overflow-auto">
 
 							<table class="table table-sm table-bordere table-hover">
 								<thead class="thead-light">
@@ -60,7 +60,7 @@
 													</c:if></td>
 												<td align=Right><input type="button"
 													class="btn btn-info btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/crearEntrada?id_producto=${dto.id_producto}'"
+													onclick="location.href='${pageContext.request.contextPath}/crearEntrada?idProducto=${dto.id_producto}'"
 													value="Seleccionar" /></td>
 											</tr>
 										</c:forEach>
