@@ -21,12 +21,10 @@
 						action="${pageContext.request.contextPath}/actualizarCategoria">
 
 						<c:if test="${not empty error}">
-							<div class="alert alert-danger alert-dismissible fade show"
-								style="margin-right: 60%;" role="alert">
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
 								<strong>Error:</strong>
 								<c:out value="${error}" />
-								<button type="button" class="close" data-dismiss="alert"
-									aria-label="Close">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
@@ -35,7 +33,10 @@
 						<div class="card">
 							<div class="card-header">Ingreso de informaci&oacute;n de
 								la categor&iacute;a</div>
-							<div class="card-body">
+							<div class="card-body ">
+								<div>
+									<span style="font-size: small;color:#ff0000;">-Los campos marcados con * son obligatorios</span>
+								</div>
 								<input type="hidden" name="id_categoria_x_producto"
 									value="${categoriaxproducto.id_categoria_x_producto }">
 								<div style="width: 50%;">

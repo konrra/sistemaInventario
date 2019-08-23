@@ -26,7 +26,7 @@
 						</div>
 						<div class="card-body">
 
-							<table id="tablePro" class="table table-sm table-bordere table-hover">
+							<table id="tablePro" class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
 										<th>Descripci&oacute;n</th>

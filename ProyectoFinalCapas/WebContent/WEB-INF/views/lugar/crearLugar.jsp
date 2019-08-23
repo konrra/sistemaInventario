@@ -21,8 +21,7 @@
 					<form class="form-horizontal" role="form"
 						action="${pageContext.request.contextPath}/actualizarLugar">
 						<c:if test="${not empty error}">
-							<div class="alert alert-danger alert-dismissible fade show"
-								style="margin-right: 60%;" role="alert">
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
 								<strong>Error:</strong>
 								<c:out value="${error}" />
 								<button type="button" class="close" data-dismiss="alert"
@@ -35,8 +34,11 @@
 							<div class="card-header">Ingreso de informaci&oacute;n del
 								destino/origen</div>
 							<div class="card-body">
+								<div>
+									<span style="font-size: small;color:#ff0000;">-Los campos marcados con * son obligatorios</span>
+								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label">Descripci&oacute;n</label>
+									<label class="col-sm-3 control-label">Descripci&oacute;n*</label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control" name="descripcion"
 											value="${lugar.descripcion }">

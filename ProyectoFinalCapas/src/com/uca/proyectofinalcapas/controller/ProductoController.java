@@ -16,6 +16,8 @@ import com.uca.proyectofinalcapas.domain.Producto;
 import com.uca.proyectofinalcapas.repository.CategoriaxproductoRepository;
 import com.uca.proyectofinalcapas.repository.ProductoRepository;
 
+import sun.nio.cs.ext.Big5;
+
 
 
 
@@ -72,7 +74,8 @@ public class ProductoController {
 	@RequestMapping(value="/actualizarProducto", method=RequestMethod.GET)
 	public ModelAndView actProducto(@ModelAttribute Producto producto) {
 		ModelAndView mav = new ModelAndView();
-		if(StringUtils.isEmpty(producto.getNombre()) || StringUtils.isEmpty(producto.getId_categoria_x_producto())) {
+		if(StringUtils.isEmpty(producto.getNombre()) || StringUtils.isEmpty(producto.getId_categoria_x_producto()) 
+				|| producto.getCosto() == null) {
 			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
 			mav.addObject("comboCategoria", comboCategoria);
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");

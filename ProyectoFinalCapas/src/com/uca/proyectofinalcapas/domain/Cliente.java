@@ -36,8 +36,18 @@ public class Cliente {
 	@Column(name="estado")
 	private String estado;
 	
+	@Column(name="direccion")
+	private String direccion;
 	
 	
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	public String getEstado() {
 		return estado;
 	}

@@ -29,7 +29,7 @@
 						</div>
 						<div class="card-body overflow-auto">
 
-							<table class="table table-sm table-bordere table-hover">
+							<table class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
 										<th>Descripci&oacute;n</th>
