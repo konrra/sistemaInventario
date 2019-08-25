@@ -58,19 +58,15 @@
 
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Producto </label>
-											<div class="col-sm-12">
+											<div class="col-sm-9 form-inline">
 												<c:if test="${idProducto != null }">
-													<input type="hidden" class="col-sm-7 col-form-control"
-														name="id_producto" value="${idProducto}">
-													<input type="text" class="col-sm-7 col-form-control"
-														value="${nombreProducto}">
+													<input type="hidden" class="form-control" name="id_producto" value="${idProducto}">
+													<input type="text" class="form-control" value="${nombreProducto}">
 												</c:if>
 												<c:if test="${idProducto == null }">
-													<input type="text" class="col-sm-7 col-form-control"
-														value="valor defecto">
+													<input type="text" class="col-form-control"	value="valor defecto">
 												</c:if>
-												<button type="button" 
-													class="col-sm-1 btn-info btn-sm"
+												<button type="button" class="btn-info btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/listadoMovProducto'">
 													...</button>
 											</div>

@@ -58,21 +58,18 @@
 
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Producto </label>
-											<div class="col-sm-10">
+											<div class="col-sm-9 form-inline">
 												<c:if test="${idProducto != null }">
-													<input type="hidden" class="col-sm-8 col-form-control"
+													<input type="hidden" class="form-control"
 														name="id_producto" value="${idProducto}">
-													<input type="text" class="col-sm-8 col-form-control"
+													<input type="text" name="nomProducto" id="nomProducto" class="form-control"
 														value="${nombreProducto}">
 												</c:if>
 												<c:if test="${idProducto == null }">
-													<input type="text" class="col-sm-8 col-form-control"
-														value="valor defecto">
+													<input type="text" class="form-control"	value="valor defecto">
 												</c:if>
-												<button type="button" style="float: right;"
-													class="col-sm-3 btn-info btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/listadoMovProducto'">
-													Listado Producto</button>
+												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalProducto">
+													...</button>
 											</div>
 										</div>
 
@@ -85,39 +82,26 @@
 										</div>
 
 
+
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Comentario*</label>
-											<div class="col-sm-7 ">
-												<input type="text" class="form-control" name="comentario"
-													value="${movproducto.comentario }"
-													placeholder="Agregue comentario">
+											<label class="col-sm-3 control-label">Cliente </label>
+											<div class="col-sm-9 form-inline">
+												<c:if test="${idCliente != null }">
+													<input type="hidden" class="form-control" name="id_cliente" id="id_cliente" value="${idCliente}">
+													<input type="text" class="form-control" name="nomCliente" id="nomCliente" value="${nombreCliente}">
+												</c:if>
+												<c:if test="${idCliente == null }">
+													<input type="text" class="form-control"	value="">
+												</c:if>
+												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalCliente">
+													...</button>
 											</div>
 										</div>
-
-<!-- 										<div class="form-group"> -->
-<!-- 											<label class="col-sm-3 control-label">Cliente </label> -->
-<!-- 											<div class="col-sm-10"> -->
-<%-- 												<c:if test="${idCliente != null }"> --%>
-<!-- 													<input type="hidden" class="col-sm-8 col-form-control" -->
-<%-- 														name="id_cliente" value="${idCliente}"> --%>
-<!-- 													<input type="text" class="col-sm-8 col-form-control" -->
-<%-- 														value="${nombreCliente}"> --%>
-<%-- 												</c:if> --%>
-<%-- 												<c:if test="${idCliente == null }"> --%>
-<!-- 													<input type="text" class="col-sm-8 col-form-control" -->
-<!-- 														value=""> -->
-<%-- 												</c:if> --%>
-<!-- 												<button type="button" style="float: right;" -->
-<!-- 													class="col-sm-3 btn-info btn-sm" -->
-<%-- 													onclick="location.href='${pageContext.request.contextPath}/listadoMovCliente'"> --%>
-<!-- 													Listado Cliente</button> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
 
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Lugar</label>
 											<div class="col-sm-7">
-												<select class="form-control" name="id_lugar">
+												<select class="form-control" name="id_lugar" > 
 													<option value="">Seleccione una categor&iacute;a</option>
 													<c:forEach items="${comboLugar}" var="c">
 														<option value="${c.id_lugar }"
@@ -128,17 +112,16 @@
 												</select>
 											</div>
 										</div>
+										
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Comentario</label>
+											<div class="col-sm-7 ">
+												<input type="text" class="form-control" name="comentario"
+													value="${movproducto.comentario }"
+													placeholder="Agregue comentario">
+											</div>
+										</div>
 
-<!-- 										<div class="form-group" style="display: none;"> -->
-<!-- 											<label class="col-sm-2 control-label">Estado</label> -->
-<!-- 											<div class="col-sm-7"> -->
-<!-- 												<select class="form-control" name="estado"> -->
-<!-- 													<option value="A" -->
-<%-- 														<c:if test="${cliente.estado =='A' }">selected</c:if>>Activo</option> --%>
-
-<!-- 												</select> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
 									</div>
 								</div>
 								<!-- div que finaliza el body del panel -->
@@ -149,15 +132,120 @@
 								<button type="submit" class="btn btn-success">Guardar</button>
 							</div>
 							<!-- div que finaliza el footer del panel -->
+							
+							
+					<div class="modal fade" id="modalProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="modalProductoTitulo">Listado Producto</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						        <table id="tablePro" class="table table-sm table-bordere table-hover table-bordered">
+								<thead class="thead-light">
+									<tr>
+										<th>Descripci&oacute;n</th>
+										<th>Categor&iacute;a</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:if test="${total != 0 }">
+										<c:forEach items="${colectionResultProd}" var="dto">
+											<tr onclick="$('#id_producto').val('${dto.id_producto}'); $('#nomProducto').val('${dto.nombre}');" >
+												<td><c:out value="${dto.nombre}" /></td>
+												<td><c:out	value="${dto.categoriaxproducto.descripcion}" /></td>
+												<td>
+													<c:if test="${dto.estado == 'A'}">	<c:out value="Activo"></c:out></c:if> 
+													<c:if test="${dto.estado == 'I'}"> <c:out value="Inactivo"></c:out></c:if>
+												</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+									<c:if test="${total == 0 }">
+										<tr>
+											<td align="center" style="font-style: italic;" colspan="7">
+												No hay registros que mostrar
+											</td>
+										</tr>
+									</c:if>
+								</tbody>
+							</table>
+						        
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
+						        <button type="button" class="btn btn-primary btn-sm">Seleccionar</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>	
+						
+						<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+				  Launch demo modal
+				</button>
+				
+				<!-- Modal -->
+				<div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalClienteTitle" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="modalClienteTitle">Listado Cliente</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <table class="table table-sm table-bordere table-hover table-bordered">
+							<thead class="thead-light">
+								<tr>
+									<th>Nombre</th>
+									<th>Tipo</th>
+									<th>N&uacute;m. cel.</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:if test="${total != 0 }">
+									<c:forEach items="${colectionResultClien}" var="dto">
+										<tr onclick="$('#id_cliente').val('${dto.id_cliente}'); $('#nomCliente').val('${dto.nombre}');" >
+											<td><c:out value="${dto.nombre}" /></td>
+											<td><c:if test="${dto.tipo == 'N'}">
+													<c:out value="Natural"></c:out>
+												</c:if> 
+												<c:if test="${dto.tipo == 'J'}">
+													<c:out value="Jur&iacute;dico"></c:out>
+												</c:if>
+											</td>
+											<td><c:out value="${dto.num_tel_cel}" /></td>
+										</tr>
+									</c:forEach>
+								</c:if>
+								<c:if test="${total == 0 }">
+									<tr>
+										<td align="center" style="font-style: italic;" colspan="7">No
+											hay registros que mostrar aqui</td>
+									</tr>
+								</c:if>
+							</tbody>
+						</table>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+				        <button type="button" class="btn btn-primary btn-sm">Seleccionar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>			
+							
+							
 				</form>
-
-
 			</div>
 		</div>
 	</div>
-
-
-	<!-- <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
 
 </body>

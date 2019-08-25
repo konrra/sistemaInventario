@@ -141,6 +141,8 @@ public class MovProductoController {
 		Producto producto = null;
 		
 		List<Lugar> comboLugar = lugarRepository.findAllLugar();
+		List<Producto> listadoProducto = productoRepository.findAllProduct();
+		List<Cliente> listadoClientes = clienteRepository.findAllCliente();
 		ModelAndView mav = new ModelAndView();
 		
 		if(idProducto > 0) {
@@ -150,6 +152,9 @@ public class MovProductoController {
 		
 		mav.addObject("idProducto", idProducto);
 		mav.addObject("comboLugar", comboLugar);
+		mav.addObject("total",listadoProducto.size());
+		mav.addObject("colectionResultProd",listadoProducto);
+		mav.addObject("colectionResultClien",listadoClientes);
 		
 		mav.setViewName("movProducto/crearEntrada");
 		return mav;
@@ -161,6 +166,8 @@ public class MovProductoController {
 		Producto producto = null;
 		
 		List<Lugar> comboLugar = lugarRepository.findAllLugar();
+		List<Producto> listadoProducto = productoRepository.findAllProduct();
+		List<Cliente> listadoClientes = clienteRepository.findAllCliente();
 		ModelAndView mav = new ModelAndView();
 		
 		if(idProducto > 0) {
@@ -170,6 +177,10 @@ public class MovProductoController {
 		
 		mav.addObject("idProducto", idProducto);
 		mav.addObject("comboLugar", comboLugar);
+		mav.addObject("idProducto", idProducto);
+		mav.addObject("total",listadoProducto.size());
+		mav.addObject("colectionResultProd",listadoProducto);
+		mav.addObject("colectionResultClien",listadoClientes);
 		
 		mav.setViewName("movProducto/crearSalida");
 		return mav;
