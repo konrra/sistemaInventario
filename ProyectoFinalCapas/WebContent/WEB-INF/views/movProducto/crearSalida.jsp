@@ -19,8 +19,7 @@
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 
-				<form class="form-horizontal" role="form"
-					action="${pageContext.request.contextPath}/actualizarSalida">
+				<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarSalida">
 					<c:if test="${not empty error}">
 
 						<div class="alert alert-danger alert-dismissible fade show"
@@ -43,7 +42,7 @@
 									* son obligatorios</span>
 							</div>
 							<br>
-
+							<input name="id_usuario" name="id_usuario" type="hidden" value="${user.id_usuario}"/>
 							<div class="form-group">
 								<div class="row">
 
@@ -54,55 +53,54 @@
 
 
 								<div class="form-row">
-									<div style="width: 50%; float: left;">
+									<div style="width: 50%;">
 
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Producto </label>
+											<label class="col-sm-3 control-label">Producto*</label>
 											<div class="col-sm-9 form-inline">
-												<c:if test="${idProducto != null }">
-													<input type="hidden" class="form-control"
-														name="id_producto" value="${idProducto}">
-													<input type="text" name="nomProducto" id="nomProducto" class="form-control"
-														value="${nombreProducto}">
-												</c:if>
-												<c:if test="${idProducto == null }">
-													<input type="text" class="form-control"	value="valor defecto">
-												</c:if>
+<%-- 												<c:if test="${idProducto != null }"> --%>
+													<input type="hidden" class="form-control" name="id_producto" id="id_producto" value="${idProducto}">
+													<input type="text" name="nomProducto" id="nomProducto" style="width: 90%;" class="form-control"	value="${nombreProducto}">
+<%-- 												</c:if> --%>
+<%-- 												<c:if test="${idProducto == null }"> --%>
+<!-- 													<input type="text" class="form-control"	value="valor defecto"> -->
+<%-- 												</c:if> --%>
 												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalProducto">
 													...</button>
 											</div>
 										</div>
 
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Cantidad </label>
+											<label class="col-sm-3 control-label">Cantidad*</label>
 											<div class="col-sm-7">
 												<input type="text" class="form-control" name="cantidad"
 													value="${movproducto.cantidad }">
 											</div>
 										</div>
-
-
-
+										
+										
+									</div>
+									<div style="width: 50%;">
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Cliente </label>
 											<div class="col-sm-9 form-inline">
-												<c:if test="${idCliente != null }">
+<%-- 												<c:if test="${idCliente != null }"> --%>
 													<input type="hidden" class="form-control" name="id_cliente" id="id_cliente" value="${idCliente}">
-													<input type="text" class="form-control" name="nomCliente" id="nomCliente" value="${nombreCliente}">
-												</c:if>
-												<c:if test="${idCliente == null }">
-													<input type="text" class="form-control"	value="">
-												</c:if>
+													<input type="text" name="nomCliente" id="nomCliente" style="width: 90%;" class="form-control"	value="${nombreCliente}">
+<%-- 												</c:if> --%>
+<%-- 												<c:if test="${idCliente == null }"> --%>
+<!-- 													<input type="text" class="form-control"	value="valor defecto"> -->
+<%-- 												</c:if> --%>
 												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalCliente">
 													...</button>
 											</div>
 										</div>
-
+										
 										<div class="form-group">
-											<label class="col-sm-3 control-label">Lugar</label>
+											<label class="col-sm-3 control-label">Lugar*</label>
 											<div class="col-sm-7">
 												<select class="form-control" name="id_lugar" > 
-													<option value="">Seleccione una categor&iacute;a</option>
+													<option value="">Seleccione un destino</option>
 													<c:forEach items="${comboLugar}" var="c">
 														<option value="${c.id_lugar }"
 															<c:if test="${c.id_lugar == movproducto.lugar.id_lugar }">selected</c:if>><c:out
@@ -112,18 +110,17 @@
 												</select>
 											</div>
 										</div>
-										
-										<div class="form-group">
+									
+									</div>
+									
+									
+								</div>
+								<div class="form-group">
 											<label class="col-sm-3 control-label">Comentario</label>
-											<div class="col-sm-7 ">
-												<input type="text" class="form-control" name="comentario"
-													value="${movproducto.comentario }"
-													placeholder="Agregue comentario">
+											<div class="col-sm-7">
+												 <textarea class="form-control" id="comentario" name="comentario" value="${movproducto.comentario }"></textarea>
 											</div>
 										</div>
-
-									</div>
-								</div>
 								<!-- div que finaliza el body del panel -->
 							</div>
 							<div class="card-footer">
@@ -185,9 +182,6 @@
 						</div>	
 						
 						<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-				  Launch demo modal
-				</button>
 				
 				<!-- Modal -->
 				<div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalClienteTitle" aria-hidden="true">

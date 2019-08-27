@@ -51,6 +51,9 @@ public class MovProducto {
 	@Column(name="tipo_entrada")
 	private String tipo_entrada;
 	
+	@Column(name="id_usuario")
+	private int id_usuario;
+	
 	@Transient
 	private int id_lugar;
 	
@@ -60,8 +63,6 @@ public class MovProducto {
 	@Transient
 	private int id_cliente;
 	
-	@Transient
-	private int id_usuario;
 
 	public int getId_lugar() {
 		return id_lugar;
