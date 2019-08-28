@@ -36,14 +36,14 @@
 
 					<c:if test="${dto == 'I'}">
 						<li><a href="#" data-toggle="collapse"
-							data-target="#products" class="collapsed active"> <i
-								class="fa fa-bar-chart-o"></i> <span class="nav-label">Inventario</span>
+							data-target="#products" class="collapsed active"> 
+							<i class="fa fa-bar-chart-o"></i> <span class="nav-label">Inventario</span>
 								<span class="fa fa-chevron-left pull-right"></span>
 						</a>
 							<ul class="sub-menu collapse" id="products">
 								<li><a
-									href="${pageContext.request.contextPath}/crearEntrada?idProducto=0">Entradas</a></li>
-								<li><a href="${pageContext.request.contextPath}/crearSalida?idProducto=0">Salida</a></li>
+									href="${pageContext.request.contextPath}/crearEntrada">Entradas</a></li>
+								<li><a href="${pageContext.request.contextPath}/crearSalida">Salida</a></li>
 							</ul></li>
 					</c:if>
 

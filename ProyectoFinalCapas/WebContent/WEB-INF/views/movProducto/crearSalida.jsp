@@ -58,13 +58,8 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Producto*</label>
 											<div class="col-sm-9 form-inline">
-<%-- 												<c:if test="${idProducto != null }"> --%>
 													<input type="hidden" class="form-control" name="id_producto" id="id_producto" value="${idProducto}">
 													<input type="text" name="nomProducto" id="nomProducto" style="width: 90%;" class="form-control"	value="${nombreProducto}">
-<%-- 												</c:if> --%>
-<%-- 												<c:if test="${idProducto == null }"> --%>
-<!-- 													<input type="text" class="form-control"	value="valor defecto"> -->
-<%-- 												</c:if> --%>
 												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalProducto">
 													...</button>
 											</div>
@@ -84,13 +79,8 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Cliente </label>
 											<div class="col-sm-9 form-inline">
-<%-- 												<c:if test="${idCliente != null }"> --%>
 													<input type="hidden" class="form-control" name="id_cliente" id="id_cliente" value="${idCliente}">
 													<input type="text" name="nomCliente" id="nomCliente" style="width: 90%;" class="form-control"	value="${nombreCliente}">
-<%-- 												</c:if> --%>
-<%-- 												<c:if test="${idCliente == null }"> --%>
-<!-- 													<input type="text" class="form-control"	value="valor defecto"> -->
-<%-- 												</c:if> --%>
 												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalCliente">
 													...</button>
 											</div>

@@ -94,9 +94,7 @@ public class MovProductoController {
 		movProducto.setFecha(utilDate);
 		movProductoRepository.save(movProducto);
 		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("movProducto/crearEntrada");
-		return mav;
+		return crearEntrada();
 	}
 	
 	
@@ -110,8 +108,6 @@ public class MovProductoController {
 		Lugar lugar = new Lugar();
 		Cliente cliente = new Cliente();
 		Producto producto = new Producto();
-//		Usuario usuario = new Usuario();
-//		usuario.setId_usuario(movProducto.getId_usuario());
 		cliente.setId_cliente(movProducto.getId_cliente());
 		lugar.setId_lugar(movProducto.getId_lugar());
 		producto.setid_producto(movProducto.getId_producto());
@@ -122,38 +118,28 @@ public class MovProductoController {
 		movProducto.setFecha(utilDate);
 		movProductoRepository.save(movProducto);
 		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("movProducto/crearSalida");
-		return mav;
+		return crearSalida();
 	}
 	
 	@RequestMapping(value="/crearEntrada", method=RequestMethod.GET)
-	public ModelAndView crearEntrada(@RequestParam("idProducto") Integer idProducto) {
+	public ModelAndView crearEntrada() {
 		
-		Producto producto = null;
 		
 		List<Lugar> comboLugar = lugarRepository.findAllLugar();
 		List<Producto> listadoProducto = productoRepository.findAllProduct();
-//		List<Cliente> listadoClientes = clienteRepository.findAllCliente();
 		ModelAndView mav = new ModelAndView();
 		
-		if(idProducto > 0) {
-			producto = productoRepository.findById(idProducto);
-			mav.addObject("nombreProducto", producto.getNombre());
-		}
 		
-		mav.addObject("idProducto", idProducto);
 		mav.addObject("comboLugar", comboLugar);
 		mav.addObject("total",listadoProducto.size());
 		mav.addObject("colectionResultProd",listadoProducto);
-//		mav.addObject("colectionResultClien",listadoClientes);
 		
 		mav.setViewName("movProducto/crearEntrada");
 		return mav;
 	}
 	
 	@RequestMapping(value="/crearSalida", method=RequestMethod.GET)
-	public ModelAndView crearSalida(@RequestParam("idProducto") Integer idProducto) {
+	public ModelAndView crearSalida() {
 		
 		Producto producto = null;
 		
@@ -162,14 +148,8 @@ public class MovProductoController {
 		List<Cliente> listadoClientes = clienteRepository.findAllCliente();
 		ModelAndView mav = new ModelAndView();
 		
-		if(idProducto > 0) {
-			producto = productoRepository.findById(idProducto);
-			mav.addObject("nombreProducto", producto.getNombre());
-		}
 		
-		mav.addObject("idProducto", idProducto);
 		mav.addObject("comboLugar", comboLugar);
-		mav.addObject("idProducto", idProducto);
 		mav.addObject("total",listadoProducto.size());
 		mav.addObject("colectionResultProd",listadoProducto);
 		mav.addObject("colectionResultClien",listadoClientes);

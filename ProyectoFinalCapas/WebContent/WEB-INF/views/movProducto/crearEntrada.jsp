@@ -8,7 +8,21 @@
 <title>Creaci&oacute;n de Entrada</title>
 <%@ include file="../template/Header.jsp"%>
 </head>
+<script type="text/javascript">
+	$("#table tr").click(function() { 
+		alert("clickeo");
+		$("#table tr").removeClass("highlight");
+		$(this).addClass("highlight"); 
+	}); 
 
+</script>
+<style type="text/css">
+
+.highlight {
+	background-color: papayawhip; 
+} 
+
+</style>
 <body class="body">
 	<div class="row" style="height: 100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;">
@@ -134,7 +148,7 @@
 						        </button>
 						      </div>
 						      <div class="modal-body">
-						        <table id="tablePro" class="table table-sm table-bordere table-hover table-bordered">
+						        <table id="table"  class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
 										<th>Descripci&oacute;n</th>
@@ -176,64 +190,6 @@
 						</div>
 						</div>
 						
-						
-						<!-- Button trigger modal -->
-				
-				<!-- Modal -->
-<!-- 				<div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalClienteTitle" aria-hidden="true"> -->
-<!-- 				  <div class="modal-dialog" role="document"> -->
-<!-- 				    <div class="modal-content"> -->
-<!-- 				      <div class="modal-header"> -->
-<!-- 				        <h5 class="modal-title" id="modalClienteTitle">Listado Cliente</h5> -->
-<!-- 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-<!-- 				          <span aria-hidden="true">&times;</span> -->
-<!-- 				        </button> -->
-<!-- 				      </div> -->
-<!-- 				      <div class="modal-body"> -->
-<!-- 				        <table class="table table-sm table-bordere table-hover table-bordered"> -->
-<!-- 							<thead class="thead-light"> -->
-<!-- 								<tr> -->
-<!-- 									<th>Nombre</th> -->
-<!-- 									<th>Tipo</th> -->
-<!-- 									<th>N&uacute;m. cel.</th> -->
-<!-- 								</tr> -->
-<!-- 							</thead> -->
-<!-- 							<tbody> -->
-<%-- 								<c:if test="${total != 0 }"> --%>
-<%-- 									<c:forEach items="${colectionResultClien}" var="dto"> --%>
-<%-- 										<tr onclick="$('#id_cliente').val('${dto.id_cliente}'); $('#nomCliente').val('${dto.nombre}');" > --%>
-<%-- 											<td><c:out value="${dto.nombre}" /></td> --%>
-<%-- 											<td><c:if test="${dto.tipo == 'N'}"> --%>
-<%-- 													<c:out value="Natural"></c:out> --%>
-<%-- 												</c:if>  --%>
-<%-- 												<c:if test="${dto.tipo == 'J'}"> --%>
-<%-- 													<c:out value="Jur&iacute;dico"></c:out> --%>
-<%-- 												</c:if> --%>
-<!-- 											</td> -->
-<%-- 											<td><c:out value="${dto.num_tel_cel}" /></td> --%>
-<!-- 										</tr> -->
-<%-- 									</c:forEach> --%>
-<%-- 								</c:if> --%>
-<%-- 								<c:if test="${total == 0 }"> --%>
-<!-- 									<tr> -->
-<!-- 										<td align="center" style="font-style: italic;" colspan="7">No -->
-<!-- 											hay registros que mostrar aqui</td> -->
-<!-- 									</tr> -->
-<%-- 								</c:if> --%>
-<!-- 							</tbody> -->
-<!-- 						</table> -->
-<!-- 				      </div> -->
-<!-- 				      <div class="modal-footer"> -->
-<!-- 				        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button> -->
-<!-- 				        <button type="button" class="btn btn-primary btn-sm">Seleccionar</button> -->
-<!-- 				      </div> -->
-<!-- 				    </div> -->
-<!-- 				  </div> -->
-<!-- 				</div>			 -->
-<!-- 			</div> -->
-<!-- 			</div> -->
-			
-			
 				</form>
 
 
