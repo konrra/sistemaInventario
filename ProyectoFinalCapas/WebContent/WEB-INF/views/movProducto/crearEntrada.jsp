@@ -8,22 +8,42 @@
 <title>Creaci&oacute;n de Entrada</title>
 <%@ include file="../template/Header.jsp"%>
 </head>
+
+<body class="body">
 <script type="text/javascript">
-	$("#table tr").click(function() { 
-		alert("clickeo");
-		$("#table tr").removeClass("highlight");
-		$(this).addClass("highlight"); 
-	}); 
+$(document).ready(function(){
+	if("$(#vali)"=='1'){
+		validarCampos();
+	}
+	
+});
+
+function validarCampos(){
+	if( $("#id_producto").val().length == 0){
+		$("#nomProducto").css("border", "2px solid #ff0000");
+// 		$("#validador").val(1);
+	}else{
+		$("#nomProducto").css("border", "1px solid #ced4da");
+// 		$("#validador").val(0);
+	}
+	if( $("#cantidad").val().length ==0){
+		$("#cantidad").css("border", "2px solid #ff0000");
+// 		$("#validador").val(1);
+	}else{
+		$("#cantidad").css("border", "1px solid #ced4da");
+// 		$("#validador").val(0);
+	}
+	
+	if( $("#id_lugar").val().length ==0){
+		("#id_lugar").css("border", "2px solid #ff0000");
+// 		$("#validador").val(1);
+	}else{
+		("#id_lugar").css("border", "1px solid #ced4da");
+// 		$("#validador").val(0);
+	}
+}
 
 </script>
-<style type="text/css">
-
-.highlight {
-	background-color: papayawhip; 
-} 
-
-</style>
-<body class="body">
 	<div class="row" style="height: 100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;">
 			<%@ include file="../template/LeftSidebar.jsp"%>
@@ -33,12 +53,9 @@
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 
-				<form class="form-horizontal" role="form"
-					action="${pageContext.request.contextPath}/actualizarEntrada">
+				<form class="form-horizontal" role="form"	action="${pageContext.request.contextPath}/actualizarEntrada">
 					<c:if test="${not empty error}">
-
-						<div class="alert alert-danger alert-dismissible fade show"
-							style="margin-right: 60%;" role="alert">
+						<div class="alert alert-danger alert-dismissible fade show" role="alert">
 							<strong>Error:</strong>
 							<c:out value="${error}" />
 							<button type="button" class="close" data-dismiss="alert"
@@ -106,7 +123,7 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Lugar*</label>
 											<div class="col-sm-7">
-												<select class="form-control" name="id_lugar" id="id=lugar" > 
+												<select class="form-control" name="id_lugar" id="id_lugar" > 
 													<option value="">Seleccione un origen</option>
 													<c:forEach items="${comboLugar}" var="c">
 														<option value="${c.id_lugar }"
@@ -131,9 +148,8 @@
 								<!-- div que finaliza el body del panel -->
 							</div>
 							<div class="card-footer">
-								<button type="button" class="btn btn-danger"
-									onclick="location.href='${pageContext.request.contextPath}/listadoCategoria'">Cancelar</button>
-								<button type="submit" class="btn btn-success">Guardar</button>
+								<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/listadoCategoria'">Cancelar</button>
+								<button type="submit" class="btn btn-success" onmousemove="validarCampos();">Guardar</button>
 							</div>
 							<!-- div que finaliza el footer del panel -->
 							

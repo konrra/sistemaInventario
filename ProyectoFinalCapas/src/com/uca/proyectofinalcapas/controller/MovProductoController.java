@@ -15,7 +15,6 @@ import com.uca.proyectofinalcapas.domain.Cliente;
 import com.uca.proyectofinalcapas.domain.Lugar;
 import com.uca.proyectofinalcapas.domain.MovProducto;
 import com.uca.proyectofinalcapas.domain.Producto;
-import com.uca.proyectofinalcapas.domain.Usuario;
 import com.uca.proyectofinalcapas.repository.ClienteRepository;
 import com.uca.proyectofinalcapas.repository.LugarRepository;
 import com.uca.proyectofinalcapas.repository.MovProductoRepository;
@@ -80,8 +79,9 @@ public class MovProductoController {
 	@RequestMapping(value="/actualizarEntrada", method=RequestMethod.GET)
 	public ModelAndView actualizarEntrada(@ModelAttribute MovProducto movProducto) {
 		
+		ModelAndView mav = new ModelAndView();
+		
 		Calendar cal = Calendar.getInstance();
-
 	    java.util.Date utilDate = cal.getTime();
 		
 		Lugar lugar = new Lugar();
@@ -92,6 +92,12 @@ public class MovProductoController {
 		movProducto.setProducto(producto);
 		movProducto.setTipo("E");
 		movProducto.setFecha(utilDate);
+		
+		if(movProducto.getId_producto() ==0 || movProducto.getId_lugar()==0 || movProducto.getCantidad()==0 ) {
+			mav.addObject("error", "Ingrese la información correctamente");
+			mav.setViewName("movProducto/crearEntrada");
+			return mav;
+		}
 		movProductoRepository.save(movProducto);
 		
 		return crearEntrada();
@@ -100,10 +106,11 @@ public class MovProductoController {
 	
 	
 	@RequestMapping(value="/actualizarSalida", method=RequestMethod.GET)
-	public ModelAndView actualizarSalida(@ModelAttribute MovProducto movProducto) {
+	public ModelAndView actualizarSalida(@ModelAttribute MovProducto movProducto, @RequestParam("validador") String valida) {
 		
 		Calendar cal = Calendar.getInstance();
 	    java.util.Date utilDate = cal.getTime();
+	    ModelAndView mav = new ModelAndView();
 		
 		Lugar lugar = new Lugar();
 		Cliente cliente = new Cliente();
@@ -116,6 +123,12 @@ public class MovProductoController {
 		movProducto.setProducto(producto);
 		movProducto.setTipo("S");
 		movProducto.setFecha(utilDate);
+		if("1".equals(valida)) {
+			mav.addObject("error", "Ingrese la información correctamente");
+			mav.setViewName("movProducto/crearSalida");
+			mav.addObject("vali", "1");
+			return mav;
+		}
 		movProductoRepository.save(movProducto);
 		
 		return crearSalida();
@@ -133,6 +146,7 @@ public class MovProductoController {
 		mav.addObject("comboLugar", comboLugar);
 		mav.addObject("total",listadoProducto.size());
 		mav.addObject("colectionResultProd",listadoProducto);
+		mav.addObject("vali", "0");
 		
 		mav.setViewName("movProducto/crearEntrada");
 		return mav;
@@ -141,7 +155,6 @@ public class MovProductoController {
 	@RequestMapping(value="/crearSalida", method=RequestMethod.GET)
 	public ModelAndView crearSalida() {
 		
-		Producto producto = null;
 		
 		List<Lugar> comboLugar = lugarRepository.findAllLugar();
 		List<Producto> listadoProducto = productoRepository.findAllProduct();

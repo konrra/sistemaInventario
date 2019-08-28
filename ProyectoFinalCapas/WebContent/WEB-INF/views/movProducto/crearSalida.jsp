@@ -9,6 +9,30 @@
 <%@ include file="../template/Header.jsp"%>
 </head>
 
+<script>
+// $(document).ready(function(){
+	
+	
+	
+// });
+
+function validarCampos(){
+	if($("#idProducto").val().length ==0){
+		("#nomProducto").css("border", "2px solid #ff0000");
+		$("#validador").val(1);
+	}
+	if($("#cantidad").val().length ==0){
+		("#cantidad").css("border", "2px solid #ff0000");
+		$("#validador").val(1);
+	}
+	if($("#id_lugar").val().length ==0){
+		("#id_lugar").css("border", "2px solid #ff0000");
+		$("#validador").val(1);
+	}
+}
+
+</script>
+
 <body class="body">
 	<div class="row" style="height: 100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;">
@@ -19,15 +43,13 @@
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 
-				<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarSalida">
+				<form class="form-horizontal" role="form" action=" validarCampos(); ${pageContext.request.contextPath}/actualizarSalida?validador='$('#validador').val()'">
 					<c:if test="${not empty error}">
-
-						<div class="alert alert-danger alert-dismissible fade show"
-							style="margin-right: 60%;" role="alert">
+						<input type="hidden" name="validador" id="validador" value="${vali}" />
+						<div class="alert alert-danger alert-dismissible fade show" role="alert">
 							<strong>Error:</strong>
-							<c:out value="${error}" />
-							<button type="button" class="close" data-dismiss="alert"
-								aria-label="Close">
+								<c:out value="${error}"/>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
@@ -38,14 +60,12 @@
 						<div class="card-header">Ingreso de salida de producto</div>
 						<div class="card-body form-horizontal">
 							<div>
-								<span style="font-size: small;">-Los campos marcados con
-									* son obligatorios</span>
+								<span style="font-size: small;">-Los campos marcados con * son obligatorios</span>
 							</div>
 							<br>
 							<input name="id_usuario" name="id_usuario" type="hidden" value="${user.id_usuario}"/>
 							<div class="form-group">
 								<div class="row">
-
 									<div class="col-sm-3 ">
 										<div class="col-sm-4"></div>
 									</div>
@@ -89,7 +109,7 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Lugar*</label>
 											<div class="col-sm-7">
-												<select class="form-control" name="id_lugar" > 
+												<select class="form-control" name="id_lugar" id="id_lugar"> 
 													<option value="">Seleccione un destino</option>
 													<c:forEach items="${comboLugar}" var="c">
 														<option value="${c.id_lugar }"
