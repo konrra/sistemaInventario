@@ -43,35 +43,28 @@ public class MovProductoController {
 	@RequestMapping(value="/listadoMovProducto", method= RequestMethod.GET)
 	public ModelAndView listadoMovProducto(){
 		ModelAndView mav = new ModelAndView();
-		try {
+//		try {
 			
-			List<Producto> listadoProducto = productoRepository.findAllProduct();
+			List<MovProducto> listadoProducto = movProductoRepository.findAllEntrada();
+			
+			System.out.println("tamaño listado:" + listadoProducto.size());
+			for (int i = 0; i < listadoProducto.size(); i++) {
+				
+				System.out.println("producto: " + listadoProducto.get(i).getProducto());
+				
+			}
+			
 			mav.addObject("colectionResult", listadoProducto);
-		}catch (Exception e) {
-			mav.addObject("total", 0);
-			System.out.println(e.getStackTrace());
-		}
+//		}catch (Exception e) {
+//			mav.addObject("total", 0);
+//			System.out.println(e.getStackTrace());
+//		}
 		
 		mav.setViewName("movProducto/listadoMovProducto");
 		return mav;
 	}
 	
 	
-	@RequestMapping(value="/listadoMovCliente", method= RequestMethod.GET)
-	public ModelAndView listadoMovCliente(){
-		ModelAndView mav = new ModelAndView();
-		try {
-			
-			List<Cliente> listadoCliente = clienteRepository.findAllCliente();
-			mav.addObject("colectionResult", listadoCliente);
-		}catch (Exception e) {
-			mav.addObject("total", 0);
-			System.out.println(e.getStackTrace());
-		}
-		
-		mav.setViewName("movProducto/listadoMovCliente");
-		return mav;
-	}
 	
 	
 	
@@ -129,6 +122,9 @@ public class MovProductoController {
 			mav.addObject("vali", "1");
 			return mav;
 		}
+		
+		
+		//TODO VALIDACION DE CANTIDADES NEGATIVAS EN STOCK
 		movProductoRepository.save(movProducto);
 		
 		return crearSalida();

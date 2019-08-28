@@ -43,8 +43,12 @@
 							<ul class="sub-menu collapse" id="products">
 								<li><a
 									href="${pageContext.request.contextPath}/crearEntrada">Entradas</a></li>
-								<li><a href="${pageContext.request.contextPath}/crearSalida">Salida</a></li>
+								<li><a href="${pageContext.request.contextPath}/crearSalida">Salida</a></li>	
+								<li><a href="${pageContext.request.contextPath}/listadoMovProducto">Consulta Entrada/Salida</a></li>
 							</ul></li>
+							
+							
+							
 					</c:if>
 
 					
