@@ -23,22 +23,25 @@ public class Stock {
 	@Column(name="cantidad")
 	private int cantidad;
 
-	@Column(name="fecha_act")
-	private Date fecha_act;
+	@Column(name="fechaactualizacion")
+	private Date fechaactualizacion;
+	
+	@Column(name="descripcion")
+	private String descripcion;
 
-	public int getid_stock() {
+	public int getId_stock() {
 		return id_stock;
 	}
 
-	public void setid_stock(int id_stock) {
+	public void setId_stock(int id_stock) {
 		this.id_stock = id_stock;
 	}
 
-	public int getid_producto() {
+	public int getId_producto() {
 		return id_producto;
 	}
 
-	public void setid_producto(int id_producto) {
+	public void setId_producto(int id_producto) {
 		this.id_producto = id_producto;
 	}
 
@@ -50,14 +53,24 @@ public class Stock {
 		this.cantidad = cantidad;
 	}
 
-	public Date getfecha_act() {
-		return fecha_act;
+	public Date getFechaActualizacion() {
+		return fechaactualizacion;
 	}
 
-	public void setfecha_act(Date fecha_act) {
-		this.fecha_act = fecha_act;
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaactualizacion = fechaActualizacion;
 	}
 
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	
+	
 
 
 }

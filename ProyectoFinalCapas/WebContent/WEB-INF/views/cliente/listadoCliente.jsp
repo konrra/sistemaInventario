@@ -17,8 +17,8 @@
 	
 			<div class="col-lg-*" style="width: 75%">
 				<div class="container" style="margin-left: 2%; margin-top: 2%">
-					<body>
-						<div class="card">
+					<body class="body-back">
+						<div class="card height-div-table" >
 							<div class="card-header">
 								Edición de informaci&oacute;n del Cliente
 								<button type="button" style="float: right;"
@@ -26,8 +26,9 @@
 									onclick="location.href='${pageContext.request.contextPath}/crearCliente'">Agregar
 									+</button>
 							</div>
-							<div class="card-body overflow-auto">
-								<table class="table table-sm table-bordere table-hover table-bordered">
+							<div class="card-body ">
+							<div class="table-wrapper-scroll-y my-custom-scrollbar">
+								<table id="tableCli" class="table table-sm table-bordere table-hover table-bordered">
 									<thead class="thead-light">
 										<tr>
 											<th>Nombre</th>
@@ -77,11 +78,14 @@
 										</c:if>
 									</tbody>
 								</table>
+							
+							</div>
 							</div>
 							<div class="card-footer text-muted">
 								<label style="float: right;"> La cantidad de registros: <c:out
 										value="${total }" /></label>
 							</div>
+						</div>
 					</body>
 				</div>
 			</div>

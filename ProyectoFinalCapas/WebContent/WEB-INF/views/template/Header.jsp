@@ -30,6 +30,21 @@ $(document).ready(function(){
  body { 
  	background-color: #808080 
  } 
+ 
+ 
+.my-custom-scrollbar {
+position: relative;
+height: 300px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+
+.height-div-table {
+	height: 50%;
+}
+ 
 </style>
 
 <title>Sistema de Inventario</title>

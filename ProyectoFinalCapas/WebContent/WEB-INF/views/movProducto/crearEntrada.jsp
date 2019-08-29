@@ -121,23 +121,23 @@
 											</div>
 										</div>
 
-<!-- 										<div class="form-group" style="display: none;"> -->
-<!-- 											<label class="col-sm-2 control-label">Estado</label> -->
-<!-- 											<div class="col-sm-7"> -->
-<!-- 												<select class="form-control" name="estado"> -->
-<!-- 													<option value="A" -->
-<%-- 														<c:if test="${cliente.estado =='A' }">selected</c:if>>Activo</option> --%>
+										<!-- 										<div class="form-group" style="display: none;"> -->
+										<!-- 											<label class="col-sm-2 control-label">Estado</label> -->
+										<!-- 											<div class="col-sm-7"> -->
+										<!-- 												<select class="form-control" name="estado"> -->
+										<!-- 													<option value="A" -->
+										<%-- 														<c:if test="${cliente.estado =='A' }">selected</c:if>>Activo</option> --%>
 
-<!-- 												</select> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
+										<!-- 												</select> -->
+										<!-- 											</div> -->
+										<!-- 										</div> -->
 									</div>
 								</div>
 								<!-- div que finaliza el body del panel -->
 							</div>
 							<div class="card-footer">
 								<button type="button" class="btn btn-danger"
-									onclick="location.href='${pageContext.request.contextPath}/listadoCategoria'">Cancelar</button>
+									onclick="location.href='${pageContext.request.contextPath}/crearEntrada?idProducto=0'">Cancelar</button>
 								<button type="submit" class="btn btn-success">Guardar</button>
 							</div>
 							<!-- div que finaliza el footer del panel -->

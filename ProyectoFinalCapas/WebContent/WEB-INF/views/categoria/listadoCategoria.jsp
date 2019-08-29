@@ -14,7 +14,7 @@
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 				<body class="body-back">
-					<div class="card">
+					<div class="card height-div-table">
 						<div class="card-header">
 							Edición de información de las categor&iacute;as
 							<button style="float: right;" type="button"

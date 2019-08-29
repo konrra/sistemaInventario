@@ -18,7 +18,7 @@
 			<div class="col-lg-*" style="width: 75%; background-color: white;">
 				<div class="container" style="margin-left: 2%; margin-top: 2%">
 					<body>
-						<div class="card">
+						<div class="card height-div-table">
 							<div class="card-header">
 								Informaci&oacute;n de los Roles
 								<button type="button" style="float: right;"

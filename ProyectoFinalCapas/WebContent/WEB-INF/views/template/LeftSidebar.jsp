@@ -44,6 +44,7 @@
 								<li><a
 									href="${pageContext.request.contextPath}/crearEntrada?idProducto=0">Entradas</a></li>
 								<li><a href="${pageContext.request.contextPath}/crearSalida?idProducto=0">Salida</a></li>
+								<li><a href="${pageContext.request.contextPath}/listadoStock">Stock</a></li>
 							</ul></li>
 					</c:if>
 

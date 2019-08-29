@@ -16,7 +16,7 @@
 
 				<body class="body-back">
 				
-					<div class="card">
+					<div class="card height-div-table ">
 						<div class="card-header">
 							Edición de información del producto
 							<button type="button" style="float: right;"
@@ -24,8 +24,10 @@
 								onclick="location.href='${pageContext.request.contextPath}/crearProducto'">Agregar
 								+</button>
 						</div>
-						<div class="card-body">
-
+						<div class="card-body " >
+						<div class="table-wrapper-scroll-y my-custom-scrollbar">
+						
+						
 							<table id="tablePro" class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
@@ -71,6 +73,8 @@
 									</c:if>
 								</tbody>
 							</table>
+						</div>
+						
 						</div>
 						<div class="card-footer text-muted">
 							<label style="float: right;"> La cantidad de registros:	<c:out value="${total }" /></label>
