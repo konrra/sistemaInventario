@@ -21,7 +21,7 @@ public class MovProducto {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_mov_producto")
-	private int id_mov_producto;
+	private Integer id_mov_producto;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_lugar")
@@ -39,7 +39,7 @@ public class MovProducto {
 	private String tipo;
 	
 	@Column(name="cantidad")
-	private int cantidad;
+	private Integer cantidad;
 	
 	@Column(name="fecha")
 	@DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
@@ -51,17 +51,18 @@ public class MovProducto {
 	@Column(name="tipo_entrada")
 	private String tipo_entrada;
 	
-	@Transient
-	private int id_lugar;
+	@Column(name="id_usuario")
+	private Integer id_usuario;
 	
 	@Transient
-	private int id_producto;
+	private Integer id_lugar;
 	
 	@Transient
-	private int id_cliente;
+	private Integer id_producto;
 	
 	@Transient
-	private int id_usuario;
+	private Integer id_cliente;
+	
 
 	public int getId_lugar() {
 		return id_lugar;

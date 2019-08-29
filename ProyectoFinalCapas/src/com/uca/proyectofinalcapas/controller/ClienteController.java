@@ -38,6 +38,7 @@ public class ClienteController {
 			System.out.println(e.getStackTrace());
 		}
 		
+		
 		mav.setViewName("cliente/listadoCliente");
 		return mav;
 	}

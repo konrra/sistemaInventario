@@ -21,20 +21,20 @@
 				<body>
 					<div class="card">
 						<div class="card-header">
-							Información del producto
+							Información del movimientos
 						</div>
 						<div class="card-body overflow-auto">
 
 							<table class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
-										<th>Descripci&oacute;n</th>
-										<th>Costo</th>
-										<th>Precio P&uacute;blico</th>
-										<th>Precio Tienda</th>
-										<th>Precio Evento</th>
-										<th>Categor&iacute;a</th>
-										<th>Estado</th>
+										<th>Tipo</th>
+										<th>Cantidad</th>
+										<th>Producto</th>
+										<th>Lugar</th>
+										<th>Cliente</th>
+										<th>Tipo Entrada</th>
+										<th>Fecha</th>
 										<th><span class="glyphicon glyphicon-cog"> </span></th>
 									</tr>
 								</thead>
@@ -42,22 +42,13 @@
 									<c:if test="${total != 0 }">
 										<c:forEach items="${colectionResult}" var="dto">
 											<tr>
-												<td><c:out value="${dto.nombre}" /></td>
-												<td><c:out value="${dto.costo}" /></td>
-												<td><c:out value="${dto.precio_publico}" /></td>
-												<td><c:out value="${dto.precio_tienda}" /></td>
-												<td><c:out value="${dto.precio_evento}" /></td>
-												<td><c:out
-														value="${dto.categoriaxproducto.descripcion}" /></td>
-												<td><c:if test="${dto.estado == 'A'}">
-														<c:out value="Activo"></c:out>
-													</c:if> <c:if test="${dto.estado == 'I'}">
-														<c:out value="Inactivo"></c:out>
-													</c:if></td>
-												<td align=Right><input type="button"
-													class="btn btn-info btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/crearEntrada?idProducto=${dto.id_producto}'"
-													value="Seleccionar" /></td>
+												<td><c:out value="${dto.tipo}" /></td>
+												<td><c:out value="${dto.cantidad}" /></td>
+												<td><c:out value="${dto.producto.nombre}" /></td>
+												<td><c:out value="${dto.lugar.descripcion}" /></td>
+												<td><c:out value="${dto.cliente.nombre}" /></td>
+												<td><c:out value="${dto.tipo_entrada}" /></td>
+												<td><c:out value="${dto.fecha}" /></td>
 											</tr>
 										</c:forEach>
 									</c:if>

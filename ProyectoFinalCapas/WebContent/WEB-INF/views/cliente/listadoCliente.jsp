@@ -8,7 +8,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<%@ include file="../template/Header.jsp"%>
 	</head>
-
+	<style>
+			.tbody {
+			  min-height:10px;
+			  overflow-y:auto;;
+			}
+	</style>
 	<div>
 		<div class="row" style="height:100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;" >
@@ -29,13 +34,14 @@
 							<div class="card-body ">
 							<div class="table-wrapper-scroll-y my-custom-scrollbar">
 								<table id="tableCli" class="table table-sm table-bordere table-hover table-bordered">
+
 									<thead class="thead-light">
 										<tr>
 											<th>Nombre</th>
 											<th>Tipo</th>
 											<th>Nit</th>
-											<th>N&uacute;mero cel.</th>
-											<th>N&uacute;mero fijo</th>
+											<th>N&uacute;m. cel.</th>
+											<th>N&uacute;m. fijo</th>
 											<th>Dui</th>
 											<th>Estado</th>
 											<th><span class="glyphicon glyphicon-cog"> </span></th>
