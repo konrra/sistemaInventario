@@ -62,14 +62,13 @@ public class MovProducto {
 	
 	@Transient
 	private Integer id_cliente;
-	
 
-	public int getId_lugar() {
-		return id_lugar;
+	public Integer getId_mov_producto() {
+		return id_mov_producto;
 	}
 
-	public void setId_lugar(int id_lugar) {
-		this.id_lugar = id_lugar;
+	public void setId_mov_producto(Integer id_mov_producto) {
+		this.id_mov_producto = id_mov_producto;
 	}
 
 	public Lugar getLugar() {
@@ -80,12 +79,20 @@ public class MovProducto {
 		this.lugar = lugar;
 	}
 
-	public int getid_mov_producto() {
-		return id_mov_producto;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setid_mov_producto(int id_mov_producto) {
-		this.id_mov_producto = id_mov_producto;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 	public String getTipo() {
@@ -96,11 +103,11 @@ public class MovProducto {
 		this.tipo = tipo;
 	}
 
-	public int getCantidad() {
+	public Integer getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
 
@@ -120,14 +127,6 @@ public class MovProducto {
 		this.comentario = comentario;
 	}
 
-	public int getId_mov_producto() {
-		return id_mov_producto;
-	}
-
-	public void setId_mov_producto(int id_mov_producto) {
-		this.id_mov_producto = id_mov_producto;
-	}
-
 	public String getTipo_entrada() {
 		return tipo_entrada;
 	}
@@ -136,46 +135,38 @@ public class MovProducto {
 		this.tipo_entrada = tipo_entrada;
 	}
 
-	public Producto getProducto() {
-		return producto;
-	}
-
-	public void setProducto(Producto producto) {
-		this.producto = producto;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public int getId_producto() {
-		return id_producto;
-	}
-
-	public void setId_producto(int id_producto) {
-		this.id_producto = id_producto;
-	}
-
-	public int getId_cliente() {
-		return id_cliente;
-	}
-
-	public void setId_cliente(int id_cliente) {
-		this.id_cliente = id_cliente;
-	}
-
-	public int getId_usuario() {
+	public Integer getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(int id_usuario) {
+	public void setId_usuario(Integer id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 
+	public Integer getId_lugar() {
+		return id_lugar;
+	}
+
+	public void setId_lugar(Integer id_lugar) {
+		this.id_lugar = id_lugar;
+	}
+
+	public Integer getId_producto() {
+		return id_producto;
+	}
+
+	public void setId_producto(Integer id_producto) {
+		this.id_producto = id_producto;
+	}
+
+	public Integer getId_cliente() {
+		return id_cliente;
+	}
+
+	public void setId_cliente(Integer id_cliente) {
+		this.id_cliente = id_cliente;
+	}
 	
+
 	
 }

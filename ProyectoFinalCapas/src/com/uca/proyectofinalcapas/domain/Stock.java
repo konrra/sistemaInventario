@@ -23,8 +23,8 @@ public class Stock {
 	@Column(name="cantidad")
 	private int cantidad;
 
-	@Column(name="fechaactualizacion")
-	private Date fechaactualizacion;
+	@Column(name="fecha_actualizacion")
+	private Date fecha_actualizacion;
 	
 	@Column(name="descripcion")
 	private String descripcion;
@@ -53,12 +53,12 @@ public class Stock {
 		this.cantidad = cantidad;
 	}
 
-	public Date getFechaActualizacion() {
-		return fechaactualizacion;
+	public Date getFecha_actualizacion() {
+		return fecha_actualizacion;
 	}
 
-	public void setFechaActualizacion(Date fechaActualizacion) {
-		this.fechaactualizacion = fechaActualizacion;
+	public void setFecha_actualizacion(Date fecha_actualizacion) {
+		this.fecha_actualizacion = fecha_actualizacion;
 	}
 
 	public String getDescripcion() {

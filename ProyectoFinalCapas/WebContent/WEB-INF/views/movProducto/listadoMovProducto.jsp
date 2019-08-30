@@ -29,10 +29,10 @@
 								<thead class="thead-light">
 									<tr>
 										<th>Tipo</th>
-										<th>Cantidad</th>
 										<th>Producto</th>
-										<th>Lugar</th>
+										<th>Cantidad</th>
 										<th>Cliente</th>
+										<th>Lugar</th>
 										<th>Tipo Entrada</th>
 										<th>Fecha</th>
 										<th><span class="glyphicon glyphicon-cog"> </span></th>
@@ -42,13 +42,41 @@
 									<c:if test="${total != 0 }">
 										<c:forEach items="${colectionResult}" var="dto">
 											<tr>
-												<td><c:out value="${dto.tipo}" /></td>
-												<td><c:out value="${dto.cantidad}" /></td>
+												<td>
+												<c:if test="${dto.tipo  == 'S'}"><c:out value="Salida" /></c:if>
+												<c:if test="${dto.tipo  == 'E'}"><c:out value="Entrada" /></c:if></td>
 												<td><c:out value="${dto.producto.nombre}" /></td>
+												<td><c:out value="${dto.cantidad}" /></td>
+												
+												<td>
+												<c:out value="${dto.cliente.nombre}" />
+												<c:if test="${dto.cliente.nombre == null}">
+												<c:out value="N/A" />
+												</c:if>
+												
+												
+												
+												</td>
+												
 												<td><c:out value="${dto.lugar.descripcion}" /></td>
-												<td><c:out value="${dto.cliente.nombre}" /></td>
-												<td><c:out value="${dto.tipo_entrada}" /></td>
-												<td><c:out value="${dto.fecha}" /></td>
+												
+												<td>
+												
+												<c:if test="${dto.tipo_entrada  == 'N'}"><c:out value="Nueva Entrada" /></c:if>
+												<c:if test="${dto.tipo_entrada  == 'D'}"><c:out value="Devolucion" /></c:if>
+												<c:if test="${dto.tipo_entrada  == 'A'}"><c:out value="Averia" /></c:if>
+												<c:if test="${dto.tipo_entrada  == 'C'}"><c:out value="Cambio" /></c:if>
+												<c:if test="${dto.tipo_entrada  ==  null}"><c:out value="N/A" /></c:if>
+<%-- 												<c:out value="${dto.tipo_entrada}" /> --%>
+												
+												
+												
+												</td>
+												<td>
+												
+												<fmt:formatDate value="${dto.fecha}" pattern="yyyy/MM/dd" />
+												
+<%-- 												<c:out value="${dto.fecha}" /></td> --%>
 											</tr>
 										</c:forEach>
 									</c:if>
