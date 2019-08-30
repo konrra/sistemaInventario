@@ -40,7 +40,7 @@
 											<c:forEach items="${colectionResult}" var="dto">
 												<tr>
 													<td><c:out value="${dto.id_producto}" /></td>
-													<td><c:out value="${dto.getFechaActualizacion()}" /></td> 
+													<td><c:out value="${dto.fecha_actualizacion}" /></td> 
 													<td><c:out value="${dto.descripcion}" /></td>
 													<td><c:out value="${dto.cantidad}" /></td>
 												</tr>
