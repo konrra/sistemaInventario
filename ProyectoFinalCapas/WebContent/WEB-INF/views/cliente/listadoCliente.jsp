@@ -20,7 +20,7 @@
 				<%@ include file="../template/LeftSidebar.jsp"%>
 			</div>
 	
-			<div class="col-lg-*" style="width: 75%">
+			<div class="col-lg-*" style="width: 80%">
 				<div class="container" style="margin-left: 2%; margin-top: 2%">
 					<body class="body-back">
 						<div class="card height-div-table" >
