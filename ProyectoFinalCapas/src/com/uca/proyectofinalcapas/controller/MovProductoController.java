@@ -104,7 +104,7 @@ public class MovProductoController {
 	
 	
 	@RequestMapping(value="/actualizarSalida", method=RequestMethod.GET)
-	public ModelAndView actualizarSalida(@ModelAttribute MovProducto movProducto, @RequestParam("validador") String valida) {
+	public ModelAndView actualizarSalida(@ModelAttribute MovProducto movProducto) {
 		
 		Calendar cal = Calendar.getInstance();
 	    java.util.Date utilDate = cal.getTime();
@@ -121,12 +121,12 @@ public class MovProductoController {
 		movProducto.setProducto(producto);
 		movProducto.setTipo("S");
 		movProducto.setFecha(utilDate);
-		if("1".equals(valida)) {
-			mav.addObject("error", "Ingrese la información correctamente");
-			mav.setViewName("movProducto/crearSalida");
-			mav.addObject("vali", "1");
-			return mav;
-		}
+//		if("1".equals(valida)) {
+//			mav.addObject("error", "Ingrese la información correctamente");
+//			mav.setViewName("movProducto/crearSalida");
+//			mav.addObject("vali", "1");
+//			return mav;
+//		}
 		
 		Stock stock = stockRepository.findById(producto.getid_producto());
 		Integer op = stock.getCantidad() - movProducto.getCantidad();

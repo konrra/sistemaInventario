@@ -43,7 +43,7 @@ function validarCampos(){
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
 
 
-				<form class="form-horizontal" role="form" action=" validarCampos(); ${pageContext.request.contextPath}/actualizarSalida?validador='$('#validador').val()'">
+				<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/actualizarSalida?validador='$('#validador').val()'">
 					<c:if test="${not empty error}">
 						<input type="hidden" name="validador" id="validador" value="${vali}" />
 						<div class="alert alert-danger alert-dismissible fade show" role="alert">
