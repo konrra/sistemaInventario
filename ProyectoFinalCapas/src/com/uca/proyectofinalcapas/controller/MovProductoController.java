@@ -15,10 +15,12 @@ import com.uca.proyectofinalcapas.domain.Cliente;
 import com.uca.proyectofinalcapas.domain.Lugar;
 import com.uca.proyectofinalcapas.domain.MovProducto;
 import com.uca.proyectofinalcapas.domain.Producto;
+import com.uca.proyectofinalcapas.domain.Stock;
 import com.uca.proyectofinalcapas.repository.ClienteRepository;
 import com.uca.proyectofinalcapas.repository.LugarRepository;
 import com.uca.proyectofinalcapas.repository.MovProductoRepository;
 import com.uca.proyectofinalcapas.repository.ProductoRepository;
+import com.uca.proyectofinalcapas.repository.StockRepository;
 
 
 
@@ -37,6 +39,9 @@ public class MovProductoController {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private StockRepository stockRepository;
 	
 	
 	
@@ -123,6 +128,13 @@ public class MovProductoController {
 			return mav;
 		}
 		
+		Stock stock = stockRepository.findById(producto.getid_producto());
+		Integer op = stock.getCantidad() - movProducto.getCantidad();
+		if(op < 0 ) {
+			mav.addObject("error", "Ingrese la información correctamente");
+			crearSalida();
+		}
+			
 		
 		//TODO VALIDACION DE CANTIDADES NEGATIVAS EN STOCK
 		movProductoRepository.save(movProducto);
