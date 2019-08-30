@@ -132,7 +132,7 @@ public class MovProductoController {
 		Integer op = stock.getCantidad() - movProducto.getCantidad();
 		if(op < 0 ) {
 			mav.addObject("error", "Ingrese la información correctamente");
-			crearSalida();
+			return crearSalida();
 		}
 			
 		
