@@ -32,7 +32,7 @@
 											<th>Fecha Actualizacion</th>
 											<th>Descripcion</th>
 											<th>Cantidad</th>
-											<th><span class="glyphicon glyphicon-cog"> </span></th>
+<!-- 											<th><span class="glyphicon glyphicon-cog"> </span></th> -->
 										</tr>
 									</thead>
 									<tbody>
