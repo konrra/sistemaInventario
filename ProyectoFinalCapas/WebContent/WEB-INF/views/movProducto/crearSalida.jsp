@@ -142,8 +142,8 @@ function validarCampos(){
 							
 							
 					<div class="modal fade" id="modalProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
+						  <div class="modal-dialog modal-lg" role="document">
+						    <div class="modal-content" >
 						      <div class="modal-header">
 						        <h5 class="modal-title" id="modalProductoTitulo">Listado Producto</h5>
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -195,8 +195,8 @@ function validarCampos(){
 				
 				<!-- Modal -->
 				<div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalClienteTitle" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
+				  <div class="modal-dialog  modal-lg" role="document">
+				    <div class="modal-content" >
 				      <div class="modal-header">
 				        <h5 class="modal-title" id="modalClienteTitle">Listado Cliente</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">

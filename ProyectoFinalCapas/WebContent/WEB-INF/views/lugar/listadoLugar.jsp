@@ -48,10 +48,7 @@
 												<td align=Right><input type="button"
 													class="btn btn-info btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/editarLugar?id_lugar=${dto.id_lugar}'"
-													value="Editar" /> <input type="button"
-													class="btn btn-danger btn-sm"
-													onclick="location.href='${pageContext.request.contextPath}/eliminarLugar?id_lugar=${dto.id_lugar}'"
-													value="Inactivar" /></td>
+													value="Editar" /></td>
 											</tr>
 										</c:forEach>
 									</c:if>
