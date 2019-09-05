@@ -4,98 +4,93 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<%@ include file="../template/Header.jsp"%>
-	</head>
-	<style>
-			.tbody {
-			  min-height:10px;
-			  overflow-y:auto;;
-			}
-	</style>
-	<div>
-		<div class="row" style="height:100vh; background-color: white;">
-		<div class="col-xs-*" style="background-color: black;" >
-				<%@ include file="../template/LeftSidebar.jsp"%>
-			</div>
-	
-			<div class="col-lg-*" style="width: 80%">
-				<div class="container" style="margin-left: 2%; margin-top: 2%">
-					<body class="body-back">
-						<div class="card height-div-table" >
-							<div class="card-header">
-								Edición de informaci&oacute;n del Cliente
-								<button type="button" style="float: right;"
-									class="btn btn-success btn-sm"
-									onclick="location.href='${pageContext.request.contextPath}/crearCliente'">Agregar
-									+</button>
-							</div>
-							<div class="card-body ">
-							<div class="table-wrapper-scroll-y my-custom-scrollbar">
-								<table id="tableCli" class="table table-sm table-bordere table-hover table-bordered">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%@ include file="../template/Header.jsp"%>
+</head>
 
-									<thead class="thead-light">
+<div class="row div-row">
+
+	<div class="col-xs-* div-row-left">
+		<%@ include file="../template/LeftSidebar.jsp"%>
+	</div>
+
+	<div class="col-lg-* div-row-right">
+		<div class=" div-row-right-container">
+		
+			<body class="body-back">
+				<div class="card">
+				
+					<div class="card-header">
+						Edición de informaci&oacute;n del Cliente
+						<button type="button" style="float: right;"
+							class="btn btn-success btn-sm"
+							onclick="location.href='${pageContext.request.contextPath}/crearCliente'">Agregar
+							+</button>
+					</div>
+					
+					<div class="card-body">
+						<table id="tableCli" class="table table-striped table-bordered">
+
+							<thead class="thead-light">
+								<tr>
+									<th>Nombre</th>
+									<th>Tipo</th>
+									<th>Nit</th>
+									<th>N&uacute;m. cel.</th>
+									<th>N&uacute;m. fijo</th>
+									<th>Dui</th>
+									<th>Estado</th>
+									<th><span class="glyphicon glyphicon-cog"> </span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:if test="${total != 0 }">
+									<c:forEach items="${colectionResult}" var="dto">
 										<tr>
-											<th>Nombre</th>
-											<th>Tipo</th>
-											<th>Nit</th>
-											<th>N&uacute;m. cel.</th>
-											<th>N&uacute;m. fijo</th>
-											<th>Dui</th>
-											<th>Estado</th>
-											<th><span class="glyphicon glyphicon-cog"> </span></th>
+											<td><c:out value="${dto.nombre}" /></td>
+											<td><c:if test="${dto.tipo == 'N'}">
+													<c:out value="Natural"></c:out>
+												</c:if> <c:if test="${dto.tipo == 'J'}">
+													<c:out value="Jur&iacute;dico"></c:out>
+												</c:if></td>
+											<td><c:out value="${dto.nit}" /></td>
+											<td><c:out value="${dto.num_tel_cel}" /></td>
+											<td><c:out value="${dto.num_tel_fijo}" /></td>
+											<td><c:out value="${dto.dui}" /></td>
+											<td><c:if test="${dto.estado == 'A'}">
+													<c:out value="Activo"></c:out>
+												</c:if> <c:if test="${dto.estado == 'I'}">
+													<c:out value="Inactivo"></c:out>
+												</c:if></td>
+											<td align=Right>
+												<button type="button" class="btn btn-info btn-sm"
+													onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">
+													Editar</button>
+												<button type="button" class="btn btn-danger btn-sm"
+													onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'">
+													Inactivar</button>
+											</td>
 										</tr>
-									</thead>
-									<tbody>
-										<c:if test="${total != 0 }">
-											<c:forEach items="${colectionResult}" var="dto">
-												<tr>
-													<td><c:out value="${dto.nombre}" /></td>
-													<td><c:if test="${dto.tipo == 'N'}">
-															<c:out value="Natural"></c:out>
-														</c:if> <c:if test="${dto.tipo == 'J'}">
-															<c:out value="Jur&iacute;dico"></c:out>
-														</c:if></td>
-													<td><c:out value="${dto.nit}" /></td>
-													<td><c:out value="${dto.num_tel_cel}" /></td>
-													<td><c:out value="${dto.num_tel_fijo}" /></td>
-													<td><c:out value="${dto.dui}" /></td>
-													<td>
-														<c:if test="${dto.estado == 'A'}"><c:out value="Activo"></c:out></c:if> 
-														<c:if test="${dto.estado == 'I'}"> <c:out value="Inactivo"></c:out>	</c:if>
-													</td>
-													<td align=Right>
-														<button type="button" class="btn btn-info btn-sm"
-															onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">
-															Editar</button>
-														<button type="button" class="btn btn-danger btn-sm"
-															onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'">
-															Inactivar</button>
-													</td>
-												</tr>
-											</c:forEach>
-										</c:if>
-										<c:if test="${total == 0 }">
-											<tr>
-												<td align="center" style="font-style: italic;" colspan="7">No
-													hay registros que mostrar aqui</td>
-											</tr>
-										</c:if>
-									</tbody>
-								</table>
-							
-							</div>
-							</div>
-							<div class="card-footer text-muted">
-								<label style="float: right;"> La cantidad de registros: <c:out
-										value="${total }" /></label>
-							</div>
-						</div>
-					</body>
+									</c:forEach>
+								</c:if>
+								<c:if test="${total == 0 }">
+									<tr>
+										<td align="center" style="font-style: italic;" colspan="7">No
+											hay registros que mostrar aqui</td>
+									</tr>
+								</c:if>
+							</tbody>
+						</table>
+
+					</div>
+					<div class="card-footer text-muted">
+						<label style="float: right;"> La cantidad de registros: <c:out
+								value="${total }" /></label>
+					</div>
 				</div>
-			</div>
-	
+			</body>
 		</div>
 	</div>
+</div>
 </html>

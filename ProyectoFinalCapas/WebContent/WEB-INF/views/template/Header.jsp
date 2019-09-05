@@ -1,5 +1,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="resources/jquery-ui/jquery.dataTables.min.js"></script>
+<script src="resources/jquery-ui/dataTables.bootstrap4.min.js"></script>
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="resources/mask-plugin/dist/jquery.mask.js"></script>
 <script src="resources/mask-plugin/dist/jquery.mask.min.js"></script>
@@ -18,8 +22,17 @@ $(document).ready(function(){
    $('.button-left').click(function(){
        $('.sidebar').toggleClass('fliph');
    });
-     
+   
+   
+   $('#tableCli').DataTable();
+   $('#tablePro').DataTable();
+   $('#tableCat').DataTable();
+   $('#tableStock').DataTable();
 });
+
+
+
+
 </script>
 
 <style>
@@ -43,6 +56,31 @@ display: block;
 
 .height-div-table {
 	height: 50%;
+}
+
+.div-row {
+	height:100vh;
+	background-color: white;
+}
+
+.div-row-left {
+	background-color: black;
+}
+
+.div-row-right {
+	width: 80%;
+	height: 50%;
+}
+
+
+.div-row-right-container {
+	margin-left: 2%; 
+	margin-top: 2%;
+}
+
+.tbody {
+			  min-height:10px;
+			  overflow-y:auto;;
 }
  
 </style>

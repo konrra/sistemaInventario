@@ -4,17 +4,16 @@
 <%@ include file="../template/Header.jsp"%>
 </head>
 
-<div>
-	<div class="row" style="height:100vh; background-color: white;">
-		<div class="col-xs-*" style="background-color: black;" >
+	<div class="row div-row">
+		<div class="col-xs-* div-row-left" >
 			<%@ include file="../template/LeftSidebar.jsp"%>
 		</div>
 
-		<div class="col-lg-*" style="width: 75%" >
-			<div class="container" style="margin-left: 2%; margin-top: 2%">
+		<div class="col-lg-* div-row-right" >
+			<div class="div-row-right-container" >
 
 				<body class="body-back">
-					<div class="card height-div-table">
+					<div class="card ">
 						<div class="card-header">
 							Edición de información de las categor&iacute;as
 							<button style="float: right;" type="button"
@@ -23,7 +22,7 @@
 								+</button>
 						</div>
 						<div class="card-body">
-							<table class="table table-sm table-bordere table-hover table-bordered">
+							<table id="tableCat" class="table table-striped table-bordered" >
 								<thead class="thead-light">
 									<tr>
 										<th>Descripci&oacute;n</th>
@@ -75,6 +74,5 @@
 		</div>
 
 	</div>
-</div>
 </body>
 </html>
