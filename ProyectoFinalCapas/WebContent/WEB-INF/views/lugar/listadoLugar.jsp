@@ -7,6 +7,7 @@
 <div class="row div-row">
 	<div class="col-xs-* div-row-left">
 		<%@ include file="../template/LeftSidebar.jsp"%>
+
 	</div>
 
 	<div class="col-lg-* div-row-right">
