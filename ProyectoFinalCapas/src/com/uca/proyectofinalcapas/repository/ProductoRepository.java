@@ -20,6 +20,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 	
 	public static String FIND_CATEGORIA = "select cp from Categoriaxproducto as cp";
 	
+	public static String FIND_CODIGO = "select p from Producto p where codigo = :codigo";
+	
 	
 	
 	@Query(FIND_ALL_PRODUCT)
@@ -33,6 +35,9 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 	
 	@Query(FIND_CATEGORIA)
 	public List<Categoriaxproducto> findAllCategoriaProd();
+	
+	@Query()
+	public Producto findByCodigo(@Param("codigo") String codigo);
 	
 
 

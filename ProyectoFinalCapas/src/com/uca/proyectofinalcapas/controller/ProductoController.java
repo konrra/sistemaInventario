@@ -74,18 +74,26 @@ public class ProductoController {
 	@RequestMapping(value="/actualizarProducto", method=RequestMethod.GET)
 	public ModelAndView actProducto(@ModelAttribute Producto producto) {
 		ModelAndView mav = new ModelAndView();
-		if(StringUtils.isEmpty(producto.getNombre()) || StringUtils.isEmpty(producto.getId_categoria_x_producto()) 
+		List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+		mav.addObject("comboCategoria", comboCategoria);
+		
+		if(StringUtils.isEmpty(producto.getCodigo()) || StringUtils.isEmpty(producto.getNombre()) || StringUtils.isEmpty(producto.getId_categoria_x_producto()) 
 				|| producto.getCosto() == null) {
-			List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
-			mav.addObject("comboCategoria", comboCategoria);
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("producto/crearProducto");
 		}else {
 			Categoriaxproducto cat = new Categoriaxproducto();
 			cat.setId_categoria_x_producto(producto.getId_categoria_x_producto());
 			producto.setCategoriaxproducto(cat);
-			productoRepository.save(producto);
-			return listadoProducto();
+			Producto findByCodigo = productoRepository.findByCodigo(producto.getCodigo());
+			if(findByCodigo != null) {
+				mav.addObject("error", "El código ingresado ya existe");
+				mav.setViewName("producto/crearProducto");
+			}else {
+				productoRepository.save(producto);
+				return listadoProducto();
+			}
+			
 		}
 
 		return mav;

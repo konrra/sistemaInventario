@@ -18,6 +18,11 @@ $(document).ready(function(){
 	
 });
 
+$('#myTable1 tbody tr').click(function() {
+	alert("cliqueo");
+    $(this).addClass('bg-success').siblings().removeClass('bg-success');
+});
+
 function validarCampos(){
 	if( $("#id_producto").val().length == 0){
 		$("#nomProducto").css("border", "2px solid #ff0000");
@@ -44,6 +49,17 @@ function validarCampos(){
 }
 
 </script>
+<style>
+
+.well {
+    background: none;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background-color: #CFF5FF;
+}
+</style>
 	<div class="row" style="height: 100vh; background-color: white;">
 		<div class="col-xs-*" style="background-color: black;">
 			<%@ include file="../template/LeftSidebar.jsp"%>
@@ -165,9 +181,11 @@ function validarCampos(){
 						        </button>
 						      </div>
 						      <div class="modal-body">
-						        <table id="table"  class="table table-sm table-bordere table-hover table-bordered">
+						      <div class="container well">
+						        <table id="table"  class="table table-sm table-bordere table-hover table-bordered" id="myTable1">
 								<thead class="thead-light">
 									<tr>
+										<th>C&oacute;digo</th>
 										<th>Descripci&oacute;n</th>
 										<th>Categor&iacute;a</th>
 										<th>Estado</th>
@@ -177,6 +195,7 @@ function validarCampos(){
 									<c:if test="${total != 0 }">
 										<c:forEach items="${colectionResultProd}" var="dto">
 											<tr onclick="$('#id_producto').val('${dto.id_producto}'); $('#nomProducto').val('${dto.nombre}');" >
+												<td><c:out value="${dto.codigo}" /></td>
 												<td><c:out value="${dto.nombre}" /></td>
 												<td><c:out	value="${dto.categoriaxproducto.descripcion}" /></td>
 												<td>
@@ -195,7 +214,7 @@ function validarCampos(){
 									</c:if>
 								</tbody>
 							</table>
-						        
+						    </div>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>

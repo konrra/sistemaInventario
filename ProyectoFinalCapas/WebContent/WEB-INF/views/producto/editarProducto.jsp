@@ -46,7 +46,15 @@
 								<div style="width: 50%; float: left;">
 									<input type="hidden" name="id_producto"
 										value="${producto.id_producto }">
-
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">C&oacute;digo*</label>
+										<div class="col-sm-7">
+											<input type="text" class="form-control" name="codigo"
+												value="${producto.codigo }">
+										</div>
+									</div>
+									
 									<div class="form-group">
 										<label class="col-sm-4 control-label">Producto*</label>
 										<div class="col-sm-7">
@@ -63,14 +71,6 @@
 										</div>
 									</div>
 
-									<div class="form-group">
-										<label class="col-sm-5 control-label">Precio Venta*</label>
-										<div class="col-sm-7">
-											<input class="form-control dinero" tabindex="5" type="text"
-												 id="precio_publico" name="precio_publico"
-												value="${producto.precio_publico}" maxlength="15" />
-										</div>
-									</div>
 
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Estado</label>
@@ -87,6 +87,15 @@
 
 								</div>
 								<div style="width: 50%; float: right;">
+								
+									<div class="form-group">
+										<label class="col-sm-5 control-label">Precio Venta*</label>
+										<div class="col-sm-7">
+											<input class="form-control dinero" tabindex="5" type="text"
+												 id="precio_publico" name="precio_publico"
+												value="${producto.precio_publico}" maxlength="15" />
+										</div>
+									</div>
 
 									<div class="form-group">
 										<label class="col-sm-4 control-label">Precio Tienda </label>

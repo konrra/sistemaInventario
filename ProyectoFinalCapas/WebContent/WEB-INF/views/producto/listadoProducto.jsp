@@ -29,6 +29,7 @@
 						<table id="tablePro" class="table table-striped table-bordered">
 							<thead class="thead-light">
 								<tr>
+									<th>C&oacute;digo</th>
 									<th>Descripci&oacute;n</th>
 									<th>Costo</th>
 									<th>Precio P&uacute;blico</th>
@@ -43,6 +44,7 @@
 								<c:if test="${total != 0 }">
 									<c:forEach items="${colectionResult}" var="dto">
 										<tr>
+											<td><c:out value="${dto.codigo}" /></td>
 											<td><c:out value="${dto.nombre}" /></td>
 											<td align=Right><c:if test="${empty dto.costo }">-</c:if>
 												<c:if test="${not empty dto.costo}">$</c:if> <c:out

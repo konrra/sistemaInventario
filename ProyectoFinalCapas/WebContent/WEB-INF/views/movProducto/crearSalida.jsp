@@ -10,11 +10,6 @@
 </head>
 
 <script>
-// $(document).ready(function(){
-	
-	
-	
-// });
 
 function validarCampos(){
 	if($("#idProducto").val().length ==0){
@@ -154,6 +149,7 @@ function validarCampos(){
 						        <table id="tablePro" class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
+										<th>C&oacute;digo</th>
 										<th>Descripci&oacute;n</th>
 										<th>Categor&iacute;a</th>
 										<th>Estado</th>
@@ -163,6 +159,7 @@ function validarCampos(){
 									<c:if test="${total != 0 }">
 										<c:forEach items="${colectionResultProd}" var="dto">
 											<tr onclick="$('#id_producto').val('${dto.id_producto}'); $('#nomProducto').val('${dto.nombre}');" >
+												<td><c:out value="${dto.codigo}" /></td>
 												<td><c:out value="${dto.nombre}" /></td>
 												<td><c:out	value="${dto.categoriaxproducto.descripcion}" /></td>
 												<td>
@@ -216,6 +213,7 @@ function validarCampos(){
 								<c:if test="${total != 0 }">
 									<c:forEach items="${colectionResultClien}" var="dto">
 										<tr onclick="$('#id_cliente').val('${dto.id_cliente}'); $('#nomCliente').val('${dto.nombre}');" >
+											
 											<td><c:out value="${dto.nombre}" /></td>
 											<td><c:if test="${dto.tipo == 'N'}">
 													<c:out value="Natural"></c:out>

@@ -43,7 +43,7 @@
 												</c:if> <c:if test="${dto.tipo  == 'E'}">
 													<c:out value="Entrada" />
 												</c:if></td>
-											<td><c:out value="${dto.producto.nombre}" /></td>
+											<td><c:out value="${dto.producto.codigo} - ${dto.producto.nombre}" /></td>
 											<td><c:out value="${dto.cantidad}" /></td>
 
 											<td><c:out value="${dto.cliente.nombre}" /> <c:if

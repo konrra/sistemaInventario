@@ -41,6 +41,14 @@
 								<div style="width: 50%; float: left;">
 									
 									<div class="form-group">
+										<label class="col-sm-3 control-label">C&oacute;digo*</label>
+										<div class="col-sm-7">
+											<input type="text" class="form-control" name="codigo"
+												value="${producto.codigo }">
+										</div>
+									</div>
+									
+									<div class="form-group">
 										<label class="col-sm-3 control-label">Producto*</label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control" name="nombre"
@@ -56,6 +64,11 @@
 										</div>
 									</div>
 
+									
+
+								</div>
+								<div style="width: 50%; float: right;">
+								
 									<div class="form-group">
 										<label class="col-sm-4 control-label">Precio Venta*</label>
 										<div class="col-sm-7">
@@ -64,9 +77,6 @@
 												value="${producto.precio_publico}" maxlength="15" />
 										</div>
 									</div>
-
-								</div>
-								<div style="width: 50%; float: right;">
 
 									<div class="form-group">
 										<label class="col-sm-4 control-label">Precio Tienda </label>
