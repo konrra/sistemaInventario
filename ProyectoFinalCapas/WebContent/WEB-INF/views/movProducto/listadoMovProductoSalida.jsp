@@ -30,7 +30,7 @@
 									<th>Cantidad</th>
 									<th>Cliente</th>
 									<th>Lugar</th>
-									<th>Tipo Entrada</th>
+									<th>Tipo Salida</th>
 									<th>Fecha</th>
 								</tr>
 							</thead>

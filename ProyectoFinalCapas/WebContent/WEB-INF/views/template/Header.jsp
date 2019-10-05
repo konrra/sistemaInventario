@@ -41,23 +41,9 @@ $(document).ready(function(){
 	
  } 
  body { 
- 	background-color: #808080 
+ 	background-color: white;
  } 
- 
- 
-.my-custom-scrollbar {
-position: relative;
-height: 300px;
-overflow: auto;
-}
-.table-wrapper-scroll-y {
-display: block;
-}
-
-.height-div-table {
-	height: 50%;
-}
-
+  
 .div-row {
 	height:100vh;
 	background-color: white;
@@ -65,6 +51,7 @@ display: block;
 
 .div-row-left {
 	background-color: black;
+	height:100vh;
 }
 
 .div-row-right {
@@ -80,7 +67,7 @@ display: block;
 
 .tbody {
 			  min-height:10px;
-			  overflow-y:auto;;
+			  overflow-y:auto;
 }
  
 </style>
