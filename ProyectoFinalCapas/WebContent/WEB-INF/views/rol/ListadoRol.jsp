@@ -33,7 +33,6 @@
 									<th>Descripcion</th>
 									<th>Opcion Catalogos</th>
 									<th>Opcion Inventario</th>
-									<th>Opcion Factura</th>
 									<th>Opcion Seguridad</th>
 									<th><span class="glyphicon glyphicon-cog"> </span></th>
 								</tr>
@@ -54,11 +53,11 @@
 												</c:if> <c:if test="${dto.opcinventario == 0}">
 													<c:out value="NO"></c:out>
 												</c:if></td>
-											<td><c:if test="${dto.opcfactura == 1}">
-													<c:out value="SI"></c:out>
-												</c:if> <c:if test="${dto.opcfactura == 0}">
-													<c:out value="NO"></c:out>
-												</c:if></td>
+<%-- 											<td><c:if test="${dto.opcfactura == 1}"> --%>
+<%-- 													<c:out value="SI"></c:out> --%>
+<%-- 												</c:if> <c:if test="${dto.opcfactura == 0}"> --%>
+<%-- 													<c:out value="NO"></c:out> --%>
+<%-- 												</c:if></td> --%>
 											<td><c:if test="${dto.opcseguridad == 1}">
 													<c:out value="SI"></c:out>
 												</c:if> <c:if test="${dto.opcseguridad == 0}">

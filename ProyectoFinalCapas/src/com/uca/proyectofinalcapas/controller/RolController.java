@@ -52,7 +52,7 @@ public class RolController {
 		public ModelAndView actRol(@ModelAttribute Rol rol) {
 			ModelAndView mav = new ModelAndView();
 			if(StringUtils.isEmpty(rol.getDescripcion())) {
-				mav.addObject("error", "Es necesario ingresar los campos obligatorios");
+				mav.addObject("error", "Es necesario ingresar una descripcion al rol");
 				mav.setViewName("rol/editarRol");
 			}else {
 				RolRepository.save(rol);
@@ -78,32 +78,7 @@ public class RolController {
 		
 		return mav;
 	}
-//	
-////	metodo que actualiza o crea un cliente 
-//	@RequestMapping(value="/actualizarUsuario", method=RequestMethod.GET)
-//	public ModelAndView actUsuario(@ModelAttribute Usuario usuario) {
-//		ModelAndView mav = new ModelAndView();
-//		if(StringUtils.isEmpty(usuario.getUsuario())) {
-//			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
-//			mav.setViewName("user/editarUsuario");
-//		}else {
-//			RolRepository.save(usuario);
-//			return listadoUsuario();
-//		}
-//
-//		return mav;
-//	}
-//	 
-//	//crear usuario
-//	@RequestMapping(value="/crearUsuario", method=RequestMethod.GET)
-//	public ModelAndView crearUsuario() {
-//		
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("user/crearUsuario");
-//		return mav;
-//	}
-	
-	
+
 }//cierre de clase
 
 

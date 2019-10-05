@@ -28,6 +28,19 @@ public class Stock {
 	
 	@Column(name="descripcion")
 	private String descripcion;
+	
+	@Column(name="codigo")
+	private String codigo;
+	
+	
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 
 	public int getId_stock() {
 		return id_stock;

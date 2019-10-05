@@ -51,6 +51,31 @@
 										</select>
 									</div>
 								</div>
+<!-- 								<div class="form-group"> -->
+<!-- 									<label class="col-sm-3 control-label">Opcion Inventario</label> -->
+<!-- 									<div class="col-sm-7"> -->
+<!-- 										<select class="form-control" name="opcinventario"> -->
+<!-- 											<option value=1 -->
+<%-- 												<c:if test="${rol.opcinventario ==1 }">selected</c:if>>SI</option> --%>
+<!-- 											<option value=0 -->
+<%-- 												<c:if test="${rol.opcinventario ==0 }">selected</c:if>>NO</option> --%>
+<!-- 										</select> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+							</div>
+							
+							<div style="width: 50%; float: right;">
+<!-- 								<div class="form-group"> -->
+<!-- 									<label class="col-sm-3 control-label">Opcion Factura</label> -->
+<!-- 									<div class="col-sm-7"> -->
+<!-- 										<select class="form-control" name="opcfactura"> -->
+<!-- 											<option value=1 -->
+<%-- 												<c:if test="${rol.opcfactura ==1 }">selected</c:if>>SI</option> --%>
+<!-- 											<option value=0 -->
+<%-- 												<c:if test="${rol.opcfactura ==0 }">selected</c:if>>NO</option> --%>
+<!-- 										</select> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Opcion Inventario</label>
 									<div class="col-sm-7">
@@ -59,20 +84,6 @@
 												<c:if test="${rol.opcinventario ==1 }">selected</c:if>>SI</option>
 											<option value=0
 												<c:if test="${rol.opcinventario ==0 }">selected</c:if>>NO</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							
-							<div style="width: 50%; float: right;">
-								<div class="form-group">
-									<label class="col-sm-3 control-label">Opcion Factura</label>
-									<div class="col-sm-7">
-										<select class="form-control" name="opcfactura">
-											<option value=1
-												<c:if test="${rol.opcfactura ==1 }">selected</c:if>>SI</option>
-											<option value=0
-												<c:if test="${rol.opcfactura ==0 }">selected</c:if>>NO</option>
 										</select>
 									</div>
 								</div>

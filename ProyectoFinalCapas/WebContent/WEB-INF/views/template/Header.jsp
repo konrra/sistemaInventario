@@ -86,7 +86,7 @@ display: block;
 </style>
 
 <title>Sistema de Inventario</title>
-<button type="button" class="btn btn-primary btn-block">Fundacion Manos Amigas</button>
+<button type="button" class="btn btn-primary btn-block"><h2>Asociación Manos Amigas</h2></button>
 
 <header class="header">
 	<nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
