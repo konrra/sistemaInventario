@@ -30,7 +30,7 @@
 									<th>Cantidad</th>
 									<th>Cliente</th>
 									<th>Lugar</th>
-									<th>Tipo Entrada</th>
+									<th>Tipo Salida</th>
 									<th>Fecha</th>
 								</tr>
 							</thead>
@@ -61,6 +61,10 @@
 													<c:out value="Averia" />
 												</c:if> <c:if test="${dto.tipo_entrada  == 'C'}">
 													<c:out value="Cambio" />
+												</c:if> <c:if test="${dto.tipo_entrada  == 'S'}">
+													<c:out value="Consignacion" />
+												</c:if> <c:if test="${dto.tipo_entrada  == 'V'}">
+													<c:out value="Venta directa" />
 												</c:if> <c:if test="${dto.tipo_entrada  ==  null}">
 													<c:out value="N/A" />
 												</c:if> <%-- 												<c:out value="${dto.tipo_entrada}" /> --%>
