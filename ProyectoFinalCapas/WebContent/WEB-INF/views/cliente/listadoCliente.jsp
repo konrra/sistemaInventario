@@ -34,20 +34,18 @@
 
 							<thead class="thead-light">
 								<tr>
-									<th>Nombre</th>
+									<th>Nombre/Empresa</th>
 									<th>Tipo</th>
 									<th>Nit</th>
 									<th>N&uacute;m. cel.</th>
 									<th>N&uacute;m. fijo</th>
-									<th>Dui</th>
-									<th>Estado</th>
 									<th><span class="glyphicon glyphicon-cog"> </span></th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:if test="${total != 0 }">
 									<c:forEach items="${colectionResult}" var="dto">
-										<tr>
+										<tr  <c:if test="${dto.es_proveedor == 'S' }">  style="background: cadetblue;" </c:if> >
 											<td><c:out value="${dto.nombre}" /></td>
 											<td><c:if test="${dto.tipo == 'N'}">
 													<c:out value="Natural"></c:out>
@@ -57,12 +55,6 @@
 											<td><c:out value="${dto.nit}" /></td>
 											<td><c:out value="${dto.num_tel_cel}" /></td>
 											<td><c:out value="${dto.num_tel_fijo}" /></td>
-											<td><c:out value="${dto.dui}" /></td>
-											<td><c:if test="${dto.estado == 'A'}">
-													<c:out value="Activo"></c:out>
-												</c:if> <c:if test="${dto.estado == 'I'}">
-													<c:out value="Inactivo"></c:out>
-												</c:if></td>
 											<td align=Right>
 												<button type="button" class="btn btn-info btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">

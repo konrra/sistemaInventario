@@ -142,15 +142,29 @@
 											</select>
 										</div>
 									</div>
-
-								</div>
-								<div class="form-group" >
-										<label class="col-sm-3 control-label">Direcci&oacute;n</label>
+									
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Es proveedor</label>
 										<div class="col-sm-7">
-											 <textarea class="form-control" id="direccion" name="direccion" ><c:out value="${cliente.direccion}"></c:out></textarea>
+											<select class="form-control" name="es_proveedor">
+												<option value="N" <c:if test="${cliente.es_proveedor =='N' }">selected</c:if>>No</option>
+												<option value="S" <c:if test="${cliente.es_proveedor =='S' }">selected</c:if>>Si</option>
+											</select>
 										</div>
 									</div>
+
+								</div>
+								
+								<div class="form-group" style="margin-left: 20px;" >
+								<label class="col-sm-2 control-label">Giro</label>
+								<div class="col-sm-10">
+								  <textarea class="form-control" id="direccion" name="direccion" maxlength="200" cols="45" rows="3"><c:out value="${cliente.direccion}"/></textarea>
+								</div>
 							</div>
+								
+							</div>
+							
+							
 						</div>
 						<!-- div que finaliza el body del panel -->
 					</div>

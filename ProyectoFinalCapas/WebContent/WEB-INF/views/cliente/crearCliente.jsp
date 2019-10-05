@@ -66,8 +66,7 @@
 				
 				<body>
 
-					<form class="form-horizontal" role="form" id="formulario"  name="formulario"
-						action="${pageContext.request.contextPath}/actualizarCliente">
+					<form class="form-horizontal" role="form" id="formulario"  name="formulario"	action="${pageContext.request.contextPath}/actualizarCliente">
 						<input type="hidden" name="validador" id="validador" value="${vali}" />
 						<c:if test="${not empty error}">
 
@@ -89,14 +88,13 @@
 								<br>
 								<div style="width: 50%; float: left;">
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Nombre*</label>
-										<div class="col-sm-9 ">
+										<label class="col-sm-4 control-label">Nombre/Empresa*</label>
+										<div class="col-sm-8 ">
 											<input type="text" class="form-control" name="nombre"	value="${cliente.nombre }" size="30">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-4 control-label">
-											N&uacute;mero celular</label>
+										<label class="col-sm-4 control-label">	N&uacute;mero celular</label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control num_tel_cel" id="num_tel_cel" onblur="validarTelefonos('num_tel_cel');" name="num_tel_cel"	value="${cliente.num_tel_cel }" >
 										</div>
@@ -108,7 +106,20 @@
 											<input type="text"  class="form-control num_tel_cel" id="num_tel_fijo" onblur="validarTelefonos('num_tel_fijo');"  name="num_tel_fijo"	value="${cliente.num_tel_fijo }"  >
 										</div>
 									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Es proveedor</label>
+										<div class="col-sm-7">
+											<select class="form-control" name="es_proveedor">
+												<option value="N" <c:if test="${cliente.es_proveedor =='N' }">selected</c:if>>No</option>
+												<option value="S" <c:if test="${cliente.es_proveedor =='S' }">selected</c:if>>Si</option>
+											</select>
+										</div>
+									</div>
+									
 								</div>
+								
+								
 
 								<div style="width: 50%; float: right;">
 									<div class="form-group">
@@ -139,14 +150,18 @@
 											 <input type="hidden" value="A" name="estado" id="estado" />
 										</div>
 									</div>
+									
 								</div>
 								
-								<div class="form-group" >
-										<label class="col-sm-2 control-label">Direcci&oacute;n</label>
-										<div class="col-sm-7">
-											 <textarea class="form-control" id="direccion" name="direccion" value="${cliente.direccion}"></textarea>
-										</div>
+								</div>
+								
+								<div class="form-group" style="margin-left: 20px;" >
+									<label class="col-sm-2 control-label">Giro</label>
+									<div class="col-sm-7">
+									  <textarea class="form-control" id="direccion" name="direccion" maxlength="200" cols="45" rows="3"><c:out value="${cliente.direccion}"/></textarea>
 									</div>
+								</div>
+								
 							</div>
 							<!-- div que finaliza el body del panel -->
 						</div>

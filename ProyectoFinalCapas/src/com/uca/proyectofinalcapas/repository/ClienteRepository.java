@@ -10,9 +10,9 @@ import com.uca.proyectofinalcapas.domain.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	
-	public static String FIND_ALL_CLIENTES = "select c from Cliente c";
+	public static String FIND_ALL_CLIENTES = "select c from Cliente c where c.estado ='A' ";
 	
-	public static String COUNT_ALL_CUSTOMERS = "select count(c.id_cliente) from Cliente c";
+	public static String COUNT_ALL_CUSTOMERS = "select count(c.id_cliente) from Cliente c  where c.estado ='A'";
 	
 	public static String FIND_BY_ID = "select c from Cliente c where c.id_cliente = :idClie";
 	
