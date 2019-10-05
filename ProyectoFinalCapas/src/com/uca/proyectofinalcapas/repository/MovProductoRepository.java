@@ -18,7 +18,9 @@ public interface MovProductoRepository extends JpaRepository<MovProducto,Integer
 //	@Query(FIND_ALL)
 //	List<MovProducto> findAllMov();
 	
-	public static String FIND_ALL_MOVPRODUCTO = "select m from MovProducto m";
+	public static String FIND_ALL_MOVPRODUCTO = "select m from MovProducto m where m.tipo ='E'";
+	
+	public static String FIND_ALL_MOVPRODUCTO_S = "select m from MovProducto m where m.tipo ='S'";
 	
 	public static String COUNT_ALL_MOVPRODUCTO = "select count(m.id_mov_producto) from MovProducto m";
 	
@@ -26,6 +28,9 @@ public interface MovProductoRepository extends JpaRepository<MovProducto,Integer
 	
 	@Query(FIND_ALL_MOVPRODUCTO)
 	public List<MovProducto> findAllEntrada();
+	
+	@Query(FIND_ALL_MOVPRODUCTO_S)
+	public List<MovProducto> findAllSalida();
 	
 	@Query(COUNT_ALL_MOVPRODUCTO)
 	public int countAllEntrada();

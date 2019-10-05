@@ -69,6 +69,30 @@ public class MovProductoController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/listadoMovProductoSalida", method= RequestMethod.GET)
+	public ModelAndView listadoMovProductoSalida(){
+		ModelAndView mav = new ModelAndView();
+//		try {
+			
+			List<MovProducto> listadoProducto = movProductoRepository.findAllSalida();
+			
+			System.out.println("tamaño listado:" + listadoProducto.size());
+			for (int i = 0; i < listadoProducto.size(); i++) {
+				
+				System.out.println("producto: " + listadoProducto.get(i).getProducto());
+				
+			}
+			
+			mav.addObject("colectionResult", listadoProducto);
+//		}catch (Exception e) {
+//			mav.addObject("total", 0);
+//			System.out.println(e.getStackTrace());
+//		}
+		
+		mav.setViewName("movProducto/listadoMovProductoSalida");
+		return mav;
+	}
+	
 	
 	
 	

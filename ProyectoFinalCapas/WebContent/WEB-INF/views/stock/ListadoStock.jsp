@@ -26,9 +26,9 @@
 						<table id="tableStock" class="table table-striped table-bordered">
 							<thead class="thead-light">
 								<tr>
-									<th>id Producto</th>
-									<th>Fecha Actualizacion</th>
+									<th>Codigo Producto</th>
 									<th>Descripcion</th>
+									<th>Fecha Actualizacion</th>
 									<th>Cantidad</th>
 								</tr>
 							</thead>
@@ -36,9 +36,9 @@
 								<c:if test="${total != 0 }">
 									<c:forEach items="${colectionResult}" var="dto">
 										<tr>
-											<td><c:out value="${dto.id_producto}" /></td>
-											<td><c:out value="${dto.fecha_actualizacion}" /></td>
+											<td><c:out value="${dto.codigo}" /></td>
 											<td><c:out value="${dto.descripcion}" /></td>
+											<td><c:out value="${dto.fecha_actualizacion}" /></td>
 											<td><c:out value="${dto.cantidad}" /></td>
 										</tr>
 									</c:forEach>

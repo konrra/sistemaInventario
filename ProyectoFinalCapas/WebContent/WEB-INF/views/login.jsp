@@ -27,7 +27,7 @@ body {
 	<div class="jumbotron jumbotron-fluid">
 	  <div class="container">
 	    <h1 class="display-4">Control de inventario</h1>
-	    <p class="lead">Fundacion manos amigas</p>
+	    <p class="lead">Asociación Manos Amigas</p>
 	  </div>
 	</div>
 	

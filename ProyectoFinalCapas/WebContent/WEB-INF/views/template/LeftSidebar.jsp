@@ -41,9 +41,10 @@
 								<span class="fa fa-chevron-left pull-right"></span>
 						</a>
 							<ul class="sub-menu collapse" id="products">
-								<li><a href="${pageContext.request.contextPath}/crearEntrada">Entradas</a></li>
-								<li><a href="${pageContext.request.contextPath}/crearSalida">Salida</a></li>	
-								<li><a href="${pageContext.request.contextPath}/listadoMovProducto">Consulta Entrada/Salida</a></li>
+								<li><a href="${pageContext.request.contextPath}/crearEntrada">Crear Entrada</a></li>
+								<li><a href="${pageContext.request.contextPath}/crearSalida">Crear Salida</a></li>	
+								<li><a href="${pageContext.request.contextPath}/listadoMovProducto">Consulta Entradas</a></li>
+								<li><a href="${pageContext.request.contextPath}/listadoMovProductoSalida">Consulta Salidas</a></li>
 								<li><a href="${pageContext.request.contextPath}/listadoStock">Stock</a></li>
 
 							</ul></li>
@@ -53,16 +54,16 @@
 					</c:if>
 
 					
-					<c:if test="${dto == 'F'}">
-						<li><a href="#" data-toggle="collapse" data-target="#facturas"
-							class="collapsed active"><i class="fa fa-table"></i> <span
-								class="nav-label">Facturación  </span><span
-								class="fa fa-chevron-left pull-right"></span></a>
-							<ul class="sub-menu collapse" id="facturas">
-								<li><a href="${pageContext.request.contextPath}/inicioFactura">Generación Factura</a></li>
-								<li><a href="">Consulta Factura</a></li>
-							</ul></li>
-					</c:if>
+<%-- 					<c:if test="${dto == 'F'}"> --%>
+<!-- 						<li><a href="#" data-toggle="collapse" data-target="#facturas" -->
+<!-- 							class="collapsed active"><i class="fa fa-table"></i> <span -->
+<!-- 								class="nav-label">Facturación  </span><span -->
+<!-- 								class="fa fa-chevron-left pull-right"></span></a> -->
+<!-- 							<ul class="sub-menu collapse" id="facturas"> -->
+<%-- 								<li><a href="${pageContext.request.contextPath}/inicioFactura">Generación Factura</a></li> --%>
+<!-- 								<li><a href="">Consulta Factura</a></li> -->
+<!-- 							</ul></li> -->
+<%-- 					</c:if> --%>
 					
 					<c:if test="${dto == 'S'}">
 						<li><a href="#" data-toggle="collapse" data-target="#seguridadMenu"

@@ -165,7 +165,7 @@ function validarCampos(){
 							<div class="card-footer">
 
 								<button type="button" class="btn btn-danger" onclick="location.href='${pageContext.request.contextPath}/crearEntrada?idProducto=0'">Cancelar</button>
-								<button type="submit" class="btn btn-success" onmousemove="validarCampos();">Guardar</button>
+								<button type="submit" class="btn btn-success" >Guardar</button>
 
 							</div>
 							<!-- div que finaliza el footer del panel -->
@@ -218,7 +218,7 @@ function validarCampos(){
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
-						        <button type="button" class="btn btn-primary btn-sm">Seleccionar</button>
+						        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" >Seleccionar</button>
 						      </div>
 						    </div>
 						  </div>
