@@ -39,6 +39,9 @@ public class Cliente {
 	@Column(name="direccion")
 	private String direccion;
 	
+	@Column(name="es_proveedor")
+	private String es_proveedor;
+	
 	
 	public String getDireccion() {
 		return direccion;
@@ -113,8 +116,14 @@ public class Cliente {
 		this.dui = dui;
 	}
 
+	public String getEs_proveedor() {
+		return es_proveedor;
+	}
 
-
+	public void setEs_proveedor(String es_proveedor) {
+		this.es_proveedor = es_proveedor;
+	}
+	
 
 
 }
