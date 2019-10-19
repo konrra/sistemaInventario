@@ -23,7 +23,7 @@
 						</a>
 							<ul class="sub-menu collapse" id="dashboard">
 								<li><a
-									href="${pageContext.request.contextPath}/listadoCliente">Cliente</a></li>
+									href="${pageContext.request.contextPath}/listadoCliente">Cliente/Proveedor</a></li>
 								<li><a
 									href="${pageContext.request.contextPath}/listadoProducto">Producto</a></li>
 								<li><a

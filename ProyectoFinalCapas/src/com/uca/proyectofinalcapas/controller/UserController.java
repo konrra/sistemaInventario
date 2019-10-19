@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uca.proyectofinalcapas.domain.Categoriaxproducto;
+import com.uca.proyectofinalcapas.domain.Rol;
 import com.uca.proyectofinalcapas.domain.Usuario;
+import com.uca.proyectofinalcapas.repository.RolRepository;
 import com.uca.proyectofinalcapas.repository.UserRepository;
 
 @Controller
@@ -22,6 +25,8 @@ import com.uca.proyectofinalcapas.repository.UserRepository;
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
+	
+	private RolRepository rolRepository;
 
 	@RequestMapping("/validarUsuario")
 	public ModelAndView validarUsuario(@RequestParam("usuario") String usuario,
@@ -40,14 +45,14 @@ public class UserController {
 			// una vez se encontro un usuario se tiene que hacer la validacion de la
 			// contraseña
 			for (Usuario u : users) {
-				if (u.getPass().equals(password) && u.getRol()>0) {
+				if (u.getPass().equals(password) && u.getRolxusuario().getId_rol()>0) {
 					
 					// mav.addObject("user", u);
 					// esto se da en caso que el password sea el correcto
 					// ahora se verificara el rol del usuario
 					// 1: Admin
 					// 2: otro
-					String userRol = userRepository.findRol(u.getRol());
+					String userRol = userRepository.findRol(u.getRolxusuario().getId_rol());
 					
 					//String userRol = new String();//userRepository.findRol(u.getRol());
 		
@@ -70,7 +75,7 @@ public class UserController {
 					mav.addObject("menu", menuList2);
 					mav.addObject("user", u);
 					mav.addObject("iduser", u.getId_usuario());
-					if (u.getRol() == 1) {
+					if (u.getRolxusuario().getId_rol() == 1) {
 
 						mav.setViewName("indexAdmin");
 					} else {
@@ -110,7 +115,9 @@ public class UserController {
 		
 		try {
 			Usuario usuario = userRepository.findByIdUser(idUsuario);
+			List<Rol> comboRol = rolRepository.findAllRol();
 			mav.addObject("usuario", usuario);
+			mav.addObject("comboRol", comboRol);
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace());
 		}

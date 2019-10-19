@@ -43,7 +43,7 @@
 										<tr>
 											<td><c:out value="${dto.usuario}" /></td>
 											<td><c:out value="${dto.password}" /></td>
-											<td><c:out value="${dto.rol}" /></td>
+											<td><c:out value="${dto.rolxusuario.descripcion}" /></td>
 											<td><c:out value="${dto.nombre}" /></td>
 											<td><c:out value="${dto.apellido}" /></td>
 											<td align=Right>

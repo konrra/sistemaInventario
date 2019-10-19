@@ -4,7 +4,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -15,6 +18,13 @@ public class Usuario {
 	@Id
 	@Column(name="id_usuario")
 	private int id_usuario;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="rol")
+	private Rol rolxusuario;
+	
+//	@Transient
+//	private int rol;
 	 
 	@Column(name="usuario")
 	private String usuario;
@@ -22,8 +32,8 @@ public class Usuario {
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="rol")
-	private int rol;
+//	@Column(name="rol")
+//	private int rol;
 	
 	@Transient
 	private List<String> OpcMenu;
@@ -36,6 +46,14 @@ public class Usuario {
 	
 	
 	
+	public Rol getRolxusuario() {
+		return rolxusuario;
+	}
+
+	public void setRolxusuario(Rol rolxusuario) {
+		this.rolxusuario = rolxusuario;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -92,12 +110,12 @@ public class Usuario {
 		this.password = pass;
 	}
 
-	public int getRol() {
-		return rol;
-	}
-
-	public void setRol(int rol) {
-		this.rol = rol;
-	}
+//	public int getRol() {
+//		return rol;
+//	}
+//
+//	public void setRol(int rol) {
+//		this.rol = rol;
+//	}
 	
 }

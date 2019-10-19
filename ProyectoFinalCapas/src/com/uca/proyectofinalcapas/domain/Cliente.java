@@ -42,7 +42,31 @@ public class Cliente {
 	@Column(name="es_proveedor")
 	private String es_proveedor;
 	
+	@Column(name="correo")
+	private String correo;
 	
+	@Column(name="contacto")
+	private String contacto;
+	
+	
+	
+	
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getContacto() {
+		return contacto;
+	}
+
+	public void setContacto(String contacto) {
+		this.contacto = contacto;
+	}
+
 	public String getDireccion() {
 		return direccion;
 	}

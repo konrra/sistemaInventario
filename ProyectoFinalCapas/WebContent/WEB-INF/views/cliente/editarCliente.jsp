@@ -95,16 +95,23 @@
 									</div>
 									<div class="form-group">
 										<label class="col-sm-4 control-label">
-											N&uacute;mero celular</label>
+											Num. Contacto 1</label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control num_tel_cel" name="num_tel_cel" id="num_tel_cel" onblur="validarTelefonos('num_tel_cel');"	value="${cliente.num_tel_cel }" >
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-4 control-label">
-											Tel&eacute;fono fijo</label>
+											Num. Contacto 2</label>
 										<div class="col-sm-7">
 											<input type="text"  class="form-control num_tel_cel"  name="num_tel_fijo" id="num_tel_fijo" onblur="validarTelefonos('num_tel_fijo')"	value="${cliente.num_tel_fijo }"  >
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Correo</label>
+										<div class="col-sm-7 ">
+											<input type="text" class="form-control dui" id="correo" name="correo" onblur="validarCorreo();"	value="${cliente.correo }" maxlength="100">
 										</div>
 									</div>
 									
@@ -150,6 +157,14 @@
 												<option value="N" <c:if test="${cliente.es_proveedor =='N' }">selected</c:if>>No</option>
 												<option value="S" <c:if test="${cliente.es_proveedor =='S' }">selected</c:if>>Si</option>
 											</select>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-4 control-label">
+											Persona Contacto</label>
+										<div class="col-sm-7">
+											<input type="text"  class="form-control" id="contacto"  	value="${cliente.contacto }"  >
 										</div>
 									</div>
 
