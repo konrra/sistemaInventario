@@ -36,6 +36,15 @@ $(document).ready(function(){
 </script>
 
 <style>
+table{
+  table-layout: fixed;
+}
+
+#tabletr th{
+  width: 130px;
+  overflow: auto;
+}
+
 .btn-primary { 
  	background-color: #9FCF16; 
 	

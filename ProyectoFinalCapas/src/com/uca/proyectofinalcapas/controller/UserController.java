@@ -26,7 +26,8 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	private RolRepository rolRepository;
+	@Autowired
+	private RolRepository RolRepository;
 
 	@RequestMapping("/validarUsuario")
 	public ModelAndView validarUsuario(@RequestParam("usuario") String usuario,
@@ -115,7 +116,7 @@ public class UserController {
 		
 		try {
 			Usuario usuario = userRepository.findByIdUser(idUsuario);
-			List<Rol> comboRol = rolRepository.findAllRol();
+			List<Rol> comboRol = RolRepository.findAllRol();
 			mav.addObject("usuario", usuario);
 			mav.addObject("comboRol", comboRol);
 		} catch (Exception e) {
@@ -131,22 +132,68 @@ public class UserController {
 	@RequestMapping(value="/actualizarUsuario", method=RequestMethod.GET)
 	public ModelAndView actUsuario(@ModelAttribute Usuario usuario) {
 		ModelAndView mav = new ModelAndView();
-		if(StringUtils.isEmpty(usuario.getUsuario())) {
+		if(StringUtils.isEmpty(usuario.getUsuario()) || StringUtils.isEmpty(usuario.getPass()) || StringUtils.isEmpty(usuario.getRol())) {
 			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
 			mav.setViewName("user/editarUsuario");
 		}else {
-			userRepository.save(usuario);
-			return listadoUsuario();
+			
+			Rol rol = new Rol();
+			rol.setId_rol(usuario.getRol());
+			
+			usuario.setRolxusuario(rol);
+			
+			List<Usuario> user = userRepository.findByUsuario(usuario.getUsuario());
+			
+			if(user.size() > 1) {
+				mav.addObject("error", "Este Usuario ya existe");
+				mav.setViewName("user/editarUsuario");
+			}else {
+				userRepository.save(usuario);
+				return listadoUsuario();
+			}
+			
 		}
 
 		return mav;
 	}
+	
+	@RequestMapping(value="/nuevoUsuario", method=RequestMethod.GET)
+	public ModelAndView nuevoUsuario(@ModelAttribute Usuario usuario) {
+		ModelAndView mav = new ModelAndView();
+		if(StringUtils.isEmpty(usuario.getUsuario()) || StringUtils.isEmpty(usuario.getPass()) || StringUtils.isEmpty(usuario.getRol())) {
+			mav.addObject("error", "Es necesario ingresar los campos obligatorios");
+			mav.setViewName("user/editarUsuario");
+		}else {
+			
+			Rol rol = new Rol();
+			rol.setId_rol(usuario.getRol());
+			
+			usuario.setRolxusuario(rol);
+			
+			List<Usuario> user = userRepository.findByUsuario(usuario.getUsuario());
+			
+			if(user.size() > 0 ) {
+				mav.addObject("error", "Este Usuario ya existe");
+				mav.setViewName("user/editarUsuario");
+			}else {
+				userRepository.save(usuario);
+				return listadoUsuario();
+			}
+			
+		}
+
+		return mav;
+	}
+	
+
 	 
 	//crear usuario
 	@RequestMapping(value="/crearUsuario", method=RequestMethod.GET)
 	public ModelAndView crearUsuario() {
 		
 		ModelAndView mav = new ModelAndView();
+		List<Rol> comboRol = RolRepository.findAllRol();
+		mav.addObject("comboRol", comboRol);
 		mav.setViewName("user/crearUsuario");
 		return mav;
 	}

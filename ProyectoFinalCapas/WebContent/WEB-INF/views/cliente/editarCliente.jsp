@@ -53,6 +53,8 @@
 			$("#validador").val(0);
 	    }
 	}
+	function validarCorreo(identificador){
+	}
 </script>
 
 			<%@ include file="../template/LeftSidebar.jsp"%>
@@ -111,7 +113,7 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Correo</label>
 										<div class="col-sm-7 ">
-											<input type="text" class="form-control dui" id="correo" name="correo" onblur="validarCorreo();"	value="${cliente.correo }" maxlength="100">
+											<input type="text" class="form-control" id="correo" name="correo" onblur="validarCorreo();"	value="${cliente.correo}" maxlength="100">
 										</div>
 									</div>
 									

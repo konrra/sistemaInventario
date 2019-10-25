@@ -8,15 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="../template/Header.jsp"%>
 </head>
+<body>
+	<div class="row div-row">
+		<div class="col-xs-* div-row-left">
+			<%@ include file="../template/LeftSidebar.jsp"%>
+		</div>
 
-<div class="row div-row">
-	<div class="col-xs-* div-row-left">
-		<%@ include file="../template/LeftSidebar.jsp"%>
-	</div>
+		<div class="col-lg-* div-row-right">
+			<div class="div-row-right-container">
 
-	<div class="col-lg-* div-row-right">
-		<div class="div-row-right-container">
-			<body>
 				<div class="card height-div-table">
 					<div class="card-header">
 						Edición de informaci&oacute;n del Usuario
@@ -68,11 +68,11 @@
 								value="${total }" /></label>
 					</div>
 				</div>
-			</body>
+
+			</div>
 		</div>
 	</div>
-</div>
 
-
+</body>
 
 </html>

@@ -33,7 +33,7 @@
 						<table id="tableCli" class="table table-striped table-bordered">
 
 							<thead class="thead-light">
-								<tr>
+								<tr id="tabletr">
 									<th>Nombre</th>
 									<th>Tipo</th>
 									<th>Nit</th>
@@ -41,7 +41,6 @@
 									<th>Num. 2</th>
 									<th>Correo</th>
 									<th>Contacto</th>
-									<th><span class="glyphicon glyphicon-cog"> </span></th>
 									<th><span class="glyphicon glyphicon-cog"> </span></th>
 								</tr>
 							</thead>
@@ -64,8 +63,8 @@
 												<button type="button" class="btn btn-info btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">
 													Editar</button>
-											</td>
-											<td align=Right>
+										
+											
 												<button type="button" class="btn btn-danger btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'">
 													Inactivar</button>

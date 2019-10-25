@@ -24,7 +24,7 @@
 						<div class="card-body">
 							<table id="tableCat" class="table table-striped table-bordered" >
 								<thead class="thead-light">
-									<tr>
+									<tr >
 										<th>Descripci&oacute;n</th>
 										<th>Estado</th>
 										<th><span class="glyphicon glyphicon-cog"> </span></th>
