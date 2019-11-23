@@ -85,6 +85,7 @@ public class ProductoController {
 			Categoriaxproducto cat = new Categoriaxproducto();
 			cat.setId_categoria_x_producto(producto.getId_categoria_x_producto());
 			producto.setCategoriaxproducto(cat);
+			
 			Producto findByCodigo = productoRepository.findByCodigo(producto.getCodigo());
 			if(findByCodigo != null) {
 				mav.addObject("error", "El código ingresado ya existe");

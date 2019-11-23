@@ -17,7 +17,8 @@
 
 		<div class="col-lg-*" style="width: 75%">
 			<div class="container" style="margin-left: 2%; margin-top: 2%">
-
+			
+				<input type="hidden" name="paginaEditar" id="paginaEditar" value="S" />
 
 				<body class="body-back">
 					<script src="https://code.jquery.com/jquery-latest.min.js"></script>
