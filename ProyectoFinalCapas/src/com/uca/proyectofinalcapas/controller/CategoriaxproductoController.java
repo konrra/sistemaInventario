@@ -1,5 +1,6 @@
 package com.uca.proyectofinalcapas.controller;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,13 @@ public class CategoriaxproductoController {
 	@RequestMapping(value="/crearCategoria", method=RequestMethod.GET)
 	public ModelAndView crearCategoria() {
 		ModelAndView mav = new ModelAndView();
-		List<Categoriaxproducto> comboCategoria = categoriaProductoRepository.findAllCategoria();
+		List<Categoriaxproducto> comboCategoria = new LinkedList<Categoriaxproducto>();
+		try {
+			comboCategoria = categoriaProductoRepository.findAllCategoria();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 		mav.addObject("comboCategoria", comboCategoria);
 		mav.setViewName("categoria/crearCategoria");
 		return mav;

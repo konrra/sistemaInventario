@@ -82,7 +82,7 @@ table{
 </style>
 
 <title>Sistema de Inventario</title>
-<button type="button" class="btn btn-primary btn-block"><h2>Asociación Manos Amigas</h2></button>
+<button type="button" class="btn btn-primary btn-block"><h2>Asociaci&oacute;n Manos Amigas</h2></button>
 
 <header class="header">
 	<nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0 ">
@@ -102,8 +102,8 @@ table{
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-						<a class="dropdown-item" href="http://localhost:8080/ProyectoFinalCapas/">Cerrar Sesion</a> <a
-							class="dropdown-item" href="editarUsuario?id_usuario=${user.id_usuario}">Cambiar Contrase&amp;ntilde;ia</a>
+						<a class="dropdown-item" href="http://localhost:8080/ProyectoFinalCapas/">Cerrar Sesi&oacute;n</a> <a
+							class="dropdown-item" href="editarUsuario?id_usuario=${user.id_usuario}">Cambiar Contrase&ntilde;a</a>
 
 					</div></li>
 			</ul>

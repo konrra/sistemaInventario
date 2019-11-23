@@ -1,6 +1,7 @@
 package com.uca.proyectofinalcapas.controller;
 
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +49,10 @@ public class MovProductoController {
 	@RequestMapping(value="/listadoMovProducto", method= RequestMethod.GET)
 	public ModelAndView listadoMovProducto(){
 		ModelAndView mav = new ModelAndView();
-//		try {
+		List<MovProducto> listadoProducto = new LinkedList<MovProducto>();
+		try {
 			
-			List<MovProducto> listadoProducto = movProductoRepository.findAllEntrada();
+			listadoProducto = movProductoRepository.findAllEntrada();
 			
 			System.out.println("tamaño listado:" + listadoProducto.size());
 			for (int i = 0; i < listadoProducto.size(); i++) {
@@ -60,10 +62,10 @@ public class MovProductoController {
 			}
 			
 			mav.addObject("colectionResult", listadoProducto);
-//		}catch (Exception e) {
+		}catch (Exception e) {
 //			mav.addObject("total", 0);
 //			System.out.println(e.getStackTrace());
-//		}
+		}
 		
 		mav.setViewName("movProducto/listadoMovProducto");
 		return mav;
@@ -72,23 +74,20 @@ public class MovProductoController {
 	@RequestMapping(value="/listadoMovProductoSalida", method= RequestMethod.GET)
 	public ModelAndView listadoMovProductoSalida(){
 		ModelAndView mav = new ModelAndView();
-//		try {
+		List<MovProducto> listadoProducto = new LinkedList<MovProducto>();
+		try {
 			
-			List<MovProducto> listadoProducto = movProductoRepository.findAllSalida();
-			
-			System.out.println("tamaño listado:" + listadoProducto.size());
+			listadoProducto = movProductoRepository.findAllSalida();
 			for (int i = 0; i < listadoProducto.size(); i++) {
-				
-				System.out.println("producto: " + listadoProducto.get(i).getProducto());
 				
 			}
 			
 			mav.addObject("colectionResult", listadoProducto);
-//		}catch (Exception e) {
+		}catch (Exception e) {
 //			mav.addObject("total", 0);
 //			System.out.println(e.getStackTrace());
-//		}
-		
+		}
+//		
 		mav.setViewName("movProducto/listadoMovProductoSalida");
 		return mav;
 	}
@@ -169,12 +168,16 @@ public class MovProductoController {
 	@RequestMapping(value="/crearEntrada", method=RequestMethod.GET)
 	public ModelAndView crearEntrada() {
 		
+		List<Lugar> comboLugar = new LinkedList<Lugar>();
+		List<Producto> listadoProducto = new LinkedList<Producto>();
+		try {
+			comboLugar = lugarRepository.findAllLugar();
+			listadoProducto = productoRepository.findAllProduct();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
-		List<Lugar> comboLugar = lugarRepository.findAllLugar();
-		List<Producto> listadoProducto = productoRepository.findAllProduct();
 		ModelAndView mav = new ModelAndView();
-		
-		
 		mav.addObject("comboLugar", comboLugar);
 		mav.addObject("total",listadoProducto.size());
 		mav.addObject("colectionResultProd",listadoProducto);
@@ -187,10 +190,16 @@ public class MovProductoController {
 	@RequestMapping(value="/crearSalida", method=RequestMethod.GET)
 	public ModelAndView crearSalida() {
 		
+		List<Lugar> comboLugar = new LinkedList<Lugar>();
+		List<Producto> listadoProducto = new LinkedList<Producto>();
+		List<Cliente> listadoClientes = new LinkedList<Cliente>();
 		
-		List<Lugar> comboLugar = lugarRepository.findAllLugar();
-		List<Producto> listadoProducto = productoRepository.findAllProduct();
-		List<Cliente> listadoClientes = clienteRepository.findAllCliente();
+		try {
+			comboLugar = lugarRepository.findAllLugar();
+			listadoProducto = productoRepository.findAllProduct();
+			listadoClientes = clienteRepository.findAllCliente();
+		} catch (Exception e) {
+		}
 		ModelAndView mav = new ModelAndView();
 		
 		
