@@ -30,7 +30,7 @@
 							<thead class="thead-light">
 								<tr>
 									<th>Usuario</th>
-									<th>Password</th>
+<!-- 									<th>Password</th> -->
 									<th>Rol</th>
 									<th>Nombre</th>
 									<th>Apellido</th>
@@ -42,7 +42,7 @@
 									<c:forEach items="${colectionResult}" var="dto">
 										<tr>
 											<td><c:out value="${dto.usuario}" /></td>
-											<td><c:out value="${dto.password}" /></td>
+<%-- 											<td><c:out value="${dto.password}" /></td> --%>
 											<td><c:out value="${dto.rolxusuario.descripcion}" /></td>
 											<td><c:out value="${dto.nombre}" /></td>
 											<td><c:out value="${dto.apellido}" /></td>

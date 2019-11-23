@@ -43,7 +43,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Contraseña*</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="password"
+									<input type="password" class="form-control" name="password"
 										value="${usuario.password }" placeholder="">
 								</div>
 							</div>
