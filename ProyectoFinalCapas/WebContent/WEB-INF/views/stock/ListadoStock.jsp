@@ -27,9 +27,9 @@
 						<table id="tableStock" class="table table-striped table-bordered">
 							<thead class="thead-light">
 								<tr>
-									<th>Codigo Producto</th>
-									<th>Descripcion</th>
-									<th>Fecha Actualizacion</th>
+									<th>C&oacute;digo Producto</th>
+									<th style="width: 30%;" >Descripci&oacute;n</th>
+									<th>Fecha Actualizaci&oacute;n</th>
 									<th>Cantidad</th>
 								</tr>
 							</thead>
