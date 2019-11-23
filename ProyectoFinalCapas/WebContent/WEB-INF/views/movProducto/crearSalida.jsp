@@ -211,7 +211,7 @@ function validarCampos(){
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				        <table class="table table-sm table-bordere table-hover table-bordered">
+				        <table id="tableCli" class="table table-sm table-bordere table-hover table-bordered">
 							<thead class="thead-light">
 								<tr>
 									<th>Nombre</th>

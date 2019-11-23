@@ -36,28 +36,23 @@ $(document).ready(function(){
 </script>
 
 <style>
+table{
+  table-layout: fixed;
+}
+
+#tabletr th{
+  width: 130px;
+  overflow: auto;
+}
+
 .btn-primary { 
  	background-color: #9FCF16; 
 	
  } 
  body { 
- 	background-color: #808080 
+ 	background-color: white;
  } 
- 
- 
-.my-custom-scrollbar {
-position: relative;
-height: 300px;
-overflow: auto;
-}
-.table-wrapper-scroll-y {
-display: block;
-}
-
-.height-div-table {
-	height: 50%;
-}
-
+  
 .div-row {
 	height:100vh;
 	background-color: white;
@@ -65,6 +60,7 @@ display: block;
 
 .div-row-left {
 	background-color: black;
+	height:100vh;
 }
 
 .div-row-right {
@@ -80,7 +76,7 @@ display: block;
 
 .tbody {
 			  min-height:10px;
-			  overflow-y:auto;;
+			  overflow-y:auto;
 }
  
 </style>

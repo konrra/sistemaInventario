@@ -27,7 +27,7 @@
 									+</button>
 							</div>
 							<div class="card-body overflow-auto">
-								<table class="table table-sm table-bordere table-hover table-bordered">
+								<table id="tableCli" class="table table-striped table-bordered">
 									<thead class="thead-light">
 										<tr>
 											<th>Nombre</th>

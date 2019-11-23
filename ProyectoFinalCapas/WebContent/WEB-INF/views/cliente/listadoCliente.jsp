@@ -8,17 +8,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ include file="../template/Header.jsp"%>
 </head>
-
+<body class="body-back">
 <div class="row div-row">
 
 	<div class="col-xs-* div-row-left">
 		<%@ include file="../template/LeftSidebar.jsp"%>
 	</div>
-
+	
 	<div class="col-lg-* div-row-right">
 		<div class=" div-row-right-container">
 		
-			<body class="body-back">
+			
 				<div class="card">
 				
 					<div class="card-header">
@@ -33,12 +33,14 @@
 						<table id="tableCli" class="table table-striped table-bordered">
 
 							<thead class="thead-light">
-								<tr>
-									<th>Nombre/Empresa</th>
+								<tr id="tabletr">
+									<th>Nombre</th>
 									<th>Tipo</th>
 									<th>Nit</th>
-									<th>N&uacute;m. cel.</th>
-									<th>N&uacute;m. fijo</th>
+									<th>Num. 1</th>
+									<th>Num. 2</th>
+									<th>Correo</th>
+									<th>Contacto</th>
 									<th><span class="glyphicon glyphicon-cog"> </span></th>
 								</tr>
 							</thead>
@@ -50,19 +52,23 @@
 											<td><c:if test="${dto.tipo == 'N'}">
 													<c:out value="Natural"></c:out>
 												</c:if> <c:if test="${dto.tipo == 'J'}">
-													<c:out value="Jur&iacute;dico"></c:out>
+													<c:out value="Juridico"></c:out>
 												</c:if></td>
 											<td><c:out value="${dto.nit}" /></td>
 											<td><c:out value="${dto.num_tel_cel}" /></td>
 											<td><c:out value="${dto.num_tel_fijo}" /></td>
+											<td><c:out value="${dto.correo}" /></td>
+											<td><c:out value="${dto.contacto}" /></td>
 											<td align=Right>
 												<button type="button" class="btn btn-info btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">
 													Editar</button>
+										
+											
 												<button type="button" class="btn btn-danger btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/eliminarCliente?id_cliente=${dto.id_cliente}'">
 													Inactivar</button>
-											</td>
+											</td> 
 										</tr>
 									</c:forEach>
 								</c:if>
@@ -81,8 +87,9 @@
 								value="${total }" /></label>
 					</div>
 				</div>
-			</body>
+			
 		</div>
 	</div>
 </div>
+</body>
 </html>
