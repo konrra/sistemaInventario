@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.uca.proyectofinalcapas.domain.Categoriaxproducto;
 import com.uca.proyectofinalcapas.domain.Rol;
 import com.uca.proyectofinalcapas.domain.Usuario;
 import com.uca.proyectofinalcapas.repository.RolRepository;

@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,7 +35,20 @@ public class Stock {
 	@Column(name="codigo")
 	private String codigo;
 	
-	
+//	@ManyToOne(fetch=FetchType.EAGER)
+//	@JoinColumn(name="producto")
+//	private Producto productoxstock;
+//	
+//	
+//	
+//
+//	public Producto getProductoxstock() {
+//		return productoxstock;
+//	}
+//
+//	public void setProductoxstock(Producto productoxstock) {
+//		this.productoxstock = productoxstock;
+	//}
 
 	public String getCodigo() {
 		return codigo;

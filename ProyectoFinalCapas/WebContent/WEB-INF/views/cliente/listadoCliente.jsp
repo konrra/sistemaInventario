@@ -36,11 +36,11 @@
 								<tr id="tabletr">
 									<th>Nombre</th>
 									<th>Tipo</th>
-									<th>Nit</th>
+<!-- 									<th>Nit</th> -->
 									<th>Num. 1</th>
 									<th>Num. 2</th>
 									<th>Correo</th>
-									<th>Contacto</th>
+<!-- 									<th>Contacto</th> -->
 									<th><span class="glyphicon glyphicon-cog"> </span></th>
 								</tr>
 							</thead>
@@ -54,11 +54,11 @@
 												</c:if> <c:if test="${dto.tipo == 'J'}">
 													<c:out value="Juridico"></c:out>
 												</c:if></td>
-											<td><c:out value="${dto.nit}" /></td>
+<%-- 											<td><c:out value="${dto.nit}" /></td> --%>
 											<td><c:out value="${dto.num_tel_cel}" /></td>
 											<td><c:out value="${dto.num_tel_fijo}" /></td>
 											<td><c:out value="${dto.correo}" /></td>
-											<td><c:out value="${dto.contacto}" /></td>
+<%-- 											<td><c:out value="${dto.contacto}" /></td> --%>
 											<td align=Right>
 												<button type="button" class="btn btn-info btn-sm"
 													onclick="location.href='${pageContext.request.contextPath}/editarCliente?id_cliente=${dto.id_cliente}'">
