@@ -102,7 +102,7 @@ table{
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-						<a class="dropdown-item" href="http://localhost:8080/ProyectoFinalCapas/">Cerrar Sesi&oacute;n</a> <a
+						<a class="dropdown-item" href="/SistemaInventario">Cerrar Sesi&oacute;n</a> <a
 							class="dropdown-item" href="editarUsuario?id_usuario=${user.id_usuario}">Cambiar Contrase&ntilde;a</a>
 
 					</div></li>
