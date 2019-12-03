@@ -30,7 +30,7 @@
 							<thead class="thead-light">
 								<tr>
 									<th>C&oacute;digo</th>
-									<th>Descripci&oacute;n</th>
+									<th style="width: 30%;" >Descripci&oacute;n</th>
 									<th>Costo</th>
 									<th>Precio P&uacute;blico</th>
 <!-- 									<th>Precio Tienda</th> -->

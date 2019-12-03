@@ -34,11 +34,11 @@
 
 							<thead class="thead-light">
 								<tr id="tabletr">
-									<th>Nombre</th>
+									<th style="width: 30%;">Nombre Cliente/Proveedor</th>
 									<th>Tipo</th>
 <!-- 									<th>Nit</th> -->
 									<th>Num. 1</th>
-									<th>Num. 2</th>
+<!-- 									<th>Num. 2</th> -->
 									<th>Correo</th>
 <!-- 									<th>Contacto</th> -->
 									<th><span class="glyphicon glyphicon-cog"> </span></th>
@@ -56,7 +56,7 @@
 												</c:if></td>
 <%-- 											<td><c:out value="${dto.nit}" /></td> --%>
 											<td><c:out value="${dto.num_tel_cel}" /></td>
-											<td><c:out value="${dto.num_tel_fijo}" /></td>
+<%-- 											<td><c:out value="${dto.num_tel_fijo}" /></td> --%>
 											<td><c:out value="${dto.correo}" /></td>
 <%-- 											<td><c:out value="${dto.contacto}" /></td> --%>
 											<td align=Right>
