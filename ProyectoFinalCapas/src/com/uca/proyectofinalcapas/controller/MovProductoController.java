@@ -162,7 +162,12 @@ public class MovProductoController {
 		//TODO VALIDACION DE CANTIDADES NEGATIVAS EN STOCK
 		movProductoRepository.save(movProducto);
 		
-		return crearSalida();
+		mav.addObject("exito", "Registro agregado con éxito");
+		
+		
+				mav.setViewName("movProducto/crearEntrada");
+				return mav;
+
 	}
 	
 	@RequestMapping(value="/crearEntrada", method=RequestMethod.GET)
