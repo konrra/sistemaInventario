@@ -71,15 +71,22 @@ function validarCampos(){
 
 				<form class="form-horizontal" role="form"	action="${pageContext.request.contextPath}/actualizarEntrada">
 					<c:if test="${not empty error}">
+						<input type="hidden" name="validador" id="validador" value="${vali}" />
 						<div class="alert alert-danger alert-dismissible fade show" role="alert">
 							<strong>Error:</strong>
-							<c:out value="${error}" />
-							<button type="button" class="close" data-dismiss="alert"
-								aria-label="Close">
+								<c:out value="${error}"/>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 
+					</c:if>
+						<c:if test="${not empty exito}">
+							<div id="mensajesSatisfactorios" class="alert alert-success alert-dismissible" role="alert"> 
+							 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Info:</strong> 
+							<c:out value="${exito}"/>
+						</div>
 					</c:if>
 					<br>
 					<div class="card">
