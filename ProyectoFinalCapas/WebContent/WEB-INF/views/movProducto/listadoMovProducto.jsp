@@ -61,7 +61,11 @@
 													<c:out value="Averia" />
 												</c:if> <c:if test="${dto.tipo_entrada  == 'C'}">
 													<c:out value="Cambio" />
-												</c:if> <c:if test="${dto.tipo_entrada  ==  null}">
+												</c:if>
+												<c:if test="${dto.tipo_entrada  == 'M'}">
+													<c:out value="Muestra" />
+												</c:if>
+												 <c:if test="${dto.tipo_entrada  ==  null}">
 													<c:out value="N/A" />
 												</c:if> <%-- 												<c:out value="${dto.tipo_entrada}" /> --%>
 

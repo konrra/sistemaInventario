@@ -70,7 +70,7 @@
 								<div style="width: 50%; float: right;">
 								
 									<div class="form-group">
-										<label class="col-sm-4 control-label">Precio Venta*</label>
+										<label class="col-sm-4 control-label">Precio Distribuidor*</label>
 										<div class="col-sm-7">
 											<input class="form-control dinero" tabindex="5" type="text"
 												 id="precio_publico" name="precio_publico"
@@ -87,7 +87,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-4 control-label">Precio Evento </label>
+										<label class="col-sm-4 control-label">Precio Aeropuerto </label>
 										<div class="col-sm-7">
 											<input type="text" class="form-control dinero" name="precio_evento"
 												value="${producto.precio_evento }">

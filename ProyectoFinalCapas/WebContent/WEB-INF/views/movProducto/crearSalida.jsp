@@ -95,6 +95,7 @@ function validarCampos(){
 												<select class="form-control" name="tipo_entrada" id="tipo_entrada">
 													<option value="S">Consignacion</option>
 													<option value="V">Venta Directa</option>
+													<option value="M">Muestra</option>
 												</select>
 											</div>
 										</div>

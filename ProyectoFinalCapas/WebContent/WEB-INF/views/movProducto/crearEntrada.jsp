@@ -131,6 +131,7 @@ function validarCampos(){
 													<option value="D">Devolucion</option>
 													<option value="A">Averia</option>
 													<option value="C">Cambio</option>
+													<option value="M">Muestra</option>
 												</select>
 											</div>
 										</div>

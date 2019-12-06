@@ -30,11 +30,11 @@
 							<thead class="thead-light">
 								<tr>
 									<th>C&oacute;digo</th>
-									<th style="width: 30%;" >Descripci&oacute;n</th>
+									<th style="width: 15%;" >Descripci&oacute;n</th>
 									<th>Costo</th>
-									<th>Precio P&uacute;blico</th>
-<!-- 									<th>Precio Tienda</th> -->
-<!-- 									<th>Precio Evento</th> -->
+									<th>Precio Distribuidor</th>
+									<th>Precio Tienda</th>
+									<th>Precio Aeropuerto</th>
 									<th>Categor&iacute;a</th>
 									<th>Estado</th>
 									<th><span class="glyphicon glyphicon-cog"> </span></th>
@@ -52,12 +52,12 @@
 											<td align=Right><c:if test="${empty dto.precio_publico}">-</c:if>
 												<c:if test="${not empty dto.precio_publico}">$</c:if>
 												<c:out value="${dto.precio_publico}" /></td>
-<%-- 											<td align=Right><c:if test="${empty dto.precio_tienda}">-</c:if> --%>
-<%-- 												<c:if test="${not empty dto.precio_tienda}">$</c:if> --%>
-<%-- 												<c:out value="${dto.precio_tienda}" /></td> --%>
-<%-- 											<td align=Right><c:if test="${empty dto.precio_evento}">-</c:if> --%>
-<%-- 												<c:if test="${not empty dto.precio_evento}">$</c:if> --%>
-<%-- 												<c:out value="${dto.precio_evento}" /></td> --%>
+											<td align=Right><c:if test="${empty dto.precio_tienda}">-</c:if>
+												<c:if test="${not empty dto.precio_tienda}">$</c:if>
+												<c:out value="${dto.precio_tienda}" /></td>
+											<td align=Right><c:if test="${empty dto.precio_evento}">-</c:if>
+												<c:if test="${not empty dto.precio_evento}">$</c:if>
+												<c:out value="${dto.precio_evento}" /></td>
 											<td><c:out value="${dto.categoriaxproducto.descripcion}" /></td>
 											<td><c:if test="${dto.estado == 'A'}">
 													<c:out value="Activo"></c:out>
