@@ -182,7 +182,8 @@ function validarCampos(){
 						      </div>
 						      <div class="modal-body">
 						      <div class="container well">
-						        <table id="table"  class="table table-sm table-bordere table-hover table-bordered" id="myTable1">
+						        
+						        <table id="tablePro" class="table table-sm table-bordere table-hover table-bordered">
 								<thead class="thead-light">
 									<tr>
 										<th>C&oacute;digo</th>

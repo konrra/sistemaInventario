@@ -31,17 +31,19 @@
 									<th style="width: 30%;" >Descripci&oacute;n</th>
 									<th>Fecha Actualizaci&oacute;n</th>
 									<th>Cantidad</th>
+									<th>Usuario Modificaci&oacute;n</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:if test="${total != 0 }">
 									<c:forEach items="${colectionResult}" var="dto">
 										<tr>
-											<td><c:out value="${dto.codigo}" /></td>
-											<td><c:out value="${dto.descripcion}" /></td>
+											<td><c:out value="${dto.producto.codigo}" /></td>
+											<td><c:out value="${dto.producto.nombre}" /></td>
 											<td>
 												<fmt:formatDate value="${dto.fecha_actualizacion}" pattern="dd-MM-yyyy HH:mm a" />
 											<td><c:out value="${dto.cantidad}" /></td>
+											<td><c:out value="${dto.usuario.usuario}" /></td>
 										</tr>
 									</c:forEach>
 								</c:if>

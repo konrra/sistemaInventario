@@ -4,13 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="stock",schema="si")
@@ -22,6 +20,9 @@ public class Stock {
 
 	@Column(name="id_producto")
 	private int id_producto;
+	
+	@Column(name="id_usuario")
+	private int id_usuario;
 
 	@Column(name="cantidad")
 	private int cantidad;
@@ -35,20 +36,37 @@ public class Stock {
 	@Column(name="codigo")
 	private String codigo;
 	
-//	@ManyToOne(fetch=FetchType.EAGER)
-//	@JoinColumn(name="producto")
-//	private Producto productoxstock;
-//	
-//	
-//	
-//
-//	public Producto getProductoxstock() {
-//		return productoxstock;
-//	}
-//
-//	public void setProductoxstock(Producto productoxstock) {
-//		this.productoxstock = productoxstock;
-	//}
+	@Transient
+	private Usuario usuario;
+	
+	@Transient
+	private Producto producto;
+	
+	
+
+	public int getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
 
 	public String getCodigo() {
 		return codigo;

@@ -246,7 +246,7 @@ function validarCampos(){
 						</table>
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+				        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
 				        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Seleccionar</button>
 				      </div>
 				    </div>
