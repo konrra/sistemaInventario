@@ -50,6 +50,13 @@ function validarCampos(){
 						</div>
 
 					</c:if>
+						<c:if test="${not empty exito}">
+							<div id="mensajesSatisfactorios" class="alert alert-success alert-dismissible" role="alert"> 
+							 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Info:</strong> 
+							<c:out value="${exito}"/>
+						</div>
+					</c:if>
 					<br>
 					<div class="card">
 						<div class="card-header">Ingreso de salida de producto</div>
@@ -73,8 +80,8 @@ function validarCampos(){
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Producto*</label>
 											<div class="col-sm-9 form-inline">
-													<input type="hidden" class="form-control" name="id_producto" id="id_producto" value="${idProducto}">
-													<input type="text" name="nomProducto" id="nomProducto" style="width: 90%;" class="form-control"	value="${nombreProducto}">
+													<input type="hidden" class="form-control" name="id_producto" id="id_producto" value="${movproducto.producto.id_producto}">
+													<input type="text" name="nomProducto" id="nomProducto" style="width: 90%;" class="form-control"	value="${movproducto.producto.nombre}">
 												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalProducto">
 													...</button>
 											</div>
@@ -104,8 +111,8 @@ function validarCampos(){
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Cliente </label>
 											<div class="col-sm-9 form-inline">
-													<input type="hidden" class="form-control" name="id_cliente" id="id_cliente" value="${idCliente}">
-													<input type="text" name="nomCliente" id="nomCliente" style="width: 90%;" class="form-control"	value="${nombreCliente}">
+													<input type="hidden" class="form-control" name="id_cliente" id="id_cliente" value="${movproducto.cliente.id_cliente}">
+													<input type="text" name="nomCliente" id="nomCliente" style="width: 90%;" class="form-control"	value="${movproducto.cliente.nombre}">
 												<button type="button" class="btn-info btn-sm" data-toggle="modal" data-target="#modalCliente">
 													...</button>
 											</div>
