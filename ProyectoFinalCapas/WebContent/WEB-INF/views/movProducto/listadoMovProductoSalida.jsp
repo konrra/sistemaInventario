@@ -19,18 +19,19 @@
 
 			<body>
 				<div class="card">
-					<div class="card-header">Información del movimientos</div>
+					<div class="card-header">Información de Salidas</div>
 					<div class="card-body overflow-auto">
 
 						<table id="tableCli" class="table table-striped table-bordered">
 							<thead class="thead-light">
 								<tr>
-									<th>Tipo</th>
+<!-- 									<th>Tipo</th> -->
 									<th>Producto</th>
-									<th>Cantidad</th>
+									<th>Cantidad Salida</th>
 									<th>Cliente</th>
 									<th>Lugar</th>
 									<th>Tipo Salida</th>
+									<th>Comentario</th>
 									<th>Fecha</th>
 								</tr>
 							</thead>
@@ -38,11 +39,11 @@
 								<c:if test="${total != 0 }">
 									<c:forEach items="${colectionResult}" var="dto">
 										<tr>
-											<td><c:if test="${dto.tipo  == 'S'}">
-													<c:out value="Salida" />
-												</c:if> <c:if test="${dto.tipo  == 'E'}">
-													<c:out value="Entrada" />
-												</c:if></td>
+<%-- 											<td><c:if test="${dto.tipo  == 'S'}"> --%>
+<%-- 													<c:out value="Salida" /> --%>
+<%-- 												</c:if> <c:if test="${dto.tipo  == 'E'}"> --%>
+<%-- 													<c:out value="Entrada" /> --%>
+<%-- 												</c:if></td> --%>
 											<td><c:out value="${dto.producto.nombre}" /></td>
 											<td><c:out value="${dto.cantidad}" /></td>
 
@@ -72,8 +73,9 @@
 
 
 											</td>
+											<td><c:out value="${dto.comentario}" /></td>
 											<td><fmt:formatDate value="${dto.fecha}"
-													pattern="yyyy/MM/dd" /> <%-- 												<c:out value="${dto.fecha}" /></td> --%>
+													pattern="dd-MM-yyyy HH:mm a" /> <%-- 												<c:out value="${dto.fecha}" /></td> --%>
 										</tr>
 									</c:forEach>
 								</c:if>
