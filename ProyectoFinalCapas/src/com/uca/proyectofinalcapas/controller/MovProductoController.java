@@ -146,6 +146,11 @@ public class MovProductoController {
 		Stock stock = stockRepository.findById(producto.getid_producto());
 		Integer op = stock.getCantidad() - movProducto.getCantidad();
 		cargarCombos(mav);
+		if(movProducto.getId_producto() ==0 || movProducto.getId_lugar()==0 || movProducto.getCantidad()==0 ) {
+			mav.addObject("error", "Ingrese campos obligatorios");
+			mav.setViewName("movProducto/crearEntrada");
+			return mav;
+		}
 		if(op < 0 ) {
 			mav.addObject("error", "Ingrese la cantidad correctamente");
 			mav.addObject("movproducto", movProducto);

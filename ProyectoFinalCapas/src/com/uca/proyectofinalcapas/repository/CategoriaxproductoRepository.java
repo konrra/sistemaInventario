@@ -10,9 +10,9 @@ import com.uca.proyectofinalcapas.domain.Categoriaxproducto;
 
 public interface CategoriaxproductoRepository extends JpaRepository<Categoriaxproducto, Integer> {
 	
-	public static String FIND_ALL_CATEGORIA = "select t from Categoriaxproducto t";
+	public static String FIND_ALL_CATEGORIA = "select t from Categoriaxproducto t where t.estado = 'A' ";
 	
-	public static String COUNT_ALL_CATEGORIA = "select count(t.id_categoria_x_producto) from Categoriaxproducto t";
+	public static String COUNT_ALL_CATEGORIA = "select count(t.id_categoria_x_producto) from Categoriaxproducto t where t.estado = 'A'";
 	
 	public static String FIND_BY_ID = "select t from Categoriaxproducto t where t.id_categoria_x_producto = :idCat";
 	

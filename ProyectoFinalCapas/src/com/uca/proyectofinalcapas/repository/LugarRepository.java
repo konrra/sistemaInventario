@@ -10,9 +10,9 @@ import com.uca.proyectofinalcapas.domain.Lugar;
 
 public interface LugarRepository extends JpaRepository<Lugar, Integer> {
 	
-	public static String FIND_ALL_LUGAR = "select l from Lugar l";
+	public static String FIND_ALL_LUGAR = "select l from Lugar l where l.estado = 'A' ";
 	
-	public static String COUNT_ALL_LUGAR = "select count(l.id_lugar) from Lugar l";
+	public static String COUNT_ALL_LUGAR = "select count(l.id_lugar) from Lugar l where l.estado = 'A' ";
 	
 	public static String FIND_BY_ID = "select l from Lugar l where l.id_lugar = :idLugar";
 	

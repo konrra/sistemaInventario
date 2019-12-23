@@ -12,13 +12,13 @@ import com.uca.proyectofinalcapas.domain.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 	
-	public static String FIND_ALL_PRODUCT = "select p from Producto p";
+	public static String FIND_ALL_PRODUCT = "select p from Producto p where p.estado = 'A' ";
 	
-	public static String COUNT_ALL_PRODUCT = "select count(p.id_producto) from Producto p";
+	public static String COUNT_ALL_PRODUCT = "select count(p.id_producto) from Producto p where p.estado = 'A'";
 	
 	public static String FIND_BY_ID = "select p from Producto p where p.id_producto = :idProducto";
 	
-	public static String FIND_CATEGORIA = "select cp from Categoriaxproducto as cp";
+	public static String FIND_CATEGORIA = "select cp from Categoriaxproducto as cp where cp.estado = 'A' ";
 	
 	public static String FIND_CODIGO = "select p from Producto p where codigo = :codigo";
 	
